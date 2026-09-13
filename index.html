@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <title>Гильдия Яркой 40</title>
+<meta name="description" content="Свиток гильдии Colizeum Яркая 40: герои недели, кубок, путь гостя, библиотека кодов. Обновляется по понедельникам.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
 :root{--void:#0B0A14;--panel:#171530;--panel2:#1F1C3D;--line:#2E2A55;--text:#EEEAFB;--muted:#9C95BF;--gold:#F5C542;--gold2:#FFE28A;--fae:#38E0F0;--elf:#7CE38B;--mage:#A78BFA;--war:#FB923C;--ok:#4ADE80;--warn:#FBBF24;--curse:#F472B6;--shadow:0 18px 50px rgba(0,0,0,.45)}
@@ -156,7 +157,21 @@ a{color:var(--gold2)}
 .hint b{color:var(--c)}
 @media (max-width:900px){.banner,.grid2,.codes,.arena,.grid3{grid-template-columns:1fr}.heroes{grid-template-columns:repeat(2,1fr)}.rules{columns:1}.cab{grid-template-columns:1fr}.cab .side{min-height:300px;max-height:360px}.kv{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
 @media (max-width:520px){.heroes{grid-template-columns:1fr}.weeks{grid-template-columns:repeat(2,1fr)}}
-@media (prefers-reduced-motion:reduce){.hero{transition:none}}
+/* v3.1 craft: states, motion, browser surfaces */
+html{scroll-behavior:smooth}
+::selection{background:var(--gold);color:#0B0A14}
+.mono,.tbl td.num,.shifts td,.stat b,.funnel .f b{font-variant-numeric:tabular-nums}
+.nav a,.tab,.close,.hero,.quest,.trophy,.code,details summary{transition:transform .18s cubic-bezier(.2,.8,.2,1),background-color .18s,border-color .18s,color .18s,box-shadow .18s}
+.nav a:active,.tab:active,.close:active{transform:translateY(1px) scale(.98)}
+.hero:active{transform:translateY(-2px) scale(.995)}
+.nav a:focus-visible,.tab:focus-visible,.close:focus-visible,details summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tab[aria-selected="true"]{box-shadow:inset 0 -2px 0 var(--gold)}
+.xp .bar i,.meter i,.brow .track i{transition:width .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}.hero:nth-child(2){animation-delay:.06s}.hero:nth-child(3){animation-delay:.12s}.hero:nth-child(4){animation-delay:.18s}
+.modal.on .cab{animation:rise .28s cubic-bezier(.2,.8,.2,1) both}
+.cab .main::-webkit-scrollbar,.shifts-wrap::-webkit-scrollbar{width:8px;height:8px}.cab .main::-webkit-scrollbar-thumb,.shifts-wrap::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+@media (prefers-reduced-motion:reduce){.hero,.modal.on .cab{animation:none}.hero,.nav a,.tab,.close,.quest,.trophy,.code,.xp .bar i,.meter i,.brow .track i{transition:none}html{scroll-behavior:auto}}
 </style>
 
 <div class="wrap">
