@@ -2,7 +2,10 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0A14">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Russo+One&family=JetBrains+Mono:wght@400;700&display=swap">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <meta name="referrer" content="no-referrer">
 <title>Гильдия Яркой 40</title>
@@ -18,7 +21,7 @@ h1,h2,h3{font-family:"Russo One",Impact,sans-serif;font-weight:400;letter-spacin
 a{color:var(--gold2)}
 /* nav */
 .nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;flex-wrap:wrap;padding:10px 0;margin:-10px 0 18px;background:linear-gradient(var(--void) 80%,transparent)}
-.nav a{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:rgba(23,21,48,.85)}
+.nav a{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:rgba(23,21,48,.85)}
 .nav a:hover{color:var(--gold2);border-color:var(--gold)}
 /* banner */
 .banner{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;padding:26px 28px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,var(--panel),var(--panel2));box-shadow:var(--shadow);position:relative;overflow:hidden}
@@ -26,7 +29,7 @@ a{color:var(--gold2)}
 .banner h1{font-size:clamp(28px,4.2vw,44px);letter-spacing:-.02em;text-wrap:balance;color:var(--gold);text-shadow:0 0 30px rgba(245,197,66,.35)}.banner p{text-wrap:pretty}
 .banner p{margin:10px 0 0;color:var(--muted);max-width:52ch}
 .goal{border-left:1px solid var(--line);padding:4px 0 4px 24px}
-.goal .big{font-family:"Russo One";font-size:42px;color:var(--gold2);line-height:1}
+.goal .big{font-family:"Russo One",Manrope,Arial,sans-serif;font-size:42px;color:var(--gold2);line-height:1}
 .meter{height:12px;border-radius:99px;background:#0d0b1c;border:1px solid var(--line);overflow:hidden;margin-top:10px}
 .meter i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 2px 10px rgba(245,197,66,.4)}
 /* heroes */
@@ -35,22 +38,22 @@ a{color:var(--gold2)}
 .section-head h2{font-size:22px;letter-spacing:-.015em;text-wrap:balance}
 .heroes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .hero{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:0 0 14px;display:flex;flex-direction:column;gap:10px;position:relative;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;cursor:pointer;overflow:hidden}
-.hero:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(0,0,0,.6),0 0 0 1px var(--c)}
+@media (hover:hover) and (pointer:fine){.hero:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(0,0,0,.6),0 0 0 1px var(--c)}}
 .hero:focus-visible{outline:2px solid var(--gold)}
 .hero .portrait{position:relative;aspect-ratio:3/4;overflow:hidden;background:#000}
 .hero .portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
 .hero .portrait:after{content:"";position:absolute;inset:auto 0 0 0;height:55%;background:linear-gradient(transparent,var(--panel))}
-.hero .cls{font-family:"JetBrains Mono";font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:var(--c);margin-top:-6px;padding:0 12px;position:relative;z-index:2}
-.hero .name{font-family:"Russo One";font-size:20px;text-align:center;margin-top:-34px;position:relative;z-index:2;text-shadow:0 2px 12px #000}
+.hero .cls{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:var(--c);margin-top:-6px;padding:0 12px;position:relative;z-index:2}
+.hero .name{font-family:"Russo One",Manrope,Arial,sans-serif;font-size:20px;text-align:center;margin-top:-34px;position:relative;z-index:2;text-shadow:0 2px 12px #000}
 .hero .title{color:var(--muted);text-align:center;font-size:12px;margin-top:-8px;padding:0 12px}
 .hero .body{padding:0 14px;display:flex;flex-direction:column;gap:10px}
-.lvl{position:absolute;top:12px;right:12px;font-family:"Russo One";font-size:13px;color:var(--void);background:var(--gold);border-radius:8px;padding:3px 8px;z-index:2;box-shadow:0 4px 14px rgba(245,197,66,.35)}
+.lvl{position:absolute;top:12px;right:12px;font-family:"Russo One",Manrope,Arial,sans-serif;font-size:13px;color:var(--void);background:var(--gold);border-radius:8px;padding:3px 8px;z-index:2;box-shadow:0 4px 14px rgba(245,197,66,.35)}
 .xp .row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
 .xp .bar{height:10px;border-radius:99px;background:#0d0b1c;border:1px solid var(--line);overflow:hidden;margin-top:5px}
 .xp .bar i{display:block;height:100%;background:var(--c);border-radius:99px;box-shadow:0 2px 8px color-mix(in srgb,var(--c) 55%,transparent)}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .stat{background:rgba(0,0,0,.25);border-radius:10px;padding:8px 10px}
-.stat b{display:block;font-family:"Russo One";font-size:20px;line-height:1.1}
+.stat b{display:block;font-family:"Russo One",Manrope,Arial,sans-serif;font-size:20px;line-height:1.1}
 .stat span{font-size:11px;color:var(--muted)}
 .badges{display:flex;flex-wrap:wrap;gap:6px}
 .badge{font-size:11px;font-weight:600;padding:4px 9px;border-radius:99px;border:1px solid var(--line);background:rgba(0,0,0,.25)}
@@ -58,7 +61,7 @@ a{color:var(--gold2)}
 .badge.gold{border-color:rgba(245,197,66,.6);color:var(--gold2)}
 .badge.warn{border-color:rgba(251,191,36,.5);color:var(--warn)}
 .badge.curse{border-color:rgba(244,114,182,.6);color:var(--curse)}
-.open-hint{font-size:11px;color:var(--muted);text-align:center;letter-spacing:.06em;text-transform:uppercase;font-family:"JetBrains Mono"}
+.open-hint{font-size:11px;color:var(--muted);text-align:center;letter-spacing:.06em;text-transform:uppercase;font-family:"JetBrains Mono",ui-monospace,monospace}
 .fae{--c:var(--fae)} .elf{--c:var(--elf)} .mage{--c:var(--mage)} .war{--c:var(--war)}
 .hero.cursed .portrait img{filter:grayscale(.85) brightness(.75)}
 /* cards */
@@ -67,12 +70,12 @@ a{color:var(--gold2)}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow)}
 .quest{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
 .quest:first-of-type{border-top:0}
-.qmark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-family:"Russo One";font-size:14px;border:1px solid var(--line)}
+.qmark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-family:"Russo One",Manrope,Arial,sans-serif;font-size:14px;border:1px solid var(--line)}
 .qmark.done{background:rgba(74,222,128,.15);border-color:var(--ok);color:var(--ok)}
 .qmark.open{background:rgba(245,197,66,.12);border-color:var(--gold);color:var(--gold)}
 .quest .q b{display:block}
 .quest .q span{font-size:13px;color:var(--muted)}
-.reward{font-family:"JetBrains Mono";font-size:12px;color:var(--gold2);white-space:nowrap}
+.reward{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;color:var(--gold2);white-space:nowrap}
 .master{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:start}
 .master .av{width:72px;height:72px;border-radius:14px;border:2px solid var(--gold);display:grid;place-items:center;background:radial-gradient(circle,rgba(245,197,66,.3),transparent 70%)}
 .master blockquote{margin:8px 0 0;padding:10px 14px;border-left:3px solid var(--gold);background:rgba(0,0,0,.25);border-radius:0 10px 10px 0;color:var(--text)}
@@ -80,14 +83,14 @@ a{color:var(--gold2)}
 .arena{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .trophy{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(0,0,0,.25);position:relative;overflow:hidden}
 .trophy:before{content:"";position:absolute;inset:auto auto -40px -40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,66,.25),transparent 70%)}
-.trophy .who{font-family:"Russo One";font-size:22px;color:var(--gold2);margin-top:6px}
-.trophy .val{font-family:"JetBrains Mono";font-size:14px;color:var(--text)}
+.trophy .who{font-family:"Russo One",Manrope,Arial,sans-serif;font-size:22px;color:var(--gold2);margin-top:6px}
+.trophy .val{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14px;color:var(--text)}
 .trophy .sub{font-size:12px;color:var(--muted);margin-top:4px}
 /* cup */
 .weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
 .week{border:1px dashed var(--line);border-radius:12px;padding:12px;text-align:center;color:var(--muted)}
 .week.now{border-style:solid;border-color:var(--gold);color:var(--text);background:rgba(245,197,66,.08)}
-.week b{display:block;font-family:"Russo One";font-size:14px;color:var(--text)}
+.week b{display:block;font-family:"Russo One",Manrope,Arial,sans-serif;font-size:14px;color:var(--text)}
 .rules{columns:2;column-gap:28px;font-size:14px;color:var(--muted)}
 .rules p{break-inside:avoid;margin:0 0 10px}
 .rules b{color:var(--text)}
@@ -96,23 +99,23 @@ a{color:var(--gold2)}
 .curse:first-of-type{border-top:0}
 .curse .ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;font-size:24px;background:rgba(244,114,182,.12);border:1px solid rgba(244,114,182,.4)}
 .curse.buff .ico{background:rgba(74,222,128,.12);border-color:rgba(74,222,128,.4)}
-.curse b{display:block;font-family:"Russo One";font-size:15px}
-.curse .meta{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px;font-family:"JetBrains Mono"}
+.curse b{display:block;font-family:"Russo One",Manrope,Arial,sans-serif;font-size:15px}
+.curse .meta{font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px;font-family:"JetBrains Mono",ui-monospace,monospace}
 .curse p{margin:4px 0 0;font-size:13px;color:var(--muted)}
 /* library */
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.tab{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--muted);cursor:pointer}
+.tab{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--muted);cursor:pointer}
 .tab[aria-selected=true]{color:var(--void);background:var(--gold);border-color:var(--gold)}
 .pane{display:none}.pane.on{display:block}
 .codes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .code{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(0,0,0,.25)}
-.code .k{font-family:"JetBrains Mono";font-size:16px;color:var(--gold2)}
-.code .v{font-family:"Russo One";font-size:13px;margin:4px 0}
+.code .k{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:16px;color:var(--gold2)}
+.code .v{font-family:"Russo One",Manrope,Arial,sans-serif;font-size:13px;margin:4px 0}
 .code p{margin:4px 0 0;font-size:13px;color:var(--muted)}
-.code .ex{margin-top:8px;font-family:"JetBrains Mono";font-size:12px;color:var(--text);background:#0d0b1c;border-radius:8px;padding:6px 8px;border:1px solid var(--line)}
+.code .ex{margin-top:8px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;color:var(--text);background:#0d0b1c;border-radius:8px;padding:6px 8px;border:1px solid var(--line)}
 .steps{counter-reset:s;display:grid;gap:10px}
 .step{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
-.step:before{counter-increment:s;content:counter(s);width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-family:"Russo One";background:rgba(245,197,66,.12);border:1px solid var(--gold);color:var(--gold)}
+.step:before{counter-increment:s;content:counter(s);width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-family:"Russo One",Manrope,Arial,sans-serif;background:rgba(245,197,66,.12);border:1px solid var(--gold);color:var(--gold)}
 .step b{display:block;align-self:center}.step span{grid-column:2;font-size:13px;color:var(--muted);margin-top:-6px}
 .faq details{border-top:1px solid var(--line);padding:10px 0}
 .faq summary{cursor:pointer;font-weight:600}
@@ -120,37 +123,37 @@ a{color:var(--gold2)}
 .foot{margin-top:28px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
 .tbl{width:100%;border-collapse:collapse;font-size:13px}
 .tbl th,.tbl td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left}
-.tbl th{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.tbl td.num{font-family:"JetBrains Mono";text-align:right}
-.shifts{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}.shifts th,.shifts td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:right;font-family:"JetBrains Mono"}.shifts th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.shifts td:first-child,.shifts th:first-child{text-align:left}.shifts tr.prem td{color:var(--gold2)}.shifts tfoot td{font-family:"Russo One";color:var(--gold2);border-top:2px solid var(--gold);font-size:13px}.shifts-wrap{max-height:280px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:#0d0b1c}
+.tbl th{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tbl td.num{font-family:"JetBrains Mono",ui-monospace,monospace;text-align:right}
+.shifts{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}.shifts th,.shifts td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:right;font-family:"JetBrains Mono",ui-monospace,monospace}.shifts th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.shifts td:first-child,.shifts th:first-child{text-align:left}.shifts tr.prem td{color:var(--gold2)}.shifts tfoot td{font-family:"Russo One",Manrope,Arial,sans-serif;color:var(--gold2);border-top:2px solid var(--gold);font-size:13px}.shifts-wrap{max-height:280px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:#0d0b1c}
 /* modal */
-.modal{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(5,4,12,.78);backdrop-filter:blur(6px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s ease-in,visibility 0s linear .16s}
+.modal{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(5,4,12,.9);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s ease-out,visibility 0s linear .15s}
 .modal.on{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .22s cubic-bezier(.16,1,.3,1)}
-.modal:not(.on) .cab{transform:translateY(8px);transition:transform .16s ease-in}
+.modal:not(.on) .cab{transform:translateY(8px);transition:transform .15s ease-out}
 .cab{position:relative;width:min(980px,100%);max-height:94vh;overflow:auto;background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--c,var(--line));border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.7);display:grid;grid-template-columns:300px 1fr}
 .cab .side{position:sticky;top:0;align-self:start;background:#000;min-height:380px;height:min(94vh,680px);overflow:hidden}
 .cab .side img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block;image-rendering:auto}
 .cab .side:after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,var(--panel))}
 .cab .side .n{position:absolute;left:16px;bottom:16px;z-index:2}
 .cab .side .n h3{font-size:26px;text-shadow:0 2px 12px #000}
-.cab .side .n span{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.cab .side .n span{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
 .cab .main{padding:20px 22px 24px;display:flex;flex-direction:column;gap:16px}
-.cab h4{font-family:"Russo One";font-weight:400;font-size:14px;letter-spacing:.01em;color:var(--muted);margin:0 0 8px}
+.cab h4{font-family:"Russo One",Manrope,Arial,sans-serif;font-weight:400;font-size:14px;letter-spacing:.01em;color:var(--muted);margin:0 0 8px}
 .kv{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .kv .stat b{font-size:22px}
 .bars{display:grid;gap:7px}
 .brow{display:grid;grid-template-columns:110px 1fr 90px;gap:10px;align-items:center;font-size:13px}
 .brow .track{height:9px;border-radius:99px;background:#0d0b1c;border:1px solid var(--line);overflow:hidden}
 .brow .track i{display:block;height:100%;background:var(--c);border-radius:99px}
-.brow .r{font-family:"JetBrains Mono";font-size:12px;color:var(--muted);text-align:right}
+.brow .r{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;color:var(--muted);text-align:right}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .box{border-top:1px solid var(--line);padding:14px 0 2px}.cab .two>.box{border-top:1px solid var(--line)}
 .box ul{margin:6px 0 0;padding-left:18px;font-size:13px;color:var(--muted)}
 .box li{margin:3px 0}
 .box li b{color:var(--text)}
 .close{position:absolute;right:14px;top:12px;z-index:3;width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:rgba(11,10,20,.8);color:var(--text);cursor:pointer;display:grid;place-items:center}.close:hover{border-color:var(--gold);color:var(--gold)}
-.cupstrip{margin:14px 0 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px}.cupstrip .c{background:linear-gradient(135deg,rgba(245,197,66,.12),rgba(0,0,0,.25));border:1px solid rgba(245,197,66,.45);border-radius:14px;padding:12px 14px}.cupstrip .c b{display:block;font-family:"Russo One";font-weight:400;font-size:18px;color:var(--gold)}.cupstrip .c span{font-size:12px;color:var(--muted)}.cupstrip .c.lead{border-color:var(--gold)}#bestrip{grid-template-columns:1.4fr 1fr 1fr 1fr}
-.funnel{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.funnel .f{background:rgba(0,0,0,.25);border-radius:10px;padding:8px;text-align:center}.funnel .f b{display:block;font-family:"JetBrains Mono";font-size:20px}.funnel .f span{font-size:11px;color:var(--muted)}.funnel .f small{display:block;font-size:11px;color:var(--c)}.quests-open{padding-left:18px;margin:0}.quests-open li{font-family:"JetBrains Mono";font-size:12px;line-height:1.7}.quests-open .ok{color:var(--ok)}.quests-open .no{color:var(--muted)}.quests-open .wait{color:#f2b47a;border-bottom:1px dashed #e08a3c;cursor:help}.quests-open .age{font-size:10px;color:var(--gold2);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);border-radius:6px;padding:0 4px}.gq{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}.gq li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}.gq .who{font-family:"JetBrains Mono";font-size:12px;color:var(--text);min-width:120px}.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);line-height:1.2}.chip.done{border-color:color-mix(in srgb,var(--ok) 55%,transparent);color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,transparent)}.chip.todo{border-color:color-mix(in srgb,var(--gold) 55%,transparent);color:var(--gold2);background:color-mix(in srgb,var(--gold) 9%,transparent)}.chip.owe{border-color:#e08a3c;color:#f2b47a;background:rgba(224,138,60,.12)}.chip.wait{border-style:dashed}.gq .say{flex-basis:100%;font-size:12px;color:var(--muted);padding-left:2px}.gq .say b{color:var(--text);font-weight:600}.tasks{margin:10px 0 4px;padding:10px 12px;border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);border-radius:10px;background:color-mix(in srgb,var(--gold) 6%,transparent)}.tasks h5{margin:0 0 6px;font-size:13px;color:var(--gold2);font-weight:600}.tasks ol{margin:0;padding-left:18px;font-size:13px}.tasks li{margin:3px 0}.legend{font-size:11.5px;color:var(--muted);margin-top:6px}.xpw{font-family:"JetBrains Mono";color:var(--gold)}
+.cupstrip{margin:14px 0 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px}.cupstrip .c{background:linear-gradient(135deg,rgba(245,197,66,.12),rgba(0,0,0,.25));border:1px solid rgba(245,197,66,.45);border-radius:14px;padding:12px 14px}.cupstrip .c b{display:block;font-family:"Russo One",Manrope,Arial,sans-serif;font-weight:400;font-size:18px;color:var(--gold)}.cupstrip .c span{font-size:12px;color:var(--muted)}.cupstrip .c.lead{border-color:var(--gold)}#bestrip{grid-template-columns:1.4fr 1fr 1fr 1fr}
+.funnel{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.funnel .f{background:rgba(0,0,0,.25);border-radius:10px;padding:8px;text-align:center}.funnel .f b{display:block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:20px}.funnel .f span{font-size:11px;color:var(--muted)}.funnel .f small{display:block;font-size:11px;color:var(--c)}.quests-open{padding-left:18px;margin:0}.quests-open li{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;line-height:1.7}.quests-open .ok{color:var(--ok)}.quests-open .no{color:var(--muted)}.quests-open .wait{color:#f2b47a;border-bottom:1px dashed #e08a3c;cursor:help}.quests-open .age{font-size:10px;color:var(--gold2);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);border-radius:6px;padding:0 4px}.gq{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}.gq li{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}.gq .who{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;color:var(--text);min-width:120px}.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);line-height:1.2}.chip.done{border-color:color-mix(in srgb,var(--ok) 55%,transparent);color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,transparent)}.chip.todo{border-color:color-mix(in srgb,var(--gold) 55%,transparent);color:var(--gold2);background:color-mix(in srgb,var(--gold) 9%,transparent)}.chip.owe{border-color:#e08a3c;color:#f2b47a;background:rgba(224,138,60,.12)}.chip.wait{border-style:dashed}.gq .say{flex-basis:100%;font-size:12px;color:var(--muted);padding-left:2px}.gq .say b{color:var(--text);font-weight:600}.tasks{margin:10px 0 4px;padding:10px 12px;border:1px solid color-mix(in srgb,var(--gold) 40%,transparent);border-radius:10px;background:color-mix(in srgb,var(--gold) 6%,transparent)}.tasks h5{margin:0 0 6px;font-size:13px;color:var(--gold2);font-weight:600}.tasks ol{margin:0;padding-left:18px;font-size:13px}.tasks li{margin:3px 0}.legend{font-size:11.5px;color:var(--muted);margin-top:6px}.xpw{font-family:"JetBrains Mono",ui-monospace,monospace;color:var(--gold)}
 @media (max-width:900px){.cupstrip{grid-template-columns:1fr 1fr}.cupstrip .c.lead{grid-column:1/-1}.funnel{grid-template-columns:repeat(3,1fr)}}
 .hint{border:1px solid color-mix(in srgb,var(--c) 45%,transparent);background:color-mix(in srgb,var(--c) 9%,transparent);padding:10px 14px;border-radius:10px;font-size:14px}
 .hint b{color:var(--c)}
@@ -165,11 +168,11 @@ html{scroll-behavior:smooth}
 .hero:active{transform:translateY(-2px) scale(.995)}
 .nav a:focus-visible,.tab:focus-visible,.close:focus-visible,details summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .tab[aria-selected="true"]{box-shadow:inset 0 -2px 0 var(--gold)}
-.xp .bar i,.meter i,.brow .track i{transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.xp .bar i,.meter i,.brow .track i{transform-origin:left center}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .modal.on .cab{animation:rise .28s cubic-bezier(.2,.8,.2,1) both}
 @keyframes flash{0%{box-shadow:0 0 0 0 rgba(245,197,66,.7)}100%{box-shadow:0 0 0 14px rgba(245,197,66,0)}}
-.funnel .f.flash{animation:flash 1.1s ease-out 1 .3s}
+.funnel .f.flash{animation:none}
 .stale{margin:0 0 12px;padding:10px 14px;border:1px solid #c9622f;background:rgba(201,98,47,.12);border-radius:12px;color:#f0b48f;font-size:13px}
 .scroll-hint{display:none;font-size:11px;color:var(--muted);letter-spacing:.08em;text-align:center;margin-top:6px}
 .cupstrip .c .m-only{display:none}
@@ -178,7 +181,7 @@ html{scroll-behavior:smooth}
 /* СЕЗОН «Ночь на пустоши» (R-074): включается сам 19.10–01.11 по Москве, 02.11 возвращается обычный вид. Проверка: ?season=hw / ?season=off */
 html.s-hw{--void:#07090D;--panel:#0E1218;--panel2:#121821;--line:#253040;--text:#E4E7EA;--muted:#8D97A3;--gold:#C9D3DE;--gold2:#E3A35B;--curse:#C0473B;--shadow:0 18px 50px rgba(0,0,0,.6)}
 html.s-hw body{background-color:#07090D;background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(120,140,165,.10),transparent 70%)}
-html.s-hw body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+html.s-hw body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:15;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 html.s-hw h1,html.s-hw h2,html.s-hw h3{font-family:"Cormorant SC","Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:.04em}
 html.s-hw .nav{background:linear-gradient(#07090D 80%,transparent)}
 html.s-hw .nav a{border-radius:2px;background:rgba(10,13,18,.85)}
@@ -195,7 +198,7 @@ html.s-hw .hero,html.s-hw .card{border-radius:6px}
 html.s-hw .lvl{border-radius:2px;color:#07090D;background:#C9D3DE;box-shadow:none}
 html.s-hw .badge{border-radius:3px}
 html.s-hw .hero .portrait img{filter:saturate(.75) contrast(1.05)}
-html.s-hw .hero:hover{box-shadow:0 22px 60px rgba(0,0,0,.7),0 0 0 1px rgba(201,211,222,.35)}
+@media (hover:hover) and (pointer:fine){html.s-hw .hero:hover{box-shadow:0 22px 60px rgba(0,0,0,.7),0 0 0 1px rgba(201,211,222,.35)}}
 .s-kicker,.s-foot{display:none}
 html.s-hw .s-kicker{display:block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.28em;color:#AEB6BF;margin-bottom:8px}
 html.s-hw .s-foot{display:block;text-align:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;color:#5E6873;margin-top:40px}
@@ -212,13 +215,41 @@ html.s-hw .curse.buff .ico{background:rgba(134,174,143,.10);border-color:rgba(13
 html.s-hw .reward,html.s-hw .code .k{color:var(--gold2)}
 html.s-hw .tab[aria-selected=true]{color:#07090D;background:#C9D3DE;border-color:#C9D3DE}
 @media (max-width:900px){html.s-hw .banner{min-height:0;padding-top:230px;background-position:center 18%}}
+
+/* 21.10.2026 аудит (R-081): телефон, шаг на карточке, читаемость */
+html{-webkit-tap-highlight-color:transparent}
+a,button,.hero,.tab,summary,.close{touch-action:manipulation}
+.wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));padding-bottom:max(60px,env(safe-area-inset-bottom))}
+.nav a{min-height:44px;display:inline-flex;align-items:center}
+.close{min-width:44px;min-height:44px}
+.stepcard{margin:10px 0 2px;padding:10px 12px;border:1px solid var(--line);border-left:3px solid var(--c,var(--gold));border-radius:10px;background:rgba(0,0,0,.25);font-size:13px;line-height:1.45}
+.stepcard b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);margin-bottom:2px}
+.xpnote{font-size:11px;color:var(--muted);margin-top:4px}
+.tasks .t1{margin:4px 0 6px}
+.tasks details summary{cursor:pointer;color:var(--muted);font-size:13px;min-height:32px;display:flex;align-items:center}
+.cab{max-height:94vh;max-height:94dvh}
+.s-foot{white-space:normal;padding:0 12px;letter-spacing:.1em}
+@media (max-width:600px){
+ .quest{grid-template-columns:34px 1fr}
+ .quest .reward{grid-column:2;justify-self:start;white-space:normal}
+ .modal{padding:0;align-items:flex-end}
+ .cab{border-radius:16px 16px 0 0;max-height:100vh;max-height:100dvh}
+ .cab .side{position:relative;top:auto;height:200px;min-height:0;max-height:200px}
+ .cab .side img{object-position:center 22%}
+ .hero .portrait{aspect-ratio:auto;height:300px}
+ .hero .portrait img{object-position:center 20%}
+ .master{grid-template-columns:1fr}
+ .master .av{width:48px;height:48px}
+ .master .av svg{width:32px;height:32px}
+ .master blockquote{margin-left:-2px}
+}
 </style>
 
-<div class="wrap">
 </head>
 <body>
+<div class="wrap">
 <div class="stale" id="stale" hidden></div>
-<nav class="nav"><a href="#heroes-s">Герои</a><a href="#arena-s">Арена</a><a href="#quests-s">Квесты</a><a href="#cup-s">Кубок</a><a href="#curses-s">Проклятия и блага</a><a href="#lib-s">Библиотека</a><a href="#ledger-s">Летопись</a></nav>
+<nav class="nav"><a href="#heroes-s">Герои</a><a href="#arena-s">Арена</a><a href="#quests-s">Квесты</a><a href="#cup-s">Кубок</a><a href="#curses-s">Испытания</a><a href="#lib-s">Библиотека</a><a href="#ledger-s">Летопись</a></nav>
 <header class="banner">
  <div>
   <div class="s-kicker">НОЧЬ НА ПУСТОШИ · ДО 01.11</div>
@@ -278,26 +309,26 @@ html.s-hw .tab[aria-selected=true]{color:#07090D;background:#C9D3DE;border-color
  <div class="section-head"><h2>Кубок гильдии</h2><span class="eyebrow">октябрь — первый месяц с премией · таблица предварительная, итог 3 ноября</span></div>
  <div class="weeks" id="weeks"></div>  <div id="cuptable" style="margin-top:14px"></div>
  <div class="rules" style="margin-top:16px">
-  <p><b>Одно правило.</b> Комментарий к начислению начинается с кода: <span class="mono">КЭШБЕК · Х2 · ТГ100 · КОМП · ОТЗЫВ · ЛЬГОТА</span>. Дальше — своими словами. Опечатки не считаются.</p>
+  <p><b>Одно правило.</b> Комментарий к начислению начинается с кода: <span class="mono">КЭШБЕК · ТГ100 · КОМП · ОТЗЫВ · ЛЬГОТА</span>. Дальше — своими словами. Опечатки не считаются.</p>
   <p><b>Личная награда.</b> Неделя, где ≥ 90 % твоих начислений с кодом, — <b>+500 ₽ премией к зарплате</b>. Могут получить все четверо.</p>
   <p><b>Пир гильдии.</b> Неделя, когда ни один гость на кассе не остался без кэшбека, — каждому из гильдии одна позиция из бара на выбор: напиток, батончик или сэндвич. Выдача в пятницу.</p>
-  <p><b>Кубок октября (с 01.10).</b> Считается мана месяца — среднее по сменам. <b>1-е место — 5 000 ₽</b>, <b>2-е — 3 000 ₽</b>. Минимум 10 смен в месяце.</p>
-  <p><b>Что такое мана.</b> Не «сколько», а «какая доля»: Х2 новым гостям, кэшбек без пропусков, подписка на канал, точность начислений. День сравнивается с днём, ночь — с ночью. Формула — в Библиотеке, вкладка «За что растёшь».</p>
-  <p><b>Что такое уровень.</b> Опыт за путь гостя (новый → Х2 → канал → отзыв), не падает. LVL 8 — титул «Наставник», LVL 10 — награда по выбору Мастера.</p>
-  <p><b>Чего нет.</b> Штрафов, последних мест и разборов. Ниже 90 % — просто следующая неделя. Проклятия (ниже) снимают ману и блеск, но никогда не деньги.</p>
+  <p><b>Кубок октября (с 01.10).</b> Считается средняя мана недель месяца. <b>1-е место — 5 000 ₽</b>, <b>2-е — 3 000 ₽</b>. В зачёт — от 10 смен в месяце; до этого место предварительное.</p>
+  <p><b>Что такое мана.</b> Не «сколько», а «какая доля»: кэшбек без пропусков, подписка новых гостей на канал, точность начислений. День сравнивается с днём, ночь — с ночью. Формула — в Библиотеке, вкладка «За что растёшь».</p>
+  <p><b>Что такое уровень.</b> Каждые 10 подтверждённых начислений за последние 4 недели — +1 уровень. Не падает. LVL 8 — титул «Наставник», LVL 10 — награда по выбору Мастера.</p>
+  <p><b>Чего нет.</b> Штрафов, последних мест и разборов. Ниже 90 % — просто следующая неделя. Испытания (ниже) ставят рост на паузу, но никогда не трогают деньги.</p>
   <p><b>Считаются</b> только подтверждённые начисления — те, за которыми есть пополнение или акция.</p>
  </div>
 </section>
 
 <section class="section card" id="curses-s">
- <div class="section-head"><h2>Проклятия и блага</h2><span class="eyebrow">включаются с 15.09 · все обратимы · денег не касаются</span></div>
+ <div class="section-head"><h2>Испытания и блага</h2><span class="eyebrow">всё обратимо · денег не касается</span></div>
  <div class="two">
   <div>
-   <h4 style="font-family:'Russo One';font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--curse);margin:0 0 6px">Проклятия — за ошибки</h4>
+   <h4 style="font-family:'Russo One',Manrope,Arial,sans-serif;font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--curse);margin:0 0 6px">Испытания — снимаются делом</h4>
    <div id="curses"></div>
   </div>
   <div>
-   <h4 style="font-family:'Russo One';font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);margin:0 0 6px">Блага — за правильное</h4>
+   <h4 style="font-family:'Russo One',Manrope,Arial,sans-serif;font-weight:400;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ok);margin:0 0 6px">Блага — за сделанное</h4>
    <div id="buffs"></div>
   </div>
  </div>
@@ -336,9 +367,9 @@ html.s-hw .tab[aria-selected=true]{color:#07090D;background:#C9D3DE;border-color
  <div class="pane" id="p-grow">
   <div class="two">
    <div class="box"><h4 style="color:var(--ok)">Что растит героя</h4><ul>
-    <li><b>Мана (индекс качества, 0–100)</b> — считается по смене и усредняется: <b>Х2 новым гостям 30 %</b> (доля новых, получивших Х2; цель 50 %) · <b>кэшбек без пропусков 30 %</b> (каждый гость на кассе без кэшбека −25) · <b>подписка на канал 15 %</b> (ТГ100 / новых; цель 25 %) · <b>точность 25 %</b> (доля подтверждённых начислений). Меньше 3 новых гостей за неделю — Х2 и TG не считаются, веса переходят на остальное. <b>С 21.09 (решение Мастера 16.09, отменяет план «с 01.10»):</b> акция Х2 закрыта и из маны убрана. Новые веса: <b>кэшбек 35 %</b> · <b>TG 20 %</b> · <b>доводка 20 %</b> · <b>точность 25 %</b>. Кэшбек, выданный гостю на его ПЕРВОМ визите, считается за две операции — это и есть новая работа с новичком вместо Х2. Доводка = закрытые и предложенные шаги у гостей, которые вернулись в твою смену / все их шаги. Гость не вернулся — не считается вовсе; вернулся, а шаг не сделан и не предложен — «упущенный визит», ноль в доле. Ничего не вычитается — только считается. С октября цели заменяются эталоном своей смены (день с днём, ночь с ночью). Мана месяца = среднее по сменам — она решает кубок.</li>
-    <li><b>Задача по гостю</b> (Х2 / TG / отзыв) живёт 21 день. Вернулся гость — считается пополнение или сессия от часа. Закрыл шаг — +3 XP закрывшему и +1 посадившему, даже если это разные люди; задача старше недели — ещё +1. Не вернулся за 21 день — в архив без последствий; вернулся позже — задача возрождается на 7 дней. На экране — не больше 5 открытых, остальное в архиве и в понедельничной книге. Общий список «Гости на доводку» — на доске квестов, без имён админов.</li>
-    <li><b>Уровень</b> — опыт за путь гостя: новый гость 1 XP · Х2 новому 3 · ТГ100 3 · ОТЗЫВ 4 · кэшбек вовремя 1 · полный круг (кэшбек + TG + отзыв у одного гостя) +10 тому, кто посадил, +5 закрывшему · закрыл чужого гостя — +3 тебе, +1 посадившему · задача старше недели — ещё +1. До 01.10 уровень считается по подтверждённым начислениям (10 = +1), с октября — по XP (25 = +1), текущий уровень сохраняется. Не падает никогда. LVL 8 — «Наставник», LVL 10 — награда Мастера.</li>
+    <li><b>Мана (индекс качества, 0–100)</b> — доля сделанного из положенного за неделю. Три части с весами: <b>кэшбек без пропусков 35</b> (пополнения от 1 000 ₽ на кассе, получившие кэшбек), <b>подписка новых гостей 20</b> (ТГ100 / новые гости), <b>точность 25</b> (подтверждённые / все начисления). Часть, для которой на неделе не было случаев (например, новых гостей), не считается — вес делится между остальными. Расшифровка своей маны — в кабинете.</li>
+    <li><b>Задача по гостю</b> (TG / отзыв) живёт 3 недели. Не вернулся гость — уходит в архив без последствий.</li>
+    <li><b>Уровень</b> — каждые 10 подтверждённых начислений за последние 4 недели дают +1. Не падает никогда. LVL 8 — «Наставник», LVL 10 — награда Мастера. <b>XP недели</b> — подтверждённое начисление +1, подписка нового гостя +5, отзыв нового гостя +5.</li>
     <li><b>Код с первого слова</b> — условие зачёта: без кода действие в ману и XP не попадает.</li>
     <li><b>Бейджи</b> — «Чистая неделя» (всё подтвердилось), «Никто не ушёл без кэшбека», «90 % с кодом», «Смена-5000» (бар ≥ 5 000 ₽ за смену).</li>
     <li><b>Пир гильдии</b> — общая цель: 0 гостей без кэшбека на кассе.</li>
@@ -359,7 +390,7 @@ html.s-hw .tab[aria-selected=true]{color:#07090D;background:#C9D3DE;border-color
 <section class="section card" id="ledger-s">
  <div class="section-head"><h2>Летопись недели</h2><span class="eyebrow">цифры, из которых собран свиток</span></div>
  <div style="overflow-x:auto"><table class="tbl" id="ledger"></table></div>
- <div class="foot">Источник — лог ручных начислений и лог онлайн-пополнений CLS, рабочая книга (смены, бар). Льгота сотрудникам в общей таблице показана одной строкой; в личном кабинете каждый видит только свою. Онлайн-пополнения без кэшбека герою не вменяются: с кассы их не видно. Вопрос по своей строке — Мастеру в личку, ответ в тот же день. Комментарии к свитку можно оставлять прямо здесь.</div>
+ <div class="foot">Источник — лог ручных начислений и лог онлайн-пополнений CLS, рабочая книга (смены, бар). Льгота сотрудникам в общей таблице показана одной строкой; в кабинете — по каждому герою. Онлайн-пополнения без кэшбека герою не вменяются: с кассы их не видно. Вопрос по своей строке — Мастеру в личку, ответ в тот же день.</div>
 </section>
 </div>
 
@@ -368,7 +399,7 @@ html.s-hw .tab[aria-selected=true]{color:#07090D;background:#C9D3DE;border-color
 
 <script>
 // ===== ДАННЫЕ НЕДЕЛИ — заменяется прогоном по понедельникам (из Kniga_kontrolya_bonusov.xlsx + рабочая книга) =====
-const WEEK = {label:"12.10–18.10.2026",updated:"19.10",fresh:"начисления CLS по 18.10 · смены и бар по 18.10 · безубыток по 18.10",club:{mtd:462358,be:915269,days:18,daysTotal:31,forecast:796283,perDay:29525,gapDay:3838,target2:1200000,month:"октябрь"},team:{all:54,ok:48,lg:8,un:6,missedCash:3,missedOnline:5,lgSum:7670,strict:51,tol:3,none:0},goalTarget:0,master:{fixed:0,fixedSum:0,word:"Неделя 12–18.10: пятьдесят четыре начисления, сорок восемь подтверждены логом. «Голос словаря» — девяносто процентов начислений с кодом и выше — на этой неделе у троих: Алина, Евгения и Владислав, каждому +500 ₽ премией к зарплате. Касса почти чистая: из двадцати пяти пополнений от тысячи без кэшбека остались три — до пира гильдии не хватило совсем немного, цель на эту неделю прежняя: ноль. Новых гостей за неделю сорок семь, подписок на канал пока ни одной — это главный резерв октября. Шесть вопросов недели — в основном про кэшбек через бронь в приложении, где в логе нет пополнения. Если гость платил через бронь или частями — просто напишите, как было, строка закроется. Пятеро гостей пополнили онлайн и остались без кэшбека — это не ваша зона, их закрою я. Кубок октября: первые двое — в разделе «Кубок», своё место каждый видит в кабинете."},arena:{period:"октябрь 2026 · по 18.10 (рабочая книга, лист «Смены», сверено с CLS)",z:{who:"Евгения",val:"28 041 ₽",sub:"день 17.10 · выручка Z за смену · лучшая смена месяца"},bar:{who:"Евгения",val:"6 280 ₽",sub:"день 17.10 · бар за смену · премия 10 %"},form:{who:"Владислав",val:"9 из 9 подтверждено",sub:"12.10–18.10 · точность начислений недели"}},heroes:[{name:"Алина",cls:"fae",clsName:"Фея-эльфийка дневной смены",all:25,ok:20,strict:25,missed:0,level4w:71,note:"20 из 25 подтверждено · касса без пропусков кэшбека",sum:13136,shifts:"по книге: 12.10, 14.10, 15.10, 16.10",issues:["12.10 13:32 · гость …3171 · 1000 · «КЭШБЕК 2500 (бронирование через приложение)» — пополнения нет ни в кассе, ни онлайн в окне 24 ч","15.10 18:16 · гость …3016 · 300 · «КЭШБЕК 1000 (мобильное пополнение бронь)» — бонус 300 ≠ ступени 0 (пополнение 300 ₽ 14.10 18:50 онлайн (ЛК))","16.10 17:44 · гость …7979 · 500 · «КЭШБЕК 1500 (мобильное пополнение бронь)» — пополнения нет ни в кассе, ни онлайн в окне 24 ч","16.10 17:44 · гость …8193 · 500 · «КЭШБЕК 1500 (мобильное пополнение бронь)» — пополнения нет ни в кассе, ни онлайн в окне 24 ч","16.10 18:20 · гость …7434 · 300 · «КЭШБЕК 1000» — за это пополнение уже начисляли"],missedList:[],bar:{period:"октябрь 2026 · по 16.10",list:[{"d":"03.10","s":"Д","z":23784,"bar":3160,"p":5,"prem":158},{"d":"04.10","s":"Д","z":20748,"bar":4220,"p":7,"prem":295},{"d":"07.10","s":"Д","z":13295,"bar":3800,"p":6,"prem":228},{"d":"08.10","s":"Д","z":15551,"bar":3420,"p":5,"prem":171},{"d":"12.10","s":"Д","z":16650,"bar":1850,"p":0,"prem":0},{"d":"14.10","s":"Д","z":14465,"bar":2480,"p":0,"prem":0},{"d":"15.10","s":"Д","z":15742,"bar":3270,"p":5,"prem":164},{"d":"16.10","s":"Д","z":16536,"bar":2220,"p":0,"prem":0}]},curses:[],path:{new:16,x2:1,tg:0,otz:0,circle:0,open:[{tel:"4072",d:"12.10",x2:false,tg:false,otz:false},{tel:"9099",d:"12.10",x2:false,tg:false,otz:false},{tel:"7005",d:"16.10",x2:false,tg:false,otz:false},{tel:"7979",d:"16.10",x2:true,tg:false,otz:false},{tel:"2467",d:"12.10",x2:false,tg:false,otz:false},{tel:"3829",d:"16.10",x2:false,tg:false,otz:false},{tel:"8334",d:"16.10",x2:false,tg:false,otz:false},{tel:"3208",d:"16.10",x2:false,tg:false,otz:false},{tel:"4468",d:"16.10",x2:false,tg:false,otz:false},{tel:"9229",d:"15.10",x2:false,tg:false,otz:false},{tel:"7698",d:"16.10",x2:false,tg:false,otz:false},{tel:"8888",d:"15.10",x2:false,tg:false,otz:false},{tel:"4200",d:"14.10",x2:false,tg:false,otz:false},{tel:"2007",d:"15.10",x2:false,tg:false,otz:false},{tel:"4334",d:"12.10",x2:false,tg:false,otz:false},{tel:"5211",d:"14.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:20,xpList:["20 × подтверждённое начисление · +20","0 × ТГ100 · +0","0 × отзыв · +0"],codes:{КЭШБЕК:[17,7300],ЛЬГОТА:[4,3710],КОМП:[4,2126]},lg:[4,3710],mana:69,manaNote:"кэшбек 9 из 9 пополнений ≥1 000 на кассе · подписка 0 из 16 новых · точность 20/25 = 80 % (доводка не считалась)",hint:"Двадцать пять начислений — больше всех за неделю, все двадцать пять с кодом из словаря, и касса чистая: девять пополнений от тысячи — девять кэшбеков. Пять строк пока не сходятся с логом — список в кабинете: в основном кэшбек за бронь через приложение (12.10 …3171, 16.10 …7979 и …8193), где в логе нет пополнения. Если гость платил через бронь или доносил частями — напиши, как было, и строки закроются. Шаг на смену: шестнадцать новых гостей за неделю — фраза про кодовое слово в канале, «сто бонусов сразу». Как подать — решать тебе; плитка подписки обновится в понедельник. Кубок месяца: сейчас 1-е место, средняя мана 74, смен в месяце 8 (до минимума 10 ещё 2)"},{name:"Евгения",cls:"elf",clsName:"Эльфийка-хранительница",all:12,ok:11,strict:11,missed:0,level4w:59,note:"11 из 12 подтверждено · касса без пропусков кэшбека",sum:5400,shifts:"по книге: 13.10, 17.10, 18.10",issues:["18.10 12:10 · гость …4887 · 1000 · «КЭШБЕК 1000» — пополнения нет ни в кассе, ни онлайн в окне 24 ч"],missedList:[],bar:{period:"октябрь 2026 · по 18.10",list:[{"d":"01.10","s":"Д","z":14395,"bar":5300,"p":9,"prem":477},{"d":"02.10","s":"Д","z":17069,"bar":4478,"p":7,"prem":313},{"d":"05.10","s":"Д","z":6800,"bar":1180,"p":0,"prem":0},{"d":"06.10","s":"Д","z":20649,"bar":5290,"p":9,"prem":476},{"d":"09.10","s":"Д","z":7187,"bar":1936,"p":0,"prem":0},{"d":"10.10","s":"Д","z":18311,"bar":3981,"p":6,"prem":239},{"d":"11.10","s":"Д","z":20645,"bar":4687,"p":8,"prem":375},{"d":"13.10","s":"Д","z":8331,"bar":1046,"p":0,"prem":0},{"d":"17.10","s":"Д","z":28041,"bar":6280,"p":10,"prem":628},{"d":"18.10","s":"Д","z":23742,"bar":5153,"p":9,"prem":464}]},curses:[],path:{new:15,x2:0,tg:0,otz:0,circle:0,open:[{tel:"2776",d:"13.10",x2:false,tg:false,otz:false},{tel:"3326",d:"17.10",x2:false,tg:false,otz:false},{tel:"1176",d:"17.10",x2:false,tg:false,otz:false},{tel:"2166",d:"17.10",x2:false,tg:false,otz:false},{tel:"6904",d:"17.10",x2:false,tg:false,otz:false},{tel:"4774",d:"13.10",x2:false,tg:false,otz:false},{tel:"1597",d:"13.10",x2:false,tg:false,otz:false},{tel:"9186",d:"17.10",x2:false,tg:false,otz:false},{tel:"0422",d:"17.10",x2:false,tg:false,otz:false},{tel:"0404",d:"17.10",x2:false,tg:false,otz:false},{tel:"0120",d:"17.10",x2:false,tg:false,otz:false},{tel:"8598",d:"17.10",x2:false,tg:false,otz:false},{tel:"1301",d:"17.10",x2:false,tg:false,otz:false},{tel:"0907",d:"17.10",x2:false,tg:false,otz:false},{tel:"9047",d:"17.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:11,xpList:["11 × подтверждённое начисление · +11","0 × ТГ100 · +0","0 × отзыв · +0"],codes:{КЭШБЕК:[11,4400],ЛЬГОТА:[1,1000]},lg:[1,1000],mana:72,manaNote:"кэшбек 4 из 4 пополнений ≥1 000 на кассе · подписка 0 из 15 новых · точность 11/12 = 92 % (доводка не считалась)",hint:"Одиннадцать из двенадцати подтверждены, касса без пропусков: четыре пополнения от тысячи — четыре кэшбека, и 17.10 у тебя лучшая смена месяца — 28 041 ₽ выручки и 6 280 ₽ бара. Один вопрос: 18.10 гостю …4887 ушёл кэшбек 1 000, а пополнения в логе нет — если он платил через бронь или частями, напиши, строка закроется. Шаг на смену: пятнадцать новых гостей — им фраза про канал с кодовым словом. Как сказать — на твоё усмотрение; результат увидишь в кабинете в понедельник. Кубок месяца: сейчас 3-е место, средняя мана 72, смен в месяце 10"},{name:"Даниил",cls:"mage",clsName:"Маг ночной смены",all:8,ok:8,strict:6,missed:3,level4w:36,note:"8 из 8 подтверждено · 3 без кэшбека на кассе",sum:3868,shifts:"по книге: 12.10, 13.10, 17.10, 18.10",issues:[],missedList:["17.10 22:44 · гость …3344 · пополнение 1 000 ₽ · положено 300","18.10 21:00 · гость …4188 · пополнение 1 110 ₽ · положено 300","18.10 21:00 · гость …7791 · пополнение 1 110 ₽ · положено 300"],bar:{period:"октябрь 2026 · по 18.10",list:[{"d":"01.10","s":"Н","z":6110,"bar":1830,"p":0,"prem":0},{"d":"03.10","s":"Н","z":9144,"bar":3310,"p":5,"prem":166},{"d":"04.10","s":"Н","z":4185,"bar":1410,"p":0,"prem":0},{"d":"08.10","s":"Н","z":10665,"bar":2131,"p":0,"prem":0},{"d":"09.10","s":"Н","z":8503,"bar":3650,"p":6,"prem":219},{"d":"12.10","s":"Н","z":2603,"bar":960,"p":0,"prem":0},{"d":"13.10","s":"Н","z":8543,"bar":2220,"p":0,"prem":0},{"d":"17.10","s":"Н","z":14168,"bar":3271,"p":5,"prem":164},{"d":"18.10","s":"Н","z":14229,"bar":2599,"p":0,"prem":0}]},curses:[],path:{new:5,x2:0,tg:0,otz:0,circle:0,open:[{tel:"7559",d:"12.10",x2:false,tg:false,otz:false},{tel:"3259",d:"12.10",x2:false,tg:false,otz:false},{tel:"8434",d:"12.10",x2:false,tg:false,otz:false},{tel:"2967",d:"13.10",x2:false,tg:false,otz:false},{tel:"7661",d:"12.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:8,xpList:["8 × подтверждённое начисление · +8","0 × ТГ100 · +0","0 × отзыв · +0"],codes:{ЛЬГОТА:[3,2960],КЭШБЕК:[2,600],ТГ100:[1,100],ОТЗЫВ:[1,100],КОМП:[1,108]},lg:[3,2960],mana:49,manaNote:"кэшбек 2 из 5 пополнений ≥1 000 на кассе · подписка 0 из 5 новых · точность 8/8 = 100 % (доводка не считалась)",hint:"Восемь из восьми подтверждены — точность сто процентов. Один шаг на смену: трое гостей пополнили от тысячи и пока без кэшбека — 17.10 …3344 (1 000 ₽) и 18.10 …4188 и …7791 (по 1 110 ₽), каждому положено 300. При следующем визите посмотри баланс и начисли «КЭШБЕК 1000» — строки закроются, а кабинет наутро покажет кассу без пропусков. Как удобнее — сразу при посадке или при оплате — решай сам. Кубок месяца: сейчас 4-е место, средняя мана 66, смен в месяце 9 (до минимума 10 ещё 1)"},{name:"Владислав",cls:"war",clsName:"Воин ночи",all:9,ok:9,strict:9,missed:0,level4w:23,note:"9 из 9 подтверждено · касса без пропусков кэшбека",sum:2900,shifts:"по книге: 14.10, 15.10, 16.10",issues:[],missedList:[],bar:{period:"октябрь 2026 · по 16.10",list:[{"d":"02.10","s":"Н","z":6191,"bar":2100,"p":0,"prem":0},{"d":"05.10","s":"Н","z":8813,"bar":3030,"p":5,"prem":152},{"d":"06.10","s":"Н","z":4085,"bar":3240,"p":5,"prem":162},{"d":"07.10","s":"Н","z":4923,"bar":1120,"p":0,"prem":0},{"d":"10.10","s":"Н","z":13010,"bar":3100,"p":5,"prem":155},{"d":"11.10","s":"Н","z":15362,"bar":3510,"p":6,"prem":211},{"d":"14.10","s":"Н","z":9380,"bar":3070,"p":5,"prem":154},{"d":"15.10","s":"Н","z":10043,"bar":2410,"p":0,"prem":0},{"d":"16.10","s":"Н","z":10460,"bar":1640,"p":0,"prem":0}]},curses:[],path:{new:11,x2:0,tg:0,otz:0,circle:0,open:[{tel:"1592",d:"15.10",x2:false,tg:false,otz:false},{tel:"8740",d:"15.10",x2:false,tg:false,otz:false},{tel:"6560",d:"12.10",x2:false,tg:false,otz:false},{tel:"8434",d:"15.10",x2:false,tg:false,otz:false},{tel:"0191",d:"15.10",x2:false,tg:false,otz:false},{tel:"3713",d:"12.10",x2:false,tg:false,otz:false},{tel:"6425",d:"16.10",x2:false,tg:false,otz:false},{tel:"6363",d:"15.10",x2:false,tg:false,otz:false},{tel:"9682",d:"14.10",x2:false,tg:false,otz:false},{tel:"9178",d:"15.10",x2:false,tg:false,otz:false},{tel:"9145",d:"12.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:9,xpList:["9 × подтверждённое начисление · +9","0 × ТГ100 · +0","0 × отзыв · +0"],codes:{КЭШБЕК:[9,2900]},lg:[0,0],mana:75,manaNote:"кэшбек 7 из 7 пополнений ≥1 000 на кассе · подписка 0 из 11 новых · точность 9/9 = 100 % (доводка не считалась)",hint:"Девять из девяти подтверждены, все с кодом из словаря, касса чистая: семь пополнений от тысячи — семь кэшбеков. Это «Голос словаря» и лучшая точность недели. Шаг на смену: одиннадцать новых гостей — фраза про канал с кодовым словом, «сто бонусов сразу». Как подать — решай сам; плитка подписки в кабинете обновится в понедельник. Кубок месяца: сейчас 2-е место, средняя мана 74, смен в месяце 9 (до минимума 10 ещё 1)"}],cup:[{w:"28.09–04.10",state:"done"},{w:"05.10–11.10",state:"done"},{w:"12.10–18.10",state:"done"},{w:"19.10–25.10",state:"next"},{w:"26.10–01.11"}],cupTable:[{name:"Алина",mana:74,weeks:3,shifts:8},{name:"Владислав",mana:74,weeks:3,shifts:9},{name:"Евгения",mana:72,weeks:3,shifts:10},{name:"Даниил",mana:66,weeks:3,shifts:9}]};
+const WEEK = {label:"12.10–18.10.2026",updated:"19.10",fresh:"начисления CLS по 18.10 · смены и бар по 18.10 · безубыток по 18.10",club:{mtd:462358,be:915269,days:18,daysTotal:31,forecast:796283,perDay:29525,gapDay:3838,target2:1200000,month:"октябрь"},team:{all:54,ok:48,lg:8,un:6,missedCash:3,missedOnline:5,lgSum:7670,strict:51,tol:3,none:0},goalTarget:0,master:{fixed:0,fixedSum:0,word:"Неделя 12–18.10. Начислений 54, подтверждены логом 48. «Голос словаря» (90 % начислений с кодом и выше) у троих: Алина, Евгения, Владислав, каждому +500 ₽ к зарплате. Касса почти чистая: из 25 пополнений от 1 000 ₽ без кэшбека остались 3, до пира не хватило совсем немного. Цель на эту неделю та же: ноль. Новых гостей 47, подписок на канал пока нет, это главный резерв октября. Шесть вопросов недели почти все про кэшбек за бронь в приложении, где в логе нет пополнения. Если гость платил через бронь или частями, напишите, как было, и строка закроется. Пятеро гостей пополнили онлайн и остались без кэшбека. Это не ваша зона, их закрываю я."},arena:{period:"октябрь 2026 · по 18.10 (рабочая книга, лист «Смены», сверено с CLS)",z:{who:"Евгения",val:"28 041 ₽",sub:"день 17.10 · выручка Z за смену · лучшая смена месяца"},bar:{who:"Евгения",val:"6 280 ₽",sub:"день 17.10 · бар за смену · премия 10 %"},form:{who:"Владислав",val:"9 из 9 подтверждено",sub:"12.10–18.10 · точность начислений недели"}},heroes:[{name:"Алина",cls:"fae",clsName:"Фея-эльфийка дневной смены",all:25,ok:20,strict:25,missed:0,level4w:71,note:"20 из 25 подтверждено · касса без пропусков кэшбека",sum:13136,shifts:"по книге: 12.10, 14.10, 15.10, 16.10",issues:["12.10 13:32 · гость …3171 · 1000 · «КЭШБЕК 2500 (бронирование через приложение)» — пополнения нет ни в кассе, ни онлайн в окне 24 ч","15.10 18:16 · гость …3016 · 300 · «КЭШБЕК 1000 (мобильное пополнение бронь)» — бонус 300 ≠ ступени 0 (пополнение 300 ₽ 14.10 18:50 онлайн (ЛК))","16.10 17:44 · гость …7979 · 500 · «КЭШБЕК 1500 (мобильное пополнение бронь)» — пополнения нет ни в кассе, ни онлайн в окне 24 ч","16.10 17:44 · гость …8193 · 500 · «КЭШБЕК 1500 (мобильное пополнение бронь)» — пополнения нет ни в кассе, ни онлайн в окне 24 ч","16.10 18:20 · гость …7434 · 300 · «КЭШБЕК 1000» — за это пополнение уже начисляли"],missedList:[],bar:{period:"октябрь 2026 · по 16.10",list:[{"d":"03.10","s":"Д","z":23784,"bar":3160,"p":5,"prem":158},{"d":"04.10","s":"Д","z":20748,"bar":4220,"p":7,"prem":295},{"d":"07.10","s":"Д","z":13295,"bar":3800,"p":6,"prem":228},{"d":"08.10","s":"Д","z":15551,"bar":3420,"p":5,"prem":171},{"d":"12.10","s":"Д","z":16650,"bar":1850,"p":0,"prem":0},{"d":"14.10","s":"Д","z":14465,"bar":2480,"p":0,"prem":0},{"d":"15.10","s":"Д","z":15742,"bar":3270,"p":5,"prem":164},{"d":"16.10","s":"Д","z":16536,"bar":2220,"p":0,"prem":0}]},curses:[],path:{new:16,x2:1,tg:0,otz:0,circle:0,open:[{tel:"4072",d:"12.10",x2:false,tg:false,otz:false},{tel:"9099",d:"12.10",x2:false,tg:false,otz:false},{tel:"7005",d:"16.10",x2:false,tg:false,otz:false},{tel:"7979",d:"16.10",x2:true,tg:false,otz:false},{tel:"2467",d:"12.10",x2:false,tg:false,otz:false},{tel:"3829",d:"16.10",x2:false,tg:false,otz:false},{tel:"8334",d:"16.10",x2:false,tg:false,otz:false},{tel:"3208",d:"16.10",x2:false,tg:false,otz:false},{tel:"4468",d:"16.10",x2:false,tg:false,otz:false},{tel:"9229",d:"15.10",x2:false,tg:false,otz:false},{tel:"7698",d:"16.10",x2:false,tg:false,otz:false},{tel:"8888",d:"15.10",x2:false,tg:false,otz:false},{tel:"4200",d:"14.10",x2:false,tg:false,otz:false},{tel:"2007",d:"15.10",x2:false,tg:false,otz:false},{tel:"4334",d:"12.10",x2:false,tg:false,otz:false},{tel:"5211",d:"14.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:20,xpList:["20 × подтверждённое начисление · +20","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[17,7300],ЛЬГОТА:[4,3710],КОМП:[4,2126]},lg:[4,3710],mana:69,manaNote:"кэшбек 9 из 9 пополнений ≥1 000 на кассе · подписка 0 из 16 новых · точность 20/25 = 80 %",hint:"25 начислений, больше всех за неделю, и все с кодом из словаря. Касса чистая: 9 пополнений от 1 000 ₽, 9 кэшбеков. Пять строк пока не сходятся с логом, список ниже: в основном кэшбек за бронь через приложение (12.10 …3171, 16.10 …7979 и …8193), где в логе нет пополнения. Если гость платил через бронь или доносил частями, напиши, как было, и строки закроются. Кубок месяца: ты в числе лидеров, средняя мана 74; смен в месяце 8, до зачёта ещё 2 смены.",step:"Новым гостям фраза про канал: «в канале кодовое слово, сто бонусов сразу». Как подать, решаешь ты."},{name:"Евгения",cls:"elf",clsName:"Эльфийка-хранительница",all:12,ok:11,strict:11,missed:0,level4w:59,note:"11 из 12 подтверждено · касса без пропусков кэшбека",sum:5400,shifts:"по книге: 13.10, 17.10, 18.10",issues:["18.10 12:10 · гость …4887 · 1000 · «КЭШБЕК 1000» — пополнения нет ни в кассе, ни онлайн в окне 24 ч"],missedList:[],bar:{period:"октябрь 2026 · по 18.10",list:[{"d":"01.10","s":"Д","z":14395,"bar":5300,"p":9,"prem":477},{"d":"02.10","s":"Д","z":17069,"bar":4478,"p":7,"prem":313},{"d":"05.10","s":"Д","z":6800,"bar":1180,"p":0,"prem":0},{"d":"06.10","s":"Д","z":20649,"bar":5290,"p":9,"prem":476},{"d":"09.10","s":"Д","z":7187,"bar":1936,"p":0,"prem":0},{"d":"10.10","s":"Д","z":18311,"bar":3981,"p":6,"prem":239},{"d":"11.10","s":"Д","z":20645,"bar":4687,"p":8,"prem":375},{"d":"13.10","s":"Д","z":8331,"bar":1046,"p":0,"prem":0},{"d":"17.10","s":"Д","z":28041,"bar":6280,"p":10,"prem":628},{"d":"18.10","s":"Д","z":23742,"bar":5153,"p":9,"prem":464}]},curses:[],path:{new:15,x2:0,tg:0,otz:0,circle:0,open:[{tel:"2776",d:"13.10",x2:false,tg:false,otz:false},{tel:"3326",d:"17.10",x2:false,tg:false,otz:false},{tel:"1176",d:"17.10",x2:false,tg:false,otz:false},{tel:"2166",d:"17.10",x2:false,tg:false,otz:false},{tel:"6904",d:"17.10",x2:false,tg:false,otz:false},{tel:"4774",d:"13.10",x2:false,tg:false,otz:false},{tel:"1597",d:"13.10",x2:false,tg:false,otz:false},{tel:"9186",d:"17.10",x2:false,tg:false,otz:false},{tel:"0422",d:"17.10",x2:false,tg:false,otz:false},{tel:"0404",d:"17.10",x2:false,tg:false,otz:false},{tel:"0120",d:"17.10",x2:false,tg:false,otz:false},{tel:"8598",d:"17.10",x2:false,tg:false,otz:false},{tel:"1301",d:"17.10",x2:false,tg:false,otz:false},{tel:"0907",d:"17.10",x2:false,tg:false,otz:false},{tel:"9047",d:"17.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:11,xpList:["11 × подтверждённое начисление · +11","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[11,4400],ЛЬГОТА:[1,1000]},lg:[1,1000],mana:72,manaNote:"кэшбек 4 из 4 пополнений ≥1 000 на кассе · подписка 0 из 15 новых · точность 11/12 = 92 %",hint:"11 из 12 подтверждены, касса без пропусков: 4 пополнения от 1 000 ₽, 4 кэшбека. А 17.10 у тебя лучшая смена месяца: 28 041 ₽ выручки и 6 280 ₽ бара. Один вопрос: 18.10 гостю …4887 начислен кэшбек 1 000, а пополнения в логе нет. Если он платил через бронь или частями, напиши, и строка закроется. Кубок месяца: средняя мана 72, до соседа выше 2; смен в месяце 10, в зачёте.",step:"Новым гостям фраза про канал с кодовым словом: «сто бонусов сразу». Как сказать, решаешь ты."},{name:"Даниил",cls:"mage",clsName:"Маг ночной смены",all:8,ok:8,strict:6,missed:3,level4w:36,note:"8 из 8 подтверждено",sum:3868,shifts:"по книге: 12.10, 13.10, 17.10, 18.10",issues:[],missedList:["17.10 22:44 · гость …3344 · пополнение 1 000 ₽ · положено 300","18.10 21:00 · гость …4188 · пополнение 1 110 ₽ · положено 300","18.10 21:00 · гость …7791 · пополнение 1 110 ₽ · положено 300"],bar:{period:"октябрь 2026 · по 18.10",list:[{"d":"01.10","s":"Н","z":6110,"bar":1830,"p":0,"prem":0},{"d":"03.10","s":"Н","z":9144,"bar":3310,"p":5,"prem":166},{"d":"04.10","s":"Н","z":4185,"bar":1410,"p":0,"prem":0},{"d":"08.10","s":"Н","z":10665,"bar":2131,"p":0,"prem":0},{"d":"09.10","s":"Н","z":8503,"bar":3650,"p":6,"prem":219},{"d":"12.10","s":"Н","z":2603,"bar":960,"p":0,"prem":0},{"d":"13.10","s":"Н","z":8543,"bar":2220,"p":0,"prem":0},{"d":"17.10","s":"Н","z":14168,"bar":3271,"p":5,"prem":164},{"d":"18.10","s":"Н","z":14229,"bar":2599,"p":0,"prem":0}]},curses:[],path:{new:5,x2:0,tg:0,otz:0,circle:0,open:[{tel:"7559",d:"12.10",x2:false,tg:false,otz:false},{tel:"3259",d:"12.10",x2:false,tg:false,otz:false},{tel:"8434",d:"12.10",x2:false,tg:false,otz:false},{tel:"2967",d:"13.10",x2:false,tg:false,otz:false},{tel:"7661",d:"12.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:8,xpList:["8 × подтверждённое начисление · +8","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{ЛЬГОТА:[3,2960],КЭШБЕК:[2,600],ТГ100:[1,100],ОТЗЫВ:[1,100],КОМП:[1,108]},lg:[3,2960],mana:49,manaNote:"кэшбек 2 из 5 пополнений ≥1 000 на кассе · подписка 0 из 5 новых · точность 8/8 = 100 %",hint:"8 из 8 подтверждены, точность 100 %. Трое гостей пополнили от 1 000 ₽ и пока без кэшбека: 17.10 …3344 (1 000 ₽), 18.10 …4188 и …7791 (по 1 110 ₽), каждому положено 300. При следующем визите посмотри баланс и начисли «КЭШБЕК 1000», строки закроются. Когда удобнее, при посадке или при оплате, решай сам. Кубок месяца: средняя мана 66, до соседа выше 6; смен в месяце 9, до зачёта ещё 1 смена.",step:"При посадке гостя посмотри баланс: пополнение от 1 000 ₽, значит сразу «КЭШБЕК» по шкале."},{name:"Владислав",cls:"war",clsName:"Воин ночи",all:9,ok:9,strict:9,missed:0,level4w:23,note:"9 из 9 подтверждено · касса без пропусков кэшбека",sum:2900,shifts:"по книге: 14.10, 15.10, 16.10",issues:[],missedList:[],bar:{period:"октябрь 2026 · по 16.10",list:[{"d":"02.10","s":"Н","z":6191,"bar":2100,"p":0,"prem":0},{"d":"05.10","s":"Н","z":8813,"bar":3030,"p":5,"prem":152},{"d":"06.10","s":"Н","z":4085,"bar":3240,"p":5,"prem":162},{"d":"07.10","s":"Н","z":4923,"bar":1120,"p":0,"prem":0},{"d":"10.10","s":"Н","z":13010,"bar":3100,"p":5,"prem":155},{"d":"11.10","s":"Н","z":15362,"bar":3510,"p":6,"prem":211},{"d":"14.10","s":"Н","z":9380,"bar":3070,"p":5,"prem":154},{"d":"15.10","s":"Н","z":10043,"bar":2410,"p":0,"prem":0},{"d":"16.10","s":"Н","z":10460,"bar":1640,"p":0,"prem":0}]},curses:[],path:{new:11,x2:0,tg:0,otz:0,circle:0,open:[{tel:"1592",d:"15.10",x2:false,tg:false,otz:false},{tel:"8740",d:"15.10",x2:false,tg:false,otz:false},{tel:"6560",d:"12.10",x2:false,tg:false,otz:false},{tel:"8434",d:"15.10",x2:false,tg:false,otz:false},{tel:"0191",d:"15.10",x2:false,tg:false,otz:false},{tel:"3713",d:"12.10",x2:false,tg:false,otz:false},{tel:"6425",d:"16.10",x2:false,tg:false,otz:false},{tel:"6363",d:"15.10",x2:false,tg:false,otz:false},{tel:"9682",d:"14.10",x2:false,tg:false,otz:false},{tel:"9178",d:"15.10",x2:false,tg:false,otz:false},{tel:"9145",d:"12.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:9,xpList:["9 × подтверждённое начисление · +9","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[9,2900]},lg:[0,0],mana:75,manaNote:"кэшбек 7 из 7 пополнений ≥1 000 на кассе · подписка 0 из 11 новых · точность 9/9 = 100 %",hint:"9 из 9 подтверждены, все с кодом из словаря, касса чистая: 7 пополнений от 1 000 ₽, 7 кэшбеков. Это «Голос словаря» и точность 100 %. Кубок месяца: средняя мана 74, вровень с соседом выше; смен в месяце 9, до зачёта ещё 1 смена.",step:"Новым гостям фраза про канал: «в канале кодовое слово, сто бонусов сразу». Как подать, решаешь ты."}],cup:[{w:"28.09–04.10",state:"done"},{w:"05.10–11.10",state:"done"},{w:"12.10–18.10",state:"done"},{w:"19.10–25.10",state:"next"},{w:"26.10–01.11"}],cupTable:[{name:"Алина",mana:74,weeks:3,shifts:8},{name:"Владислав",mana:74,weeks:3,shifts:9},{name:"Евгения",mana:72,weeks:3,shifts:10},{name:"Даниил",mana:66,weeks:3,shifts:9}]};
 // ===== СПРАВОЧНИКИ (меняются редко) =====
 const CODES=[
  {k:"КЭШБЕК",v:"кэшбек за пополнение",p:"Акция УК. Пополнение от 1 000 ₽ — наличными, картой или онлайн. Шкала: 1 000 → 300 · 1 500 → 500 · 2 500 → 1 000 · 5 000+ → 2 500.",ex:"КЭШБЕК 1000"},
@@ -379,28 +410,28 @@ const CODES=[
  {k:"ЛЬГОТА",v:"сотруднику",p:"Бонусы себе или коллеге по его просьбе. Разрешено Мастером, лимита нет. Без кода выглядит как ошибка — с кодом это нормальная операция.",ex:"ЛЬГОТА Влад, выходной"}
 ];
 const CURSES=[
- {i:"🧊",n:"Ледяные оковы",trig:"начисление без основания и без ответа на вопрос Мастера 3 дня",eff:"уровень заморожен, карточка тусклая",lift:"ответить на вопрос — снимается в тот же день",dur:"до ответа"},
- {i:"🕶️",n:"Слепота кассы",trig:"3 и более гостей за неделю пополнили на 1 000+ на кассе и ушли без кэшбека",eff:"мана −20, карточка тусклая",lift:"неделя с 0 таких гостей",dur:"1 неделя"},
- {i:"🤐",n:"Немота свитка",trig:"меньше половины начислений с кодом (после 15.09)",eff:"мана показывается серой, бейджи недели не выдаются",lift:"неделя ≥ 50 % с кодом",dur:"1 неделя"},
- {i:"👛",n:"Пустой кошель",trig:"две недели подряд без единой смены с баром ≥ 3 000 ₽",eff:"тускнеет только строка бара в кабинете",lift:"одна смена ≥ 3 000 ₽",dur:"до первой смены"}
+ {i:"◐",n:"Вопрос без ответа",trig:"по начислению задан вопрос, ответа нет 3 дня",eff:"рост уровня на паузе",lift:"ответить — снимается в тот же день",dur:"до ответа"},
+ {i:"◎",n:"Туман над кассой",trig:"за неделю 3 и больше гостей пополнили от 1 000 ₽ на кассе без кэшбека",eff:"неделя не идёт в «Зоркий глаз» и пир; мана — только по формуле, без доп. снижения",lift:"неделя с 0 таких гостей",dur:"1 неделя"},
+ {i:"◇",n:"Свиток без кода",trig:"меньше половины начислений с кодом",eff:"бейджи недели не выдаются",lift:"неделя с кодом от 50 %",dur:"1 неделя"},
+ {i:"▽",n:"Тихий бар",trig:"две недели подряд без смены с баром от 3 000 ₽",eff:"строка бара в кабинете без подсветки",lift:"одна смена от 3 000 ₽",dur:"до первой такой смены"}
 ];
 const BUFFS=[
  {i:"✦",n:"Чистая неделя",trig:"все начисления недели подтвердились",eff:"бейдж на карточке",lift:"",dur:"неделя"},
  {i:"◆",n:"Зоркий глаз",trig:"ни один гость на кассе не ушёл без кэшбека",eff:"бейдж + вклад в пир гильдии",lift:"",dur:"неделя"},
  {i:"★",n:"Голос словаря",trig:"≥ 90 % начислений с кодом",eff:"+500 ₽ премией к зарплате",lift:"",dur:"с 15.09"},
- {i:"🥤",n:"Пир гильдии",trig:"у всей гильдии 0 гостей без кэшбека на кассе",eff:"каждому позиция из бара на выбор: напиток, батончик или сэндвич (в пятницу)",lift:"",dur:"неделя"},
- {i:"🏆",n:"Смена-5000",trig:"бар за смену ≥ 5 000 ₽",eff:"бейдж + премия 9 % по шкале книги",lift:"",dur:"навсегда в летописи"},
- {i:"🛡️",n:"Благословение Мастера",trig:"Мастер назвал тебя в слове недели",eff:"снимает одно любое проклятие",lift:"",dur:"разово"}
+ {i:"❖",n:"Пир гильдии",trig:"у всей гильдии 0 гостей без кэшбека на кассе",eff:"каждому позиция из бара на выбор: напиток, батончик или сэндвич (в пятницу)",lift:"",dur:"неделя"},
+ {i:"▲",n:"Смена-5000",trig:"бар за смену ≥ 5 000 ₽",eff:"бейдж + премия 9 % по шкале книги",lift:"",dur:"навсегда в летописи"},
+ {i:"◈",n:"Благословение Мастера",trig:"Мастер назвал тебя в слове недели",eff:"снимает одно любое испытание",lift:"",dur:"разово"}
 ];
 const FAQ=[
  ["Я начислил, а система пишет «неподтверждённое». Это штраф?","Нет. Это значит, что рядом не нашлось пополнения или акции. Мастер задаст один вопрос — «что это было?» — и, если ответ есть, строка закрывается. Штрафов на свитке нет вообще."],
  ["Гость пополнил онлайн, я этого не видел. Почему у меня пропуск?","Онлайн-пропуски герою не вменяются — они у Мастера. В твою строку «гостей без кэшбека» попадают только пополнения на кассе, которые ты видел сам."],
  ["Можно ли начислить себе бонусы?","Да, Мастер разрешил, лимита нет. Одно условие — код ЛЬГОТА первым словом. Без кода это выглядит как ошибка, и тебе зададут вопрос."],
  ["Как быстро растёт уровень?","Каждые 10 подтверждённых начислений за последние 4 недели — +1 уровень. Уровень никогда не падает; проклятие только останавливает рост, пока висит."],
- ["Что даёт кубок?","Неделя с 90 % кода — +500 ₽ премией к зарплате каждому, кто дотянул. Лучший средний процент за 4 недели при 30+ начислениях — 2 000 ₽ и титул на свитке."],
+ ["Что даёт кубок?","Кубок месяца — по средней мане недель: 1-е место 5 000 ₽, 2-е — 3 000 ₽, в зачёт от 10 смен в месяце. Отдельно от кубка: неделя, где 90 % твоих начислений с кодом (от 3 начислений), — +500 ₽ премией к зарплате, могут получить все."],
  ["Откуда берётся премия за бар?","Из рабочей книги клуба, лист «Смены»: бар за твою смену против шкалы (от 3 000 ₽ → 5 % … 10 000 → 15 %). Считается автоматически, попадает в зарплату."],
  ["Новый гость пополнил на 1 000 — что ставить?","С 21.09 — кэшбек. Акция Х2 закрыта: на первое пополнение новичка от 1 000 ₽ ставится кэшбек по шкале УК, и в мана-индексе он считается за две операции. До 20.09 включительно на это же пополнение ставился Х2 — те начисления остаются в силе, бонусы у гостей не сгорают."],
- ["Что такое мана и почему у меня 48 %?","Мана — это не «сколько ты сделал», а «какая доля гостей получила то, что им положено»: Х2 новичкам, кэшбек за пополнение, подписку. Ночью новых гостей мало — поэтому при меньше чем 3 новых за неделю Х2 и подписка не считаются вовсе, и мана строится на кэшбеке и точности. Сентябрь — разгон: цифры видны, деньги с октября."],
+ ["Что такое мана и почему она не 100 %?","Мана — не «сколько ты сделал», а «какая доля гостей получила то, что им положено»: кэшбек за пополнение, подписку новых гостей, точность начислений. Если новых гостей на неделе не было, подписка не считается, и мана строится на кэшбеке и точности. Из чего сложилась твоя мана — в кабинете, под подсказкой."],
  ["Зачем уровень, если премия по мане?","Мана — деньги месяца, уровень — статус. LVL 8 даёт титул «Наставник», LVL 10 — награду по выбору Мастера. Уровень не падает никогда, мана — обнуляется каждый месяц."],
  ["Кто видит мой кабинет?","Все, у кого есть ссылка на свиток, — как и общую таблицу. Внутри нет ничего, чего не было бы в логе CLS. Это витрина честных данных, а не досье."]
 ];
@@ -414,16 +445,16 @@ const fmt=n=>n.toLocaleString('ru-RU');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function heroCard(h,i){
  const p=pct(h.strict,h.all); const clean=h.ok===h.all; const cursed=h.curses&&h.curses.length;
- const badges=[clean?'<span class="badge ok">✦ Чистая неделя</span>':'', h.missed===0?'<span class="badge gold">◆ Зоркий глаз</span>':`<span class="badge warn">◇ Без кэшбека на кассе: ${h.missed}</span>`, p>=90?'<span class="badge gold">★ Голос словаря</span>':'', h.bar&&h.bar.list.some(x=>x.bar>=5000)?'<span class="badge gold">🏆 Смена-5000</span>':'', ...(h.curses||[]).map(c=>`<span class="badge curse">${esc(c)}</span>`)].join('');
+ const badges=[clean?'<span class="badge ok">✦ Чистая неделя</span>':'', h.missed===0?'<span class="badge gold">◆ Зоркий глаз</span>':'', (p>=90&&h.all>=3)?'<span class="badge gold">★ Голос словаря</span>':'', h.bar&&h.bar.list.some(x=>x.bar>=5000)?'<span class="badge gold">▲ Смена-5000</span>':'', ...(h.curses||[]).map(c=>`<span class="badge curse">${esc(c)}</span>`)].join('');
  return `<article class="hero ${h.cls} ${cursed?'cursed':''}" tabindex="0" role="button" aria-label="Открыть кабинет: ${esc(h.name)}" data-i="${i}">
    <div class="lvl">LVL ${level(h.level4w)}</div>
    <div class="portrait"><img src="${IMG[h.cls]}" alt="${esc(h.name)} — ${esc(h.clsName)}" loading="lazy"></div>
    <div class="name">${esc(h.name)}</div>
    <div class="cls">${esc(h.clsName)}</div>
-   <div class="title">${esc(h.note)}</div>
+   <div class="title">${esc(h.note)}</div>${h.step?`<div class="stepcard"><b>Шаг на смену</b>${esc(h.step)}</div>`:''}
    <div class="body">
-   <div class="xp"><div class="row"><span>Мана недели (индекс качества)</span><span class="mono">${h.mana}%</span></div><div class="bar"><i style="width:${Math.min(100,h.mana)}%"></i></div><div class="row" style="margin-top:4px"><span style="font-size:11px">с кодом ${p}% · XP недели <span class="xpw">+${h.xp}</span></span><span style="font-size:11px">${h.manaNote?esc(h.manaNote):'разгон до 01.10'}</span></div></div>
-   <div class="stats"><div class="stat"><b class="mono">${h.all}</b><span>начислений</span></div><div class="stat"><b class="mono">${h.ok}</b><span>подтверждено</span></div><div class="stat"><b class="mono">${h.strict}</b><span>с кодом</span></div><div class="stat"><b class="mono">${h.missed}</b><span>гостей без кэшбека</span></div></div>
+   <div class="xp"><div class="row"><span>Мана недели (индекс качества)</span><span class="mono">${h.mana}%</span></div><div class="bar"><i style="width:${Math.min(100,h.mana)}%"></i></div><div class="xpnote">с кодом ${p} % · XP недели <span class="xpw">+${h.xp}</span></div></div>
+   <div class="stats"><div class="stat"><b class="mono">${h.all}</b><span>начислений</span></div><div class="stat"><b class="mono">${h.ok}</b><span>подтверждено</span></div><div class="stat"><b class="mono">${h.strict}</b><span>с кодом</span></div><div class="stat"><b class="mono">${(h.path||{}).new||0}</b><span>новых гостей</span></div></div>
    <div class="badges">${badges}</div>
    <div class="open-hint">открыть кабинет →</div>
    </div>
@@ -432,30 +463,30 @@ function heroCard(h,i){
 function pathBlock(h){
  const P=h.path||{new:0,x2:0,tg:0,otz:0,circle:0,open:[]};
  const f=(n,l,d)=>`<div class="f"><b>${n}</b><span>${l}</span><small>${d}</small></div>`;
- const N=P.new; const nd=(k)=>N?`${N} / ${k}`:'—';
- const funnel=`<div class="funnel">${f(N,'новых гостей','зарегистрировались у тебя')}${f(nd(P.x2),'кэшбек новичку',N?`из ${N} новых кэшбек получили ${P.x2}`:'новых не было')}${f(nd(P.tg),'подписка TG',N?`из ${N} новых подписались ${P.tg}`:'новых не было')}${f(nd(P.otz),'отзыв',N?`из ${N} новых отзыв оставили ${P.otz}`:'новых не было')}${f(nd(P.circle),'полный круг',N?`кэшбек + TG + отзыв у одного гостя: ${P.circle}`:'—').replace('class="f"',P.circle?'class="f flash"':'class="f"')}</div>${N?'':'<div style="font-size:12px;color:#f0b48f;margin-top:6px">На этой неделе новых гостей у тебя не было — воронка пустая, XP за путь гостя не начислялся. Это не минус: мана считается по кэшбеку и точности.</div>'}
- <div style="font-size:12px;color:var(--muted);margin-top:6px">Формат «новых / сделано»: первое число — сколько новых гостей зарегистрировалось у тебя за неделю, второе — скольким из них выполнен шаг.</div>`;
+ const CIRC=(P.open||[]).filter(q=>q.x2&&q.tg&&q.otz).length; const N=P.new; const nd=(k)=>N?`${N} / ${k}`:'—';
+ const funnel=`<div class="funnel">${f(N,'новых гостей','зарегистрировались у тебя')}${f(P.x2,'кэшбек новичку',N?'положен при пополнении от 1 000 ₽':'новых не было')}${f(nd(P.tg),'подписка TG',N?`новых гостей подписались ${P.tg} из ${N}`:'новых не было')}${f(nd(P.otz),'отзыв',N?`новых гостей оставили ${P.otz} из ${N}`:'новых не было')}${f(nd(CIRC),'полный круг',N?`кэшбек, TG и отзыв у одного гостя: ${CIRC}`:'—')}</div>${N?'':'<div style="font-size:12px;color:#f0b48f;margin-top:6px">На этой неделе новых гостей у тебя не было — воронка пустая, XP за путь гостя не начислялся. Это не минус: мана считается по кэшбеку и точности.</div>'}
+ <div style="font-size:12px;color:var(--muted);margin-top:6px">Формат «новых / сделано»: сколько новых гостей зарегистрировалось у тебя за неделю и скольким из них сделан шаг. TG и отзыв здесь — только новые гости; начисления старым гостям видны в «Что начислял».</div>`;
  const PH={x2:'«Первое пополнение удваиваем — сколько кладёте?»',tg:'«В канале кодовое слово на бонусы — подпишись, покажи, +100 сразу»',otz:'«Оставьте отзыв о клубе — покажите, начислю бонус»'};
  const openArr=(P.open||[]);
  const upd=(WEEK.updated||'').match(/(\d\d)\.(\d\d)/); const ageW=(d)=>{const m=(d||'').match(/(\d\d)\.(\d\d)/); if(!m||!upd) return 0; const y=new Date().getFullYear(); const a=new Date(y,+m[2]-1,+m[1]), b=new Date(y,+upd[2]-1,+upd[1]); return Math.max(0,Math.floor((b-a)/6048e5));};
  const mk=(ok,label,extra)=>ok?`${label} <span class="ok">✓</span>`:`${label} <span class="no">✗</span>${extra||''}`;
  const open=openArr.slice(0,6).map(q=>{
-   const o=q.owe&&q.owe.x2; const x2=o?`Х2 <span class="${o.status==='closed'?'no':'wait'}" title="${esc(o.note||'')}">${o.status==='closed'?'закрыто Мастером':'решает Мастер'}</span>`:mk(q.x2,'кэшбек');
+   const o=q.owe&&q.owe.x2; const x2=o?`Х2 <span class="${o.status==='closed'?'no':'wait'}" title="${esc(o.note||'')}">${o.status==='closed'?'закрыто Мастером':'решает Мастер'}</span>`:(q.x2?'кэшбек <span class="ok">✓</span>':'');
    const w=ageW(q.d); const age=w>=1?` <span class="age">${w+1}-я нед.</span>`:'';
-   return `<li>тел. ${q.tel} · ${q.d}${age} · ${x2} · ${mk(q.tg,'TG')} · ${mk(q.otz,'отзыв')}</li>`;}).join('');
+   return `<li>${[`тел. ${q.tel}`,`${q.d}${age}`,x2,mk(q.tg,'TG'),mk(q.otz,'отзыв')].filter(Boolean).join(' · ')}</li>`;}).join('');
  const more=openArr.length>6?`<li style="color:var(--muted)">… и ещё ${openArr.length-6} — в понедельничной книге</li>`:'';
- const HI=P.hist||{done:0,gone:0,missed:0}; const hist=`<div class="legend">Архив: закрыто ${HI.done} · гость не вернулся ${HI.gone} · упущенных визитов ${HI.missed}. Задача живёт 3 недели; если гость не пришёл — уходит в архив без последствий; пришёл, а шаг не сделан — «упущенный визит», он снижает долю доводки в мане.</div>`;
+ const HI=P.hist||{done:0,gone:0,missed:0}; const hist=`<div class="legend">Архив: закрыто ${HI.done} · гость не вернулся ${HI.gone} · упущенных визитов ${HI.missed}. Задача по гостю живёт 3 недели. Не пришёл — уходит в архив, без последствий.</div>`;
  const cnt=(k)=>openArr.filter(q=>!q[k]&&!(q.owe&&q.owe[k])).length; const oweN=openArr.filter(q=>q.owe&&q.owe.x2&&q.owe.x2.status!=='closed').length;
  const T=[]; if(oweN) T.push(`Гостей с вопросом по Х2 — ${oweN}: Мастер решает, доначислять ли; тебе — ничего не делать до его слова.`);
- if(cnt('x2')) T.push(`Кэшбек не получили ${cnt('x2')} из ${N} новых, пополнивших от 1 000 ₽, — при следующем визите проверь баланс и начисли по шкале`);
- if(cnt('tg')) T.push(`Без подписки ${cnt('tg')} из ${N} — одна фраза при следующем визите: ${PH.tg}`);
- if(cnt('otz')&&N>=3) T.push(`Отзыв не оставил никто — после хорошей смены гостя: ${PH.otz}`);
- const tasks=N?`<div class="tasks"><h5>Задачи на ближайшие смены — ${Math.min(3,T.length)} из ${T.length}</h5><ol>${T.slice(0,3).map(t=>`<li>${t}</li>`).join('')}</ol><div class="legend">Как сказать — на твоё усмотрение, главное — сказать. Наутро после смены плитка станет зелёной, когда шаг закрыт.</div></div>`:'';
+ if(h.missed) T.unshift(`У ${h.missed} ${h.missed===1?'гостя':'гостей'} пополнение от 1 000 ₽ на кассе без кэшбека. При следующем визите посмотри баланс и начисли «КЭШБЕК» по шкале. Список — в «Вопросах и пропусках».`);
+ if(cnt('tg')) T.push(`Новым гостям без подписки (${cnt('tg')} из ${N}) одна фраза при следующем визите: ${PH.tg}`);
+ if(cnt('otz')&&N>=3) T.push(`После хорошей смены предложи гостю отзыв: ${PH.otz}`);
+ const tasks=T.length?`<div class="tasks"><h5>Главное на ближайшие смены</h5><p class="t1">${T[0]}</p>${T.length>1?`<details><summary>ещё ${T.length-1}</summary><ol>${T.slice(1).map(t=>`<li>${t}</li>`).join('')}</ol></details>`:''}<div class="legend">Как сказать — решаешь ты. Плитка станет зелёной в понедельник, когда шаг закрыт.</div></div>`:'';
  const xp=(h.xpList||[]).map(x=>`<li>${esc(x)}</li>`).join('');
  return `${funnel}${tasks}
  <div class="two" style="margin-top:10px">
   <div><h4 style="margin-bottom:6px">Гости недели — что закрыто, что предложить</h4><ul class="quests-open">${open||'<li style="color:var(--muted)">новых гостей на неделе не было</li>'}${more}</ul><div class="legend">✓ — сделано · ✗ — предложи при следующем визите (фразы — в задачах выше). ✗ — не оценка: гость мог отказаться; с 15.09 отметка ПРЕДЛ ТГ / ПРЕДЛ ОТЗ в комментарии CLS покажет, что фраза была.</div>${hist}</div>
-  <div><h4 style="margin-bottom:6px">Откуда XP</h4><ul>${xp||'<li style="color:var(--muted)">пока 0</li>'}<li style="color:var(--muted)">новый гость 1 · Х2 3 · ТГ100 3 · ОТЗЫВ 4 · кэшбек вовремя 1 · полный круг +10 (+5 закрывшему)</li></ul></div>
+  <div><h4 style="margin-bottom:6px">Откуда XP</h4><ul>${xp||'<li style="color:var(--muted)">пока 0</li>'}<li style="color:var(--muted)">подтверждённое начисление +1 · подписка нового гостя (ТГ100) +5 · отзыв нового гостя +5</li></ul></div>
  </div>`;
 }
 function cabinet(h){
@@ -466,13 +497,13 @@ function cabinet(h){
  let run=0; const shiftRows=L.map(x=>{run+=x.prem;return `<tr class="${x.prem?'prem':''}"><td>${x.d} ${x.s}</td><td>${fmt(x.z)}</td><td>${fmt(x.bar)}</td><td>${x.p?x.p+' %':'—'}</td><td>${x.prem?'+'+fmt(x.prem):'—'}</td><td>${fmt(run)}</td></tr>`}).join('');
  const issues=(h.issues.length?h.issues:["Неподтверждённых начислений нет — всё сошлось с логом."]).map(x=>`<li>${esc(x)}</li>`).join('');
  const missed=(h.missedList.length?h.missedList:["Никто из гостей на твоей кассе не ушёл без кэшбека."]).map(x=>`<li>${esc(x)}</li>`).join('');
- const curses=(h.curses&&h.curses.length)?h.curses.map(c=>`<span class="badge curse">${esc(c)}</span>`).join(' '):'<span class="badge ok">проклятий нет</span>';
+ const curses=(h.curses&&h.curses.length)?h.curses.map(c=>`<span class="badge curse">${esc(c)}</span>`).join(' '):'<span class="badge ok">нет</span>';
  return `<div class="side"><img src="${IMG[h.cls]}" alt=""><div class="n"><span>${esc(h.clsName)} · LVL ${lv}</span><h3>${esc(h.name)}</h3></div></div>
  <div class="main">
   <button class="close" id="close" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
   <div><h4>Неделя ${WEEK.label} · ${esc(h.shifts)}</h4>
    <div class="kv"><div class="stat"><b class="mono">${h.all}</b><span>начислений</span></div><div class="stat"><b class="mono">${fmt(h.sum)}</b><span>бонусов выдано</span></div><div class="stat"><b class="mono">${h.mana}%</b><span>мана недели</span></div><div class="stat"><b class="mono">${h.missed}</b><span>гостей без кэшбека</span></div></div></div>
-  <div class="hint"><b>Куда расти:</b> ${esc(h.hint)}</div>
+  <div class="hint"><b>Куда расти:</b> ${esc(h.hint)}</div>${h.manaNote?`<div class="legend" style="margin:-4px 0 12px">Из чего мана ${h.mana} %: ${esc(h.manaNote)}</div>`:''}
   <div class="box"><h4>Путь гостя · неделя ${WEEK.label} · XP недели <span class="xpw">+${h.xp}</span></h4>
    ${pathBlock(h)}
   </div>
@@ -480,7 +511,7 @@ function cabinet(h){
    <div class="box"><h4>Что начислял</h4><div class="bars">${bars||'<p style="color:var(--muted)">Начислений за неделю нет.</p>'}</div></div>
    <div class="box"><h4>Уровень и прогресс</h4>
     <div class="xp"><div class="row"><span>LVL ${lv} → ${lv+1}</span><span class="mono">ещё ${toNext} подтверждённых</span></div><div class="bar"><i style="width:${(h.level4w%10)*10}%"></i></div></div>
-    <ul style="margin-top:10px"><li><b>${h.level4w}</b> подтверждённых за 4 недели</li><li>Проклятия: ${curses}</li><li style="color:var(--muted)">LVL 5 — приоритет смен · LVL 8 — «Наставник» · LVL 10 — награда Мастера</li></ul></div>
+    <ul style="margin-top:10px"><li><b>${h.level4w}</b> подтверждённых за 4 недели</li><li>Испытания: ${curses}</li><li style="color:var(--muted)">LVL 5 — приоритет смен · LVL 8 — «Наставник» · LVL 10 — награда Мастера</li></ul></div>
   </div>
   <div class="two">
    <div class="box"><h4>Льгота сотрудникам</h4><ul>${h.self?`<li>Себе: <b>${h.self[0]}</b> опер. · <b>${fmt(h.self[1])}</b> бонусов</li><li>Коллегам по их просьбе: <b>${h.mates[0]}</b> опер. · <b>${fmt(h.mates[1])}</b></li>${h.got&&h.got[0]?`<li>Коллеги начислили тебе: <b>${h.got[0]}</b> опер. · <b>${fmt(h.got[1])}</b></li>`:''}`:`<li>За неделю: <b>${(h.lg||[0,0])[0]}</b> опер. · <b>${fmt((h.lg||[0,0])[1])}</b> бонусов</li>`}<li style="color:var(--muted)">Лимита нет. Первое слово — ЛЬГОТА.</li></ul></div>
@@ -497,7 +528,7 @@ let lastFocus=null;
 function openCab(i){const h=WEEK.heroes[i];const m=document.getElementById('modal');const c=document.getElementById('cab');lastFocus=document.activeElement;c.className='cab '+h.cls;c.innerHTML=cabinet(h);m.classList.add('on');document.body.style.overflow='hidden';document.getElementById('close').onclick=closeCab;document.getElementById('close').focus();animateCab(c,h);}
 function closeCab(){document.getElementById('modal').classList.remove('on');document.body.style.overflow='';if(lastFocus&&lastFocus.focus){lastFocus.focus();}}
 function trapFocus(e){const m=document.getElementById('modal');if(!m.classList.contains('on')||e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
-function animateCab(c,h){const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;const bars=c.querySelectorAll('.xp .bar i,.brow .track i');if(!rm){bars.forEach(b=>{const w=b.style.width;b.style.transition='none';b.style.width='0%';void b.offsetWidth;b.style.transition='';requestAnimationFrame(()=>{b.style.width=w;});});}
+function animateCab(c,h){const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;const bars=c.querySelectorAll('.xp .bar i,.brow .track i');if(!rm){bars.forEach(b=>{b.style.transformOrigin='left center';b.style.transition='none';b.style.transform='scaleX(0)';void b.offsetWidth;b.style.transition='transform .3s cubic-bezier(.23,1,.32,1)';requestAnimationFrame(()=>{b.style.transform='scaleX(1)';});});}
  c.querySelectorAll('.xpw').forEach(el=>{const v=parseInt(el.textContent.replace(/\D/g,''),10)||0;if(rm||!v)return;const t0=performance.now(),D=700;const step=t=>{const k=Math.min(1,(t-t0)/D);const e=1-Math.pow(1-k,3);el.textContent='+'+Math.round(v*e);if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});}
 function checkStale(){const el=document.getElementById('stale');const m=(WEEK.updated||'').match(/(\d\d)\.(\d\d)/);if(!m)return;const now=new Date();let y=now.getFullYear();let d=new Date(y,+m[2]-1,+m[1]);if(d>now)d=new Date(y-1,+m[2]-1,+m[1]);const days=Math.floor((now-d)/864e5);if(days>8){el.hidden=false;el.textContent=`Свиток не обновлялся ${days} дн. (последнее обновление ${WEEK.updated}). Цифры ниже — за неделю ${WEEK.label}; текущая неделя ещё не сведена.`;}}
 function render(){
@@ -512,18 +543,20 @@ function render(){
  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCab();trapFocus(e);});
  const A=WEEK.arena; document.getElementById('arena-eyebrow').textContent='период: '+A.period;
  document.getElementById('arena').innerHTML=[['Лучшая смена в деньгах',A.z],['Лучшая смена по бару',A.bar],['Лучшее оформление',A.form]].map(([t,x])=>`<div class="trophy"><div class="eyebrow">${t}</div><div class="who">${esc(x.who)}</div><div class="val">${esc(x.val)}</div><div class="sub">${esc(x.sub)}</div></div>`).join('');
+ const CIRCLE=WEEK.heroes.reduce((a,h)=>a+((h.path||{}).open||[]).filter(q=>q.x2&&q.tg&&q.otz).length,0);
+ const V90=WEEK.heroes.filter(h=>h.all>=3&&pct(h.strict,h.all)>=90).map(h=>h.name);
  const Q=[
   {t:'Ни один гость на кассе не остался без кэшбека',s:`сейчас ${T.missedCash} — у всей гильдии`,done:T.missedCash===0,r:'пир на смену'},
-  {t:'Каждое начисление подтверждено по данным',s:`${T.ok+T.lg} из ${T.all}`,done:T.un===0,r:'✦ всем'},
-  {t:'90 % начислений с кодом из словаря',s:'гильдия сейчас: '+pct(T.strict,T.strict+T.tol+T.none)+' % — Алина 91 %, Даниил 100 %',done:false,r:'+500 ₽ к зарплате каждому'},
-  {t:'Первый «полный круг» гильдии',s:'новый гость с Х2 + подпиской + отзывом у одного человека — пока 0 из '+WEEK.heroes.reduce((a,h)=>a+((h.path||{}).new||0),0)+' новых на неделе',done:false,r:'титул «Проводник» + 15 XP'},
-  {t:'Гость с онлайн-пополнением получил кэшбек при посадке',s:`за неделю таких гостей ${T.missedOnline} (было 11) — закроет Мастер`,done:false,r:'правило «посмотри баланс»'}
+  {t:'Каждое начисление подтверждено по данным',s:`${T.ok} из ${T.all}`,done:T.un===0,r:'✦ всем'},
+  {t:'90 % начислений с кодом из словаря',s:'гильдия: '+pct(T.strict,T.all)+' % с кодом · уже 90 % и выше: '+(V90.join(', ')||'пока никто'),done:WEEK.heroes.every(h=>h.all<3||pct(h.strict,h.all)>=90),r:'+500 ₽ к зарплате каждому'},
+  {t:'Первый «полный круг» гильдии',s:'новый гость с кэшбеком, подпиской и отзывом у одного человека — сейчас '+CIRCLE+' из '+WEEK.heroes.reduce((a,h)=>a+((h.path||{}).new||0),0)+' новых на неделе',done:CIRCLE>0,r:'титул «Проводник» + 15 XP'},
+  {t:'Гость с онлайн-пополнением получил кэшбек при посадке',s:`за неделю таких гостей ${T.missedOnline} — их закрывает Мастер`,done:false,r:'правило «посмотри баланс»'}
  ];
  document.getElementById('quests').innerHTML=Q.map(q=>`<div class="quest"><div class="qmark ${q.done?'done':'open'}">${q.done?'✓':'!'}</div><div class="q"><b>${q.t}</b><span>${q.s}</span></div><div class="reward">${q.r}</div></div>`).join('');
  document.getElementById('master-stats').textContent=`Доначислил ${WEEK.master.fixed} гостям · ${fmt(WEEK.master.fixedSum)} бонусов · тот же свиток, те же правила`;
  document.getElementById('master-word').textContent=WEEK.master.word;
- document.getElementById('weeks').innerHTML=WEEK.cup.map(c=>`<div class="week ${c.state==='next'?'now':''}"><b>${c.w}</b>${c.state==='next'?'идёт сейчас':(c.state==='done'?'сведена ✓':'впереди')}</div>`).join('');  if(WEEK.cupTable&&WEEK.cupTable.length){document.getElementById('cuptable').innerHTML=`<div style="font-size:14px;line-height:1.5"><p><b>Таблица Кубка на ${esc(WEEK.updated)}</b> — средняя мана сведённых недель месяца. Предварительно: места и премии фиксирует Мастер по итогам месяца.</p>`+WEEK.cupTable.slice(0,2).map((r,i)=>`<p class="mono">${i+1}. ${esc(r.name)} — мана ${r.mana} · смен в месяце ${r.shifts}</p>`).join('')+`<p style="color:var(--muted)">Своё место и ману каждый видит в личном кабинете. Отрыв маленький — всё решают оставшиеся недели.</p></div>`;}
- const cur=(list,buff)=>list.map(c=>`<div class="curse ${buff?'buff':''}"><div class="ico">${c.i}</div><div><b>${esc(c.n)}</b><p><span style="color:var(--text)">Когда:</span> ${esc(c.trig)}. <span style="color:var(--text)">Эффект:</span> ${esc(c.eff)}.${c.lift?` <span style="color:var(--text)">Снимается:</span> ${esc(c.lift)}.`:''}</p><div class="meta"><span>⏳ ${esc(c.dur)}</span></div></div></div>`).join('');
+ document.getElementById('weeks').innerHTML=WEEK.cup.map(c=>`<div class="week ${c.state==='next'?'now':''}"><b>${c.w}</b>${c.state==='next'?'идёт сейчас':(c.state==='done'?'сведена ✓':'впереди')}</div>`).join('');  if(WEEK.cupTable&&WEEK.cupTable.length){document.getElementById('cuptable').innerHTML=`<div style="font-size:14px;line-height:1.5"><p><b>Таблица Кубка на ${esc(WEEK.updated)}</b> — средняя мана сведённых недель месяца. Предварительно: места и премии фиксирует Мастер по итогам месяца.</p>`+WEEK.cupTable.slice(0,2).map((r,i)=>`<p class="mono">${i+1}. ${esc(r.name)} — мана ${r.mana} · смен ${r.shifts}${r.shifts>=10?' · в зачёте':` · до зачёта ещё ${10-r.shifts}`}</p>`).join('')+(WEEK.cupTable.length>1&&WEEK.cupTable[0].mana===WEEK.cupTable[1].mana?'<p style="color:var(--muted)">Мана вровень — порядок в таблице не место. Как делится ничья, Мастер объявит до итогов месяца.</p>':'')+`<p style="color:var(--muted)">Свою ману и сколько до соседа выше — в кабинете. Отрыв маленький, всё решают оставшиеся недели.</p></div>`;}
+ const cur=(list,buff)=>list.map(c=>`<div class="curse ${buff?'buff':''}"><div class="ico">${c.i}</div><div><b>${esc(c.n)}</b><p><span style="color:var(--text)">Когда:</span> ${esc(c.trig)}. <span style="color:var(--text)">Эффект:</span> ${esc(c.eff)}.${c.lift?` <span style="color:var(--text)">Снимается:</span> ${esc(c.lift)}.`:''}</p><div class="meta"><span>срок: ${esc(c.dur)}</span></div></div></div>`).join('');
  document.getElementById('curses').innerHTML=cur(CURSES,false); document.getElementById('buffs').innerHTML=cur(BUFFS,true);
  document.getElementById('codes').innerHTML=CODES.map(c=>`<div class="code"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div><p>${esc(c.p)}</p><div class="ex">${esc(c.ex)}</div></div>`).join('');
  document.getElementById('faq').innerHTML=FAQ.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
