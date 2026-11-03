@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c0b11">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Гильдия Яркой 40</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Russo+One&family=Prata&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+/* Свиток 2.0 · «лаунчер гильдии»: одна тёмная сцена, золото — только на действиях, газетная строка Вестника — Prata, герои живут в состояниях из данных недели */
+:root{
+ --bg:#0c0b11;--s1:#15131c;--s2:#1d1a26;--s3:#262233;--line:rgba(255,255,255,.09);--ink:#f4f1ea;--mut:#ada6bb;--dim:#7d768c;
+ --gold:#f2b733;--gold2:#ffd970;--gink:#1a1206;--ok:#6fe3a3;--warm:#ff8a5c;--violet:#b98cff;--pink:#f58fbf;
+ --fae:#5fe3ee;--elf:#7ce38b;--mage:#b39bff;--war:#ff9a55;
+ --f-disp:'Russo One',Impact,system-ui,sans-serif;--f-paper:Prata,Georgia,serif;--f-body:Manrope,system-ui,-apple-system,'Segoe UI',sans-serif;--f-mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+ --ease:cubic-bezier(.23,1,.32,1);--ease-io:cubic-bezier(.77,0,.175,1);--r-m:16px;--r-l:22px;color-scheme:dark}
+*{box-sizing:border-box}
+html{background:var(--bg);scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--f-body);-webkit-tap-highlight-color:transparent;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+a{color:var(--gold2)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:10px}
+h1,h2,h3,h4{font-family:var(--f-disp);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.01em}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.press{transition:transform 160ms var(--ease),background-color 200ms var(--ease),filter 200ms var(--ease)}
+.press:active{transform:scale(.97)}
+@media (hover:hover){.press:hover{filter:brightness(1.08)}}
+
+/* верхняя планка */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:rgba(12,11,17,.92)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:rgba(12,11,17,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:12px;min-height:58px}
+.emb{width:36px;height:40px;flex:none;clip-path:polygon(50% 0,100% 16%,100% 62%,50% 100%,0 62%,0 16%);background:linear-gradient(160deg,#ffd970,#c98620);display:grid;place-items:center;font:14px var(--f-disp);color:var(--gink)}
+.top b{display:block;font:17px/1.1 var(--f-disp)}
+.top small{display:block;font:13px/1.3 var(--f-paper);color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .tt{min-width:0;flex:1}
+.dnav{display:none;gap:6px}
+.dnav a{font-size:14px;font-weight:700;color:var(--mut);text-decoration:none;padding:8px 14px;border-radius:12px}
+.dnav a.on{background:var(--s2);color:var(--ink)}
+.stale{background:#3a2412;color:#ffd2b0;font-size:14px;padding:10px 16px;text-align:center}
+
+/* вкладки */
+.tab{display:none;padding-block:16px 8px}.tab.on{display:block;animation:tin 260ms var(--ease)}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}}
+.sec{margin-top:28px}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sec-h h2{font-size:22px}
+.eyebrow{font-size:13.5px;color:var(--mut)}
+.kick{font:12.5px var(--f-paper);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px}
+.kick::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(242,183,51,.5),transparent)}
+.card{background:linear-gradient(180deg,var(--s2),var(--s1));border:1px solid var(--line);border-radius:var(--r-l);padding:16px}
+.note{font-size:14px;color:var(--mut)}
+.grid2{display:grid;gap:28px}
+.legend{font-size:13px;color:var(--dim);margin-top:6px}
+
+/* первая полоса */
+.front{display:grid;gap:16px}
+.key{position:relative;border-radius:var(--r-l);overflow:hidden;min-height:330px;background:var(--s1)}
+.key img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:18% 30%;animation:pan 18s var(--ease-io) infinite alternate}
+@keyframes pan{to{object-position:82% 30%}}
+.key::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,17,0) 30%,rgba(12,11,17,.6) 60%,var(--bg) 100%)}
+.tape{position:absolute;z-index:2;right:-46px;top:24px;transform:rotate(35deg);width:190px;height:16px;background:repeating-linear-gradient(-45deg,var(--gold) 0 12px,#111 12px 24px);opacity:.85}
+.lead{position:relative;z-index:3;margin-top:-132px;padding-inline:4px}
+.lead h1{font-size:clamp(28px,5vw,40px);line-height:1.08;margin:8px 0 8px;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.lead p{color:#ddd7e6;font-size:16px;max-width:52ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:14px;font-weight:800;font-size:16px;text-decoration:none}
+.btn-p{background:var(--gold);color:var(--gink);box-shadow:0 6px 22px -8px rgba(242,183,51,.7),inset 0 -2px 0 rgba(0,0,0,.18)}
+.btn-s{background:var(--s2);border:1px solid var(--line);color:var(--ink)}
+.btn-g{min-height:44px;padding:0 6px;color:var(--gold2);font-weight:700}
+.btn .ar{transition:transform 200ms var(--ease)}.btn:active .ar{transform:translateX(3px)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+/* сторис героев */
+.st{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 4px;scrollbar-width:none}.st::-webkit-scrollbar{display:none}
+.s{flex:none;width:76px;text-align:center}
+.s .r{position:relative;width:70px;height:70px;margin:0 auto;border-radius:50%;padding:3px;background:conic-gradient(var(--gold),var(--warm),var(--violet),var(--gold))}
+.s.done .r{background:conic-gradient(var(--ok),#3fd0c9,var(--ok))}
+.s img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 14%;border:3px solid var(--bg)}
+.s .e{position:absolute;right:-4px;bottom:-2px;font-size:19px;line-height:1}
+.s b{display:block;font-size:13.5px;font-weight:700;margin-top:6px}
+
+/* цель + безубыток + кубок */
+.goal{display:flex;gap:16px;align-items:center}
+.ring{width:72px;height:72px;flex:none;border-radius:50%;display:grid;place-items:center}
+.ring div{width:56px;height:56px;border-radius:50%;background:var(--s1);display:grid;place-items:center;font:20px var(--f-disp)}
+.goal b{display:block;font-size:16px}
+.meter{height:9px;border-radius:99px;background:#2b2735;overflow:hidden;margin-top:10px}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--warm));border-radius:99px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.tile{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:12px;min-width:0}
+.tile span{display:block;font-size:13px;color:var(--mut)}
+.tile b{display:block;font:18px/1.25 var(--f-disp);margin-top:4px;font-variant-numeric:tabular-nums}
+.tile small{display:block;font-size:13px;color:var(--dim);margin-top:4px}
+.tile.wide{grid-column:1/-1}
+.cupline{border:1px solid rgba(242,183,51,.35);background:linear-gradient(180deg,rgba(242,183,51,.10),rgba(242,183,51,.02))}
+.cupline b{font:20px/1.2 var(--f-disp);display:block;margin:6px 0 6px}
+.cupline p{font-size:15px;color:#e2dccf}
+
+/* карточки героев */
+.heroes{display:grid;gap:12px}
+.hero{position:relative;display:grid;grid-template-columns:118px 1fr;gap:14px;text-align:left;background:linear-gradient(180deg,var(--s2),var(--s1));border:1px solid var(--line);border-radius:var(--r-l);padding:12px;overflow:hidden;--c:var(--gold)}
+.hero::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--c);opacity:.0}
+.hero .pt{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:var(--s3)}
+.hero .pt img,.hero .pt video,.cab .pt img,.cab .pt video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 14%;transition:opacity 300ms var(--ease)}
+.pt video{opacity:0}.pt video.on{opacity:1}
+.lvl{position:absolute;top:8px;left:8px;z-index:2;font:12px var(--f-disp);color:var(--gink);background:var(--gold);border-radius:7px;padding:2px 7px}
+.hero .nm{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hero .nm h3{font-size:20px}
+.cls{font:11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.state{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:var(--s3);border-radius:99px;padding:3px 10px;margin-top:6px}
+.hero .ttl{font-size:14px;color:var(--mut);margin-top:6px}
+.stepc{margin-top:8px;font-size:14px;background:rgba(242,183,51,.08);border:1px solid rgba(242,183,51,.25);border-radius:12px;padding:8px 10px}
+.stepc b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold2)}
+.mana{margin-top:10px}
+.mana .row{display:flex;justify-content:space-between;font-size:13px;color:var(--mut)}
+.mana .bar{height:8px;border-radius:99px;background:#2b2735;overflow:hidden;margin-top:4px}
+.mana .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--c),var(--gold));transform-origin:left center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.stat{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:7px 6px;text-align:center;min-width:0}
+.stat b{display:block;font:17px/1.15 var(--f-disp);font-variant-numeric:tabular-nums}
+.stat span{display:block;font-size:12px;color:var(--mut);line-height:1.25}
+@media (max-width:519px){.hero .stats{grid-template-columns:repeat(2,1fr)}}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.badge{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:rgba(0,0,0,.25)}
+.badge.gold{color:var(--gold2);border-color:rgba(242,183,51,.4)}.badge.ok{color:var(--ok);border-color:rgba(111,227,163,.4)}.badge.curse{color:var(--pink);border-color:rgba(245,143,191,.4)}
+.open{margin-top:10px;font-size:14px;font-weight:700;color:var(--gold2)}
+.fae{--c:var(--fae)}.elf{--c:var(--elf)}.mage{--c:var(--mage)}.war{--c:var(--war)}
+
+/* мем */
+.meme{position:relative;overflow:hidden;border-radius:var(--r-l);border:1px solid var(--line);background:var(--s1)}
+.meme img{width:100%;height:360px;object-fit:cover;object-position:50% 18%}
+.meme .cap{position:absolute;inset:0 0 auto;padding:16px 16px 48px;background:linear-gradient(180deg,rgba(0,0,0,.72),transparent);font:22px/1.18 var(--f-disp);text-wrap:balance}
+.meme .ft{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tagm{font-size:13px;font-weight:700;background:rgba(12,11,17,.8);padding:5px 11px;border-radius:99px}
+
+/* мастер, квесты, арена */
+.master{display:flex;gap:14px;align-items:flex-start}
+.master .av{width:48px;height:48px;flex:none;border-radius:14px;background:var(--s3);display:grid;place-items:center}
+blockquote{margin:8px 0 0;font:16px/1.6 var(--f-body);color:#ece6da;max-width:68ch}
+.quest{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.quest:first-child{border-top:0}
+.qm{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font:15px var(--f-disp);border:1px solid var(--line)}
+.qm.done{background:rgba(111,227,163,.15);color:var(--ok);border-color:rgba(111,227,163,.4)}.qm.open{color:var(--gold2)}
+.quest b{display:block;font-size:15.5px}.quest span{display:block;font-size:14px;color:var(--mut)}
+.quest .rw{font:12.5px var(--f-mono);color:var(--gold2);margin-top:4px}
+.arena{display:grid;gap:10px}
+.trophy{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:14px}
+.trophy .eyebrow{font-size:12.5px;letter-spacing:.05em;text-transform:uppercase}
+.trophy .who{font:22px var(--f-disp);color:var(--gold2);margin-top:4px}
+.trophy .val{font:15px var(--f-mono);margin-top:2px}
+.trophy .sub{font-size:13px;color:var(--mut);margin-top:4px}
+
+/* кубок */
+.weeks{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.weeks::-webkit-scrollbar{display:none}
+.week{flex:none;background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:13px;color:var(--mut)}
+.week b{display:block;font:14px var(--f-disp);color:var(--ink)}
+.week.now{border-color:rgba(242,183,51,.5)}
+.podium{display:grid;gap:10px;margin-top:14px}
+.pl{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:10px}
+.pl .av{width:56px;height:56px;border-radius:14px;overflow:hidden;background:var(--s3)}
+.pl .av img{width:100%;height:100%;object-fit:cover;object-position:50% 14%}
+.pl b{display:block;font:17px var(--f-disp)}.pl span{font-size:14px;color:var(--mut)}
+.rules{display:grid;gap:10px;margin-top:16px;font-size:15px;color:#d7d1e0}
+.rules p b{color:var(--ink)}
+.curses{display:grid;gap:10px}
+.curse{display:grid;grid-template-columns:44px 1fr;gap:12px;background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:12px}
+.curse .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:rgba(245,143,191,.12);border:1px solid rgba(245,143,191,.35)}
+.curse.buff .ico{background:rgba(111,227,163,.12);border-color:rgba(111,227,163,.35)}
+.curse b{display:block;font:15.5px var(--f-disp)}.curse p{font-size:14px;color:var(--mut);margin-top:4px}
+.curse .meta{font:12px var(--f-mono);color:var(--dim);margin-top:6px}
+.hd4{font:13px var(--f-disp);letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+
+/* библиотека */
+.ltabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:12px}.ltabs::-webkit-scrollbar{display:none}
+.ltab{flex:none;min-height:42px;padding:0 14px;border-radius:99px;background:var(--s2);border:1px solid var(--line);font-size:14.5px;font-weight:700;white-space:nowrap}
+.ltab[aria-selected=true]{background:var(--gold);color:var(--gink);border-color:transparent}
+.pane{display:none}.pane.on{display:block;animation:tin 240ms var(--ease)}
+.codes{display:grid;gap:10px}
+.code{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.code .k{font:17px var(--f-mono);font-weight:700;color:var(--gold2)}.code .v{font-size:14px;color:var(--mut)}
+.code p{font-size:14.5px;margin-top:6px}.code .ex{display:inline-block;margin-top:8px;font:13px var(--f-mono);background:var(--s3);border-radius:8px;padding:3px 8px}
+.two{display:grid;gap:12px}
+.box{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:14px;min-width:0}
+.box h4{font-size:15.5px;margin-bottom:8px}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14.5px}
+.steps{display:grid;gap:10px}
+.step{display:grid;gap:2px;font-size:14.5px;border-left:2px solid rgba(242,183,51,.4);padding-left:10px}
+.step span{color:var(--mut)}
+.faq details{border-top:1px solid var(--line);padding:12px 0}.faq details:first-child{border-top:0}
+.faq summary{cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:28px}
+.faq summary::after{content:"+";color:var(--gold2);font-weight:800;transition:transform 200ms var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:#d7d1e0;font-size:15px;margin-top:8px}
+
+/* летопись */
+.tblw{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+.tbl th{font-size:13px;color:var(--mut);font-weight:600}
+.tbl td.num{text-align:right;font-family:var(--f-mono)}
+
+/* нижнее меню */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:26;background:rgba(12,11,17,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px max(8px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+.nav .in{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.nav a{display:grid;place-items:center;gap:1px;min-height:52px;font-size:12.5px;font-weight:600;color:var(--mut);border-radius:14px;text-decoration:none}
+.nav a span{font-size:21px;line-height:1.2;transition:transform 200ms var(--ease)}
+.nav a.on{color:var(--ink);background:var(--s2)}.nav a.on span{transform:translateY(-1px) scale(1.08)}
+
+/* кабинет */
+.modal{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity 260ms var(--ease)}
+.modal.on{opacity:1;pointer-events:auto}
+.cab{position:absolute;inset:auto 0 0 0;max-height:94%;height:94%;overflow:auto;overscroll-behavior:contain;background:var(--bg);border-radius:24px 24px 0 0;border-top:1px solid var(--line);transform:translateY(102%);transition:transform 300ms var(--ease);padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+.modal.on .cab{transform:none}
+.cab .in{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.cab .bar0{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:10px;padding-block:10px;background:rgba(12,11,17,.92);backdrop-filter:blur(10px)}
+.cab .grab{width:42px;height:5px;border-radius:99px;background:#3a3546;margin:0 auto}
+.close{width:44px;height:44px;border-radius:12px;background:var(--s2);border:1px solid var(--line);display:grid;place-items:center}
+.cab .head{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:end;margin-top:4px}
+.cab .pt{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:var(--s3)}
+.cab .head h3{font-size:26px}
+.why{font-size:14px;color:var(--mut);margin-top:6px}
+.emo{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 0 2px}.emo::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 14px;border-radius:99px;background:var(--s2);border:1px solid var(--line);font-size:14px;font-weight:700;white-space:nowrap}
+.chip.on{background:var(--gold);color:var(--gink);border-color:transparent}
+.cab .blk{margin-top:14px}
+.kv{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.hint{background:rgba(242,183,51,.08);border:1px solid rgba(242,183,51,.28);border-radius:16px;padding:12px 14px;font-size:15px}
+.hint b{color:var(--gold2)}
+.funnel{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.funnel .f{background:var(--s2);border:1px solid var(--line);border-radius:12px;padding:10px;min-width:0}
+.funnel .f b{display:block;font:18px var(--f-disp)}.funnel .f span{display:block;font-size:13.5px}.funnel .f small{display:block;font-size:12.5px;color:var(--dim)}
+.tasks{margin-top:10px;background:var(--s2);border:1px solid var(--line);border-radius:14px;padding:12px}
+.tasks h5{margin:0 0 6px;font:13px var(--f-disp);letter-spacing:.05em;text-transform:uppercase;color:var(--gold2)}
+.tasks .t1{font-size:15px}
+.tasks details{margin-top:8px}.tasks summary{cursor:pointer;color:var(--gold2);font-weight:700;font-size:14px}
+.tasks ol{margin:6px 0 0;padding-left:18px;display:grid;gap:6px;font-size:14.5px}
+.qopen{list-style:none;margin:0;padding:0!important;display:grid;gap:6px}
+.qopen li{font-size:14px;background:var(--s2);border-radius:10px;padding:6px 10px}
+.qopen .ok{color:var(--ok)}.qopen .no{color:var(--warm)}.qopen .wait{color:var(--gold2)}.qopen .age{color:var(--dim)}
+.brow{display:grid;grid-template-columns:86px 1fr auto;gap:10px;align-items:center;font-size:14px;margin-top:8px}
+.brow .track{height:8px;border-radius:99px;background:#2b2735;overflow:hidden}
+.brow .track i{display:block;height:100%;background:var(--c);transform-origin:left center}
+.brow .r{font-family:var(--f-mono);font-size:13px;color:var(--mut)}
+.shw{overflow-x:auto;margin-top:10px;border:1px solid var(--line);border-radius:12px}
+.shifts{width:100%;border-collapse:collapse;font-size:14px;min-width:460px}
+.shifts th,.shifts td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;white-space:nowrap}
+.shifts th:first-child,.shifts td:first-child{text-align:left}
+.shifts th{font-size:12.5px;color:var(--mut);font-weight:600;background:var(--s2)}
+.shifts tr.prem td{color:var(--gold2)}
+.shifts tfoot td{font-weight:800;color:var(--ink);background:var(--s2)}
+.gold-b{border-color:rgba(242,183,51,.55)!important}
+
+@media (min-width:760px){
+ .front{grid-template-columns:1.25fr 1fr;align-items:start}
+ .key{min-height:420px}
+ .heroes{grid-template-columns:1fr 1fr}
+ .arena{grid-template-columns:repeat(3,1fr)}
+ .two{grid-template-columns:1fr 1fr}
+ .curses2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ .tiles{grid-template-columns:repeat(4,1fr)}.tile.wide{grid-column:span 2}
+ .kv{grid-template-columns:repeat(4,1fr)}
+ .funnel{grid-template-columns:repeat(5,1fr)}
+ .cab .head{grid-template-columns:200px 1fr}
+ .codes{grid-template-columns:1fr 1fr}
+ .podium{grid-template-columns:1fr 1fr}
+ .grid2{grid-template-columns:1fr 1fr;align-items:start}
+}
+@media (min-width:1000px){
+ .dnav{display:flex}
+ .nav{display:none}
+ body{padding-bottom:24px}
+ .heroes{grid-template-columns:repeat(4,1fr)}
+ .hero{grid-template-columns:1fr}
+ .cab{inset:4% auto auto 50%;transform:translate(-50%,24px);opacity:0;width:min(920px,94vw);height:92%;border-radius:24px;border:1px solid var(--line);transition:transform 300ms var(--ease),opacity 220ms var(--ease)}
+ .modal.on .cab{transform:translate(-50%,0);opacity:1}
+}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition-duration:1ms!important}
+ .key img{object-position:50% 30%}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <div class="emb" aria-hidden="true">40</div>
+ <div class="tt"><b>Гильдия Яркой 40</b><small id="stamp"></small></div>
+ <nav class="dnav" aria-label="Разделы"><a href="#vestnik" data-t="vestnik">📰 Вестник</a><a href="#kubok" data-t="kubok">🏆 Кубок</a><a href="#biblioteka" data-t="biblioteka">📚 Библиотека</a><a href="#letopis" data-t="letopis">📜 Летопись</a></nav>
+</div></header>
+<div class="stale" id="stale" hidden></div>
+<div class="stale" style="background:#1d2a3a;color:#cfe3ff">Стенд нового дизайна · данные те же, что в живом свитке · живой свиток не изменён</div>
+
+<main class="wrap">
+<!-- ВЕСТНИК -->
+<section class="tab on" id="t-vestnik" aria-label="Вестник">
+ <div class="front">
+  <div>
+   <div class="key"><img src="img/sbor.webp" alt="Четыре героя гильдии у Кубка" fetchpriority="high"><div class="tape"></div></div>
+   <div class="lead">
+    <div class="kick" id="lead-kick">Первая полоса</div>
+    <h1 id="lead-h"></h1>
+    <p id="lead-p"></p>
+    <div class="cta"><button class="btn btn-p press" id="me-btn">Открыть мой кабинет <span class="ar">→</span></button></div>
+   </div>
+  </div>
+  <div style="display:grid;gap:16px">
+   <div class="st" id="stories" aria-label="Герои"></div>
+   <div class="card">
+    <div class="goal"><div class="ring" id="goal-ring"><div id="goal-big"></div></div>
+     <div><b id="goal-h">🎯 Цель гильдии на неделю</b><p class="note" id="goal-text">гостей, оставшихся без кэшбека на кассе. Ноль — и вся гильдия получает пир 🍗</p></div></div>
+    <div class="meter"><i id="goal-meter" style="width:0%"></i></div>
+   </div>
+   <div class="card cupline" id="cup-lead"></div>
+  </div>
+ </div>
+
+ <div class="sec" id="heroes-s">
+  <div class="sec-h"><h2>🛡️ Герои недели</h2><span class="eyebrow">мана — качество смен (0–100) · уровень — опыт, не падает · XP — за путь гостя</span></div>
+  <div class="heroes" id="heroes"></div>
+ </div>
+
+ <div class="sec grid2">
+  <div>
+   <div class="sec-h"><h2>😂 Мем недели</h2></div>
+   <div class="meme" id="meme"></div>
+   <p class="legend">Мем собирается сам из данных недели: кто сделал хорошее — тот и герой мема.</p>
+  </div>
+  <div>
+   <div class="sec-h"><h2>🪶 Слово Мастера</h2></div>
+   <div class="card"><div class="master"><div class="av"><svg width="30" height="30" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 34 L24 8 L38 34 Z" fill="#f2b733"/><circle cx="24" cy="30" r="7" fill="#0c0b11"/><path d="M6 40 H42" stroke="#f2b733" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div><div class="eyebrow" style="color:var(--gold2);font-weight:700">Дмитрий · Мастер гильдии</div><div class="eyebrow" id="master-stats"></div><blockquote id="master-word"></blockquote></div></div></div>
+  </div>
+ </div>
+
+ <div class="sec" id="quests-s">
+  <div class="sec-h"><h2>📌 Доска квестов</h2><span class="eyebrow">закрываются по понедельникам</span></div>
+  <div class="card" id="quests"></div>
+ </div>
+
+ <div class="sec" id="arena-s">
+  <div class="sec-h"><h2>⚔️ Арена смен</h2><span class="eyebrow" id="arena-eyebrow"></span></div>
+  <div class="arena" id="arena"></div>
+  <p class="legend">На арене показывается только победитель — мест и таблицы нет. Смена = 12 часов по графику. Выручка и бар берутся из рабочей книги (лист «Смены»), оформление — из книги контроля бонусов.</p>
+ </div>
+
+ <div class="sec" id="be-s">
+  <div class="sec-h"><h2>🏰 Безубыток клуба</h2><span class="eyebrow" id="be-days"></span></div>
+  <div class="card">
+   <div class="eyebrow" id="be-month"></div>
+   <div style="font:22px/1.2 var(--f-disp);margin-top:4px" class="num" id="be-big"></div>
+   <div class="note" id="be-sub"></div>
+   <div class="meter"><i id="be-meter" style="width:0%"></i></div>
+   <div class="tiles">
+    <div class="tile"><span>Прогноз месяца по темпу</span><b id="be-fc"></b><small id="be-fc-sub"></small></div>
+    <div class="tile"><span>Порог дня</span><b id="be-day"></b><small id="be-day-sub"></small></div>
+    <div class="tile wide"><span>Ступень 2 — оборот</span><b id="be-t2"></b><small id="be-t2-sub"></small></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- КУБОК -->
+<section class="tab" id="t-kubok" aria-label="Кубок">
+ <div class="sec-h"><h2>🏆 Кубок гильдии</h2><span class="eyebrow" id="cup-eyebrow"></span></div>
+ <div class="card">
+  <div class="weeks" id="weeks"></div>
+  <div id="cuptable"></div>
+  <div class="rules" style="margin-top:16px">
+  <p><b>Одно правило.</b> Комментарий к начислению начинается с кода: <span class="mono">КЭШБЕК · ТГ100 · КОМП · ОТЗЫВ · ЛЬГОТА</span>. Дальше — своими словами. Опечатки не считаются.</p>
+  <p><b>Личная награда.</b> Неделя, где ≥ 90 % твоих начислений с кодом, — <b>+500 ₽ премией к зарплате</b>. Могут получить все четверо.</p>
+  <p><b>Пир гильдии.</b> Неделя, когда ни один гость на кассе не остался без кэшбека, — каждому из гильдии одна позиция из бара на выбор: напиток, батончик или сэндвич. Выдача в пятницу.</p>
+  <p><b>Кубок месяца.</b> <span id="cup-rule"></span></p>
+  <p><b>Что такое мана.</b> Не «сколько», а «какая доля»: кэшбек без пропусков, подписка новых гостей на канал, точность начислений. День сравнивается с днём, ночь — с ночью. Формула — в Библиотеке, вкладка «За что растёшь».</p>
+  <p><b>Что такое уровень.</b> Каждые 10 подтверждённых начислений за последние 4 недели — +1 уровень. Не падает. LVL 8 — титул «Наставник», LVL 10 — награда по выбору Мастера.</p>
+  <p><b>Чего нет.</b> Штрафов, последних мест и разборов. Ниже 90 % — просто следующая неделя. Испытания (ниже) ставят рост на паузу, но никогда не трогают деньги.</p>
+  <p><b>Считаются</b> только подтверждённые начисления — те, за которыми есть пополнение или акция.</p>
+ </div>
+ </div>
+ <div class="sec" id="curses-s">
+  <div class="sec-h"><h2>🌗 Испытания и блага</h2><span class="eyebrow">всё обратимо · денег не касается</span></div>
+  <div class="curses2">
+   <div><h4 class="hd4" style="color:var(--pink)">Испытания — снимаются делом</h4><div class="curses" id="curses"></div></div>
+   <div><h4 class="hd4" style="color:var(--ok);margin-top:16px">Блага — за сделанное</h4><div class="curses" id="buffs"></div></div>
+  </div>
+  <p class="legend">Испытание вешает система по понедельникам по фактам из лога, не Мастер по настроению. Каждое написано так, чтобы было понятно, чем оно снимается. Пока висит — рост уровня на паузе. Уровень никогда не падает.</p>
+ </div>
+</section>
+
+<!-- БИБЛИОТЕКА -->
+<section class="tab" id="t-biblioteka" aria-label="Библиотека">
+ <div class="sec-h"><h2>📚 Библиотека гильдии</h2><span class="eyebrow">словарь · как оформить акцию · за что растёшь · вопросы</span></div>
+ <div class="ltabs" role="tablist">
+  <button class="ltab press" role="tab" aria-selected="true" data-p="dict">Словарь</button>
+  <button class="ltab press" role="tab" aria-selected="false" data-p="how">Как оформить акцию</button>
+  <button class="ltab press" role="tab" aria-selected="false" data-p="grow">За что растёшь</button>
+  <button class="ltab press" role="tab" aria-selected="false" data-p="faq">Вопросы</button>
+ </div>
+ <div class="pane on" id="p-dict">
+  <p class="note" style="margin-bottom:12px"><b style="color:var(--ink)">Что такое словарь.</b> Это шесть коротких слов-кодов. Первое слово в комментарии к начислению — код. По нему система за секунду понимает, что это было, а Мастер не задаёт вопросов. Всё, что после кода, — на твоё усмотрение.</p>
+  <div class="codes" id="codes"></div>
+ </div>
+ <div class="pane" id="p-how">
+  <div class="two">
+   <div class="box"><h4>Кэшбек за пополнение (акция УК)</h4><div class="steps">
+    <div class="step"><b>Гость пополнил на 1 000 ₽ и больше</b><span>наличными, картой или онлайн через приложение — считается любое.</span></div>
+    <div class="step"><b>Открой гостя → «Добавить бонусы»</b><span>сумма по шкале: 1 000 → 300 · 1 500 → 500 · 2 500 → 1 000 · 5 000+ → 2 500.</span></div>
+    <div class="step"><b>Комментарий: <span class="mono">КЭШБЕК 1000</span></b><span>код и сумма пополнения. Дальше можно ничего не писать.</span></div>
+    <div class="step"><b>Гость пополнил онлайн до прихода?</b><span>при посадке взгляни на баланс и историю: пополнил 1 000+, кэшбека нет — начисли сейчас. Это главный источник пропусков.</span></div>
+   </div></div>
+   <div class="box"><h4>Остальные коды</h4><div class="steps">
+    <div class="step"><b>Новый гость Х2 <span style="color:#f0b48f">(по 20.09 включительно)</span></b><span>С 21.09 акция закрыта: новичку ставится кэшбек с первого пополнения от 1 000 ₽. Как было до 20.09: первое пополнение нового гостя удваивается бонусами, потолок 2 000: 500 → 500, 1 190 → 1 190, 5 000 → 2 000. Любая сумма — Х2, не кэшбек; кэшбек — со второго пополнения. Комментарий <span class="mono">Х2 500</span>.</span></div>
+    <div class="step"><b>Телеграм-канал</b><span>подписался при тебе — 100 бонусов. Комментарий <span class="mono">ТГ100</span>.</span></div>
+    <div class="step"><b>Компенсация</b><span>гость пострадал (завис ПК, сбой, долго ждал) — компенсируй и напиши причину: <span class="mono">КОМП завис ПК 12</span>.</span></div>
+    <div class="step"><b>Отзыв</b><span>оставил отзыв на картах при тебе — <span class="mono">ОТЗЫВ Яндекс</span>.</span></div>
+    <div class="step"><b>Льгота сотруднику</b><span>себе или коллеге по просьбе — разрешено Мастером, лимита нет. Комментарий <span class="mono">ЛЬГОТА</span>. Без кода это выглядит как ошибка.</span></div>
+   </div></div>
+  </div>
+ </div>
+ <div class="pane" id="p-grow">
+  <div class="two">
+   <div class="box"><h4 style="color:var(--ok)">Что растит героя</h4><ul>
+    <li><b>Мана (индекс качества, 0–100)</b> — доля сделанного из положенного за неделю. Три части с весами: <b>кэшбек без пропусков 35</b> (пополнения от 1 000 ₽ на кассе, получившие кэшбек), <b>подписка новых гостей 20</b> (ТГ100 / новые гости), <b>точность 25</b> (подтверждённые / все начисления). Часть, для которой на неделе не было случаев (например, новых гостей), не считается — вес делится между остальными. Расшифровка своей маны — в кабинете.</li>
+    <li><b>Задача по гостю</b> (TG / отзыв) живёт 3 недели. Не вернулся гость — уходит в архив без последствий.</li>
+    <li><b>Уровень</b> — каждые 10 подтверждённых начислений за последние 4 недели дают +1. Не падает никогда. LVL 8 — «Наставник», LVL 10 — награда Мастера. <b>XP недели</b> — подтверждённое начисление +1, подписка нового гостя +5, отзыв нового гостя +5.</li>
+    <li><b>Код с первого слова</b> — условие зачёта: без кода действие в ману и XP не попадает.</li>
+    <li><b>Бейджи</b> — «Чистая неделя» (всё подтвердилось), «Никто не ушёл без кэшбека», «90 % с кодом», «Смена-5000» (бар ≥ 5 000 ₽ за смену).</li>
+    <li><b>Пир гильдии</b> — общая цель: 0 гостей без кэшбека на кассе.</li>
+    <li><b>Премия KPI бара</b> — по шкале из рабочей книги: бар за смену от 3 000 ₽ → 5 %, 3 500 → 6 %, 4 000 → 7 %, 4 500 → 8 %, 5 000 → 9 %, 5 500 → 10 %, 10 000 → 15 %. Это единственные живые деньги на свитке, и они только плюс.</li>
+   </ul></div>
+   <div class="box"><h4 style="color:var(--curse)">Что вешает проклятие</h4><ul>
+    <li><b>Начисление без основания</b> — бонусы есть, пополнения или акции нет, и на вопрос Мастера нет ответа 3 дня → «Ледяные оковы».</li>
+    <li><b>Три гостя без кэшбека за неделю</b> на кассе → «Слепота кассы».</li>
+    <li><b>Меньше половины начислений с кодом</b> после 15.09 → «Немота свитка».</li>
+    <li><b>Ноль смен с баром ≥ 3 000 ₽ за две недели</b> → «Пустой кошель».</li>
+    <li><b>Чего не бывает:</b> вычетов из зарплаты, штрафов, «последних мест», списаний бонусов. Проклятие — это тусклая карточка и заморозка роста до исправления.</li>
+   </ul></div>
+  </div>
+ </div>
+ <div class="pane" id="p-faq"><div class="card faq" id="faq"></div></div>
+</section>
+
+<!-- ЛЕТОПИСЬ -->
+<section class="tab" id="t-letopis" aria-label="Летопись">
+ <div class="sec-h"><h2>📜 Летопись недели</h2><span class="eyebrow">цифры, из которых собран свиток</span></div>
+ <div class="card"><div class="tblw"><table class="tbl" id="ledger"></table></div>
+ <p class="legend">Источник — лог ручных начислений и лог онлайн-пополнений CLS, рабочая книга (смены, бар). Льгота сотрудникам в общей таблице показана одной строкой; в кабинете — по каждому герою. Онлайн-пополнения без кэшбека герою не вменяются: с кассы их не видно. Вопрос по своей строке — Мастеру в личку, ответ в тот же день.</p></div>
+ <p class="legend" id="fresh"></p>
+</section>
+</main>
+
+<nav class="nav" aria-label="Разделы"><div class="in">
+ <a href="#vestnik" data-t="vestnik" class="press"><span>📰</span>Вестник</a>
+ <a href="#kubok" data-t="kubok" class="press"><span>🏆</span>Кубок</a>
+ <a href="#biblioteka" data-t="biblioteka" class="press"><span>📚</span>Библиотека</a>
+ <a href="#letopis" data-t="letopis" class="press"><span>📜</span>Летопись</a>
+</div></nav>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Кабинет героя"><div class="cab" id="cab"></div></div>
+
+<script>
+// ===== ДАННЫЕ НЕДЕЛИ — заменяется прогоном по понедельникам (inject_week.py) =====
+const WEEK = {label:"26.10–01.11.2026",updated:"03.11",fresh:"начисления CLS по 01.11 · смены и бар по 31.10 · безубыток по 31.10",club:{mtd:818420,be:915269,days:31,daysTotal:31,forecast:818420,perDay:29525,gapDay:3124,target2:1200000,month:"октябрь"},team:{all:63,ok:59,lg:8,un:4,missedCash:2,missedOnline:1,lgSum:7270,strict:57,tol:3,none:3},goalTarget:0,master:{fixed:0,fixedSum:0,word:"Неделя 26.10–01.11. Начислений 63, подтверждены логом 59. «Голос словаря» (90 % начислений с кодом и выше) у двоих: Алина и Евгения, каждой +500 ₽ к зарплате. На кассе без кэшбека остались 2 гостя с пополнением от 1 000 ₽, неделей раньше было 5. До пира в эту пятницу не хватило двух, цель та же: ноль. Ещё одно пополнение пришло частью через приложение, касса такие не видит, поэтому при посадке смотрим баланс. Два гостя прошлой недели уже получили свой кэшбек, их строки закрыты. Новых гостей 48, подписка на канал у 4, здесь наш главный резерв. Вопросов два: комментарий «BodyCam» без кода из словаря и кэшбек на пополнение частями. Напишите, как было, и строки закроются."},arena:{period:"октябрь 2026 · по 31.10 (рабочая книга, лист «Смены», сверено с CLS)",z:{who:"Евгения",val:"28 041 ₽",sub:"день 17.10 · выручка Z за смену · лучшая смена месяца"},bar:{who:"Евгения",val:"6 280 ₽",sub:"день 17.10 · бар за смену · премия 10 %"},form:{who:"Алина",val:"24 из 24 подтверждено",sub:"26.10–01.11 · точность начислений недели"}},heroes:[{name:"Алина",cls:"fae",clsName:"Фея-эльфийка дневной смены",all:24,ok:24,strict:24,missed:1,level4w:72,note:"24 из 24 подтверждено",step:"Пополнение от 1 000 ₽: сразу «КЭШБЕК» по шкале, пока гость у стойки.",sum:9350,shifts:"по книге: 27.10, 28.10, 31.10",issues:[],missedList:["28.10 15:18 · гость …5722 · пополнение 1 040 ₽ · положено 300"],bar:{period:"октябрь 2026 · по 31.10",list:[{"d":"03.10","s":"Д","z":23784,"bar":3160,"p":5,"prem":158},{"d":"04.10","s":"Д","z":20748,"bar":4220,"p":7,"prem":295},{"d":"07.10","s":"Д","z":13295,"bar":3800,"p":6,"prem":228},{"d":"08.10","s":"Д","z":15551,"bar":3420,"p":5,"prem":171},{"d":"12.10","s":"Д","z":16650,"bar":1850,"p":0,"prem":0},{"d":"14.10","s":"Д","z":14465,"bar":2480,"p":0,"prem":0},{"d":"15.10","s":"Д","z":15742,"bar":3270,"p":5,"prem":164},{"d":"16.10","s":"Д","z":16536,"bar":2220,"p":0,"prem":0},{"d":"19.10","s":"Д","z":12910,"bar":3570,"p":6,"prem":214},{"d":"20.10","s":"Д","z":9666,"bar":1190,"p":0,"prem":0},{"d":"23.10","s":"Д","z":16420,"bar":4100,"p":7,"prem":287},{"d":"24.10","s":"Д","z":26216,"bar":4340,"p":7,"prem":304},{"d":"27.10","s":"Д","z":16120,"bar":2290,"p":0,"prem":0},{"d":"28.10","s":"Д","z":20199,"bar":5850,"p":10,"prem":585},{"d":"31.10","s":"Д","z":12020,"bar":1360,"p":0,"prem":0}]},curses:[],path:{new:18,x2:0,tg:4,otz:0,circle:0,open:[{tel:"3092",d:"01.11",x2:false,tg:false,otz:false},{tel:"6741",d:"31.10",x2:false,tg:false,otz:false},{tel:"5489",d:"27.10",x2:false,tg:false,otz:false},{tel:"9222",d:"28.10",x2:false,tg:true,otz:false},{tel:"2327",d:"28.10",x2:false,tg:true,otz:false},{tel:"3922",d:"31.10",x2:false,tg:false,otz:false},{tel:"4041",d:"27.10",x2:false,tg:false,otz:false},{tel:"1752",d:"01.11",x2:false,tg:false,otz:false},{tel:"9596",d:"28.10",x2:false,tg:true,otz:false},{tel:"1913",d:"01.11",x2:false,tg:false,otz:false},{tel:"3873",d:"28.10",x2:false,tg:false,otz:false},{tel:"9795",d:"27.10",x2:false,tg:false,otz:false},{tel:"6645",d:"28.10",x2:false,tg:true,otz:false},{tel:"6833",d:"28.10",x2:false,tg:false,otz:false},{tel:"0786",d:"28.10",x2:false,tg:false,otz:false},{tel:"5344",d:"01.11",x2:false,tg:false,otz:false},{tel:"3553",d:"27.10",x2:false,tg:false,otz:false},{tel:"3343",d:"28.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:44,xpList:["24 × подтверждённое начисление · +24","4 × подписка нового гостя (ТГ100) · +20","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[14,4200],ЛЬГОТА:[5,4650],ТГ100:[4,400],ОТЗЫВ:[1,100]},lg:[5,4650],mana:77,manaNote:"кэшбек 11 из 12 пополнений ≥1 000 на кассе · подписка 4 из 18 новых · точность 24/24 = 100 %",hint:"24 начисления, все 24 подтверждены и все с кодом из словаря: это «Голос словаря», +500 ₽ к зарплате. Кэшбек получили 11 из 12 гостей, кто пополнил от 1 000 ₽, а на канал подписались 4 из 18 новых. Спасибо! Гостям прошлой недели …7995 и …8880 ты начислила кэшбек 27.10, и их строки закрылись. Остался один: 28.10 …5722 пополнил 1 040 ₽, ему положено 300. Придёт снова, начисли «КЭШБЕК 1000». Кубок месяца: мана месяца 69,7, до соседа выше 1,0; смен в месяце 15, в зачёте."},{name:"Евгения",cls:"elf",clsName:"Эльфийка-хранительница",all:18,ok:18,strict:18,missed:0,level4w:68,note:"18 из 18 подтверждено · касса без пропусков кэшбека",step:"Новым гостям фраза про канал: «в канале кодовое слово, сто бонусов сразу». Как подать, решаешь ты.",sum:7365,shifts:"по книге: 26.10, 29.10, 30.10",issues:[],missedList:[],bar:{period:"октябрь 2026 · по 30.10",list:[{"d":"01.10","s":"Д","z":14395,"bar":5300,"p":9,"prem":477},{"d":"02.10","s":"Д","z":17069,"bar":4478,"p":7,"prem":313},{"d":"05.10","s":"Д","z":6800,"bar":1180,"p":0,"prem":0},{"d":"06.10","s":"Д","z":20649,"bar":5290,"p":9,"prem":476},{"d":"09.10","s":"Д","z":7187,"bar":1936,"p":0,"prem":0},{"d":"10.10","s":"Д","z":18311,"bar":3981,"p":6,"prem":239},{"d":"11.10","s":"Д","z":20645,"bar":4687,"p":8,"prem":375},{"d":"13.10","s":"Д","z":8331,"bar":1046,"p":0,"prem":0},{"d":"17.10","s":"Д","z":28041,"bar":6280,"p":10,"prem":628},{"d":"18.10","s":"Д","z":23742,"bar":5153,"p":9,"prem":464},{"d":"21.10","s":"Д","z":15406,"bar":3686,"p":6,"prem":221},{"d":"22.10","s":"Д","z":14485,"bar":1620,"p":0,"prem":0},{"d":"25.10","s":"Д","z":12674,"bar":1140,"p":0,"prem":0},{"d":"26.10","s":"Д","z":24232,"bar":3572,"p":6,"prem":214},{"d":"29.10","s":"Д","z":21537,"bar":4030,"p":7,"prem":282},{"d":"30.10","s":"Д","z":17195,"bar":4532,"p":8,"prem":363}]},curses:[],path:{new:16,x2:0,tg:0,otz:0,circle:0,open:[{tel:"0324",d:"26.10",x2:false,tg:false,otz:false},{tel:"1192",d:"30.10",x2:false,tg:false,otz:false},{tel:"4775",d:"26.10",x2:false,tg:false,otz:false},{tel:"8496",d:"29.10",x2:false,tg:false,otz:false},{tel:"8496",d:"29.10",x2:false,tg:false,otz:false},{tel:"5406",d:"30.10",x2:false,tg:false,otz:false},{tel:"5604",d:"29.10",x2:false,tg:false,otz:false},{tel:"0186",d:"26.10",x2:false,tg:false,otz:false},{tel:"0950",d:"29.10",x2:false,tg:false,otz:false},{tel:"7755",d:"29.10",x2:false,tg:false,otz:false},{tel:"3319",d:"29.10",x2:false,tg:false,otz:false},{tel:"3009",d:"29.10",x2:false,tg:false,otz:false},{tel:"7825",d:"26.10",x2:false,tg:false,otz:false},{tel:"1523",d:"30.10",x2:false,tg:false,otz:false},{tel:"2720",d:"26.10",x2:false,tg:false,otz:false},{tel:"8345",d:"29.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:18,xpList:["18 × подтверждённое начисление · +18","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[14,4600],ЛЬГОТА:[3,2620],КОМП:[1,145]},lg:[3,2620],mana:75,manaNote:"кэшбек 13 из 13 пополнений ≥1 000 на кассе · подписка 0 из 16 новых · точность 18/18 = 100 %",hint:"18 начислений, все 18 подтверждены и все с кодом из словаря: это «Голос словаря», +500 ₽ к зарплате. Касса чистая. Все 13 гостей, кто пополнил от 1 000 ₽, получили кэшбек. С прошлой недели ждёт только …8785: 22.10 он пополнил 1 300 ₽, ему положено 300. Придёт снова, начисли «КЭШБЕК 1000», и строка закроется. Кубок месяца: мана месяца 70,7, до соседа выше 3,1; смен в месяце 16, в зачёте."},{name:"Даниил",cls:"mage",clsName:"Маг ночной смены",all:3,ok:3,strict:0,missed:0,level4w:30,note:"3 из 3 подтверждено · касса без пропусков кэшбека",step:"Код пиши как в памятке: «КЭШБЕК 1000», через Е. Остальное в комментарии на твоё усмотрение.",sum:1100,shifts:"по книге: 28.10, 29.10",issues:[],missedList:[],bar:{period:"октябрь 2026 · по 29.10",list:[{"d":"01.10","s":"Н","z":6110,"bar":1830,"p":0,"prem":0},{"d":"03.10","s":"Н","z":9144,"bar":3310,"p":5,"prem":166},{"d":"04.10","s":"Н","z":4185,"bar":1410,"p":0,"prem":0},{"d":"08.10","s":"Н","z":10665,"bar":2131,"p":0,"prem":0},{"d":"09.10","s":"Н","z":8503,"bar":3650,"p":6,"prem":219},{"d":"12.10","s":"Н","z":2603,"bar":960,"p":0,"prem":0},{"d":"13.10","s":"Н","z":8543,"bar":2220,"p":0,"prem":0},{"d":"17.10","s":"Н","z":14168,"bar":3271,"p":5,"prem":164},{"d":"18.10","s":"Н","z":14229,"bar":2599,"p":0,"prem":0},{"d":"20.10","s":"Н","z":2540,"bar":1850,"p":0,"prem":0},{"d":"21.10","s":"Н","z":13470,"bar":3340,"p":5,"prem":167},{"d":"24.10","s":"Н","z":10130,"bar":1760,"p":0,"prem":0},{"d":"25.10","s":"Н","z":9497,"bar":1120,"p":0,"prem":0},{"d":"28.10","s":"Н","z":10702,"bar":2210,"p":0,"prem":0},{"d":"29.10","s":"Н","z":11464,"bar":2840,"p":0,"prem":0}]},curses:[],path:{new:6,x2:0,tg:0,otz:0,circle:0,open:[{tel:"2050",d:"30.10",x2:false,tg:false,otz:false},{tel:"4495",d:"29.10",x2:false,tg:false,otz:false},{tel:"4682",d:"26.10",x2:false,tg:false,otz:false},{tel:"7749",d:"29.10",x2:false,tg:false,otz:false},{tel:"5062",d:"30.10",x2:false,tg:false,otz:false},{tel:"9942",d:"29.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:3,xpList:["3 × подтверждённое начисление · +3","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[3,1100]},lg:[0,0],mana:75,manaNote:"кэшбек 3 из 3 пополнений ≥1 000 на кассе · подписка 0 из 6 новых · точность 3/3 = 100 %",hint:"3 начисления, все 3 подтверждены, кэшбек у 3 из 3 пополнений от 1 000 ₽ на кассе. Код был записан «КЭШБЭК» через Э: система его поняла, а в «Голос словаря» идут коды как в памятке, «КЭШБЕК» через Е. С 24.10 ждут кэшбек двое гостей, …7123 и …3550, по 1 005 ₽, каждому положено 300. При следующем визите начисли «КЭШБЕК 1000», и строки закроются. Кубок месяца: мана месяца 61,0, до соседа выше 8,7; смен в месяце 15, в зачёте."},{name:"Владислав",cls:"war",clsName:"Воин ночи",all:18,ok:14,strict:15,missed:1,level4w:37,note:"14 из 18 подтверждено",step:"Любое начисление начинай с кода из памятки: «КЭШБЕК», «КОМП», «ТГ100». Причину после кода пиши как удобно.",sum:4779,shifts:"по книге: 26.10, 27.10, 30.10, 31.10",issues:["27.10 02:24 · гость …1701 · 93 · «BodyCam» — комментарий не опознан","27.10 02:24 · гость …4009 · 93 · «BodyCam» — комментарий не опознан","27.10 02:24 · гость …0495 · 93 · «BodyCam» — комментарий не опознан","30.10 22:41 · гость …4964 · 300 · «КЕШБЕК 1000» — бонус 300 ≠ ступени 0 (пополнение 200 ₽ 30.10 22:39 онлайн (ЛК))"],missedList:["30.10 23:08 · гость …9084 · пополнение 1 000 ₽ · положено 300"],bar:{period:"октябрь 2026 · по 31.10",list:[{"d":"02.10","s":"Н","z":6191,"bar":2100,"p":0,"prem":0},{"d":"05.10","s":"Н","z":8813,"bar":3030,"p":5,"prem":152},{"d":"06.10","s":"Н","z":4085,"bar":3240,"p":5,"prem":162},{"d":"07.10","s":"Н","z":4923,"bar":1120,"p":0,"prem":0},{"d":"10.10","s":"Н","z":13010,"bar":3100,"p":5,"prem":155},{"d":"11.10","s":"Н","z":15362,"bar":3510,"p":6,"prem":211},{"d":"14.10","s":"Н","z":9380,"bar":3070,"p":5,"prem":154},{"d":"15.10","s":"Н","z":10043,"bar":2410,"p":0,"prem":0},{"d":"16.10","s":"Н","z":10460,"bar":1640,"p":0,"prem":0},{"d":"19.10","s":"Н","z":7310,"bar":1300,"p":0,"prem":0},{"d":"22.10","s":"Н","z":5113,"bar":1870,"p":0,"prem":0},{"d":"23.10","s":"Н","z":11436,"bar":1330,"p":0,"prem":0},{"d":"26.10","s":"Н","z":13523,"bar":3050,"p":5,"prem":153},{"d":"27.10","s":"Н","z":12193,"bar":2460,"p":0,"prem":0},{"d":"30.10","s":"Н","z":13649,"bar":3300,"p":5,"prem":165},{"d":"31.10","s":"Н","z":15955,"bar":3350,"p":5,"prem":168}]},curses:[],path:{new:20,x2:0,tg:0,otz:0,circle:0,open:[{tel:"4448",d:"27.10",x2:false,tg:false,otz:false},{tel:"2420",d:"27.10",x2:false,tg:false,otz:false},{tel:"6942",d:"31.10",x2:false,tg:false,otz:false},{tel:"5808",d:"31.10",x2:false,tg:false,otz:false},{tel:"0001",d:"26.10",x2:false,tg:false,otz:false},{tel:"7007",d:"26.10",x2:false,tg:false,otz:false},{tel:"3864",d:"01.11",x2:false,tg:false,otz:false},{tel:"1025",d:"01.11",x2:false,tg:false,otz:false},{tel:"7921",d:"28.10",x2:false,tg:false,otz:false},{tel:"9717",d:"27.10",x2:false,tg:false,otz:false},{tel:"6860",d:"27.10",x2:false,tg:false,otz:false},{tel:"2458",d:"31.10",x2:false,tg:false,otz:false},{tel:"5652",d:"31.10",x2:false,tg:false,otz:false},{tel:"7778",d:"27.10",x2:false,tg:false,otz:false},{tel:"0297",d:"28.10",x2:false,tg:false,otz:false},{tel:"5268",d:"28.10",x2:false,tg:false,otz:false},{tel:"8888",d:"26.10",x2:false,tg:false,otz:false},{tel:"7764",d:"31.10",x2:false,tg:false,otz:false},{tel:"5039",d:"27.10",x2:false,tg:false,otz:false},{tel:"9604",d:"27.10",x2:false,tg:false,otz:false}],hist:{done:0,gone:0,missed:0}},xp:14,xpList:["14 × подтверждённое начисление · +14","0 × подписка нового гостя (ТГ100) · +0","0 × отзыв нового гостя · +0"],codes:{КЭШБЕК:[15,4500],НЕОПОЗНАНО:[3,279]},lg:[0,0],mana:64,manaNote:"кэшбек 10 из 11 пополнений ≥1 000 на кассе · подписка 0 из 20 новых · точность 14/18 = 78 %",hint:"18 начислений, 14 подтверждены, кэшбек у 10 из 11 пополнений от 1 000 ₽ на кассе. Один гость пока без кэшбека: 30.10 …9084, пополнение 1 000 ₽, положено 300. При следующем визите начисли «КЭШБЕК 1000», и строка закроется. Два вопроса. 27.10 в 02:24 трём гостям (…1701, …4009, …0495) начислено по 93 с комментарием «BodyCam», такого кода в словаре нет: если это компенсация, напиши, как было. И 30.10 гостю …4964 кэшбек 300 при пополнении частями: 500, 200 и 200 до начисления и ещё 100 после, всего 1 000 за 37 минут. Напиши, как было, решение примет Мастер. Кубок месяца: ты в числе лидеров, мана месяца 73,8; смен в месяце 16, в зачёте."}],cup:[{w:"28.09–04.10",state:"done"},{w:"05.10–11.10",state:"done"},{w:"12.10–18.10",state:"done"},{w:"19.10–25.10",state:"done"},{w:"26.10–01.11",state:"done"}],cupTable:[{name:"Владислав",mana:73.8,weeks:4,shifts:16,barIdx:104},{name:"Евгения",mana:70.7,weeks:4,shifts:16,barIdx:107},{name:"Алина",mana:69.7,weeks:4,shifts:15,barIdx:93},{name:"Даниил",mana:61.0,weeks:4,shifts:15,barIdx:96}],cupRule:"Мана месяца — среднее по сменам: мана каждой недели весит столько, сколько в ней твоих смен; считаем до десятой. 1-е место — 5 000 ₽, 2-е — 3 000 ₽. В зачёт — от 10 смен в месяце. Если мана равная, выше тот, у кого больше смен. Если и смен поровну — бар к своей смене: дневная смена сравнивается со средней дневной, ночная — со средней ночной. Полное равенство — призы за 1-е и 2-е места делятся поровну.",cupFinal:{month:"10.2026",monthGen:"октября",confirmed:"03.11",places:[{place:1,name:"Владислав",mana:73.8,shifts:16,prize:5000},{place:2,name:"Евгения",mana:70.7,shifts:16,prize:3000}],note:"решение Шефа 03.11 (R-041); премии — строками «Премия» 02.11 в ЗП ноября"}};
+// ===== СПРАВОЧНИКИ (меняются редко) =====
+const CODES=[
+ {k:"КЭШБЕК",v:"кэшбек за пополнение",p:"Акция УК. Пополнение от 1 000 ₽ — наличными, картой или онлайн. Шкала: 1 000 → 300 · 1 500 → 500 · 2 500 → 1 000 · 5 000+ → 2 500.",ex:"КЭШБЕК 1000"},
+ {k:"Х2",v:"ЗАКРЫТА 21.09.2026",p:"Акция закрыта с 21.09.2026. Возврат новых гостей по ней был 15 % против 37 % у новичков без акции — поэтому её убрали, а не потому, что экономили. Уже выданные Х2-бонусы у гостей остаются и не сгорают. Как работало до 20.09: Первое пополнение нового гостя удваивается бонусами: 500 → 500, 1 000 → 1 000. С 14.09: кэшбек на это же пополнение не ставится — новичку Х2, кэшбек со второго пополнения от 1 000 ₽.",ex:"Х2 500"},
+ {k:"ТГ100",v:"подписка на телеграм",p:"Гость подписался на канал клуба при тебе — 100 бонусов. Один раз на гостя.",ex:"ТГ100"},
+ {k:"КОМП",v:"компенсация гостю",p:"Что-то пошло не так по вине клуба — завис ПК, долго ждал, сбой. Обязательно причина после кода.",ex:"КОМП завис ПК 12, 40 мин"},
+ {k:"ОТЗЫВ",v:"отзыв на картах",p:"Гость оставил отзыв на Яндекс или 2ГИС при тебе. Напиши где.",ex:"ОТЗЫВ Яндекс"},
+ {k:"ЛЬГОТА",v:"сотруднику",p:"Бонусы себе или коллеге по его просьбе. Разрешено Мастером, лимита нет. Без кода выглядит как ошибка — с кодом это нормальная операция.",ex:"ЛЬГОТА Влад, выходной"}
+];
+const CURSES=[
+ {i:"◐",n:"Вопрос без ответа",trig:"по начислению задан вопрос, ответа нет 3 дня",eff:"рост уровня на паузе",lift:"ответить — снимается в тот же день",dur:"до ответа"},
+ {i:"◎",n:"Туман над кассой",trig:"за неделю 3 и больше гостей пополнили от 1 000 ₽ на кассе без кэшбека",eff:"неделя не идёт в «Зоркий глаз» и пир; мана — только по формуле, без доп. снижения",lift:"неделя с 0 таких гостей",dur:"1 неделя"},
+ {i:"◇",n:"Свиток без кода",trig:"меньше половины начислений с кодом",eff:"бейджи недели не выдаются",lift:"неделя с кодом от 50 %",dur:"1 неделя"},
+ {i:"▽",n:"Тихий бар",trig:"две недели подряд без смены с баром от 3 000 ₽",eff:"строка бара в кабинете без подсветки",lift:"одна смена от 3 000 ₽",dur:"до первой такой смены"}
+];
+const BUFFS=[
+ {i:"✦",n:"Чистая неделя",trig:"все начисления недели подтвердились",eff:"бейдж на карточке",lift:"",dur:"неделя"},
+ {i:"◆",n:"Зоркий глаз",trig:"ни один гость на кассе не ушёл без кэшбека",eff:"бейдж + вклад в пир гильдии",lift:"",dur:"неделя"},
+ {i:"★",n:"Голос словаря",trig:"≥ 90 % начислений с кодом",eff:"+500 ₽ премией к зарплате",lift:"",dur:"с 15.09"},
+ {i:"❖",n:"Пир гильдии",trig:"у всей гильдии 0 гостей без кэшбека на кассе",eff:"каждому позиция из бара на выбор: напиток, батончик или сэндвич (в пятницу)",lift:"",dur:"неделя"},
+ {i:"▲",n:"Смена-5000",trig:"бар за смену ≥ 5 000 ₽",eff:"бейдж + премия 9 % по шкале книги",lift:"",dur:"навсегда в летописи"},
+ {i:"◈",n:"Благословение Мастера",trig:"Мастер назвал тебя в слове недели",eff:"снимает одно любое испытание",lift:"",dur:"разово"}
+];
+const FAQ=[
+ ["Я начислил, а система пишет «неподтверждённое». Это штраф?","Нет. Это значит, что рядом не нашлось пополнения или акции. Мастер задаст один вопрос — «что это было?» — и, если ответ есть, строка закрывается. Штрафов на свитке нет вообще."],
+ ["Гость пополнил онлайн, я этого не видел. Почему у меня пропуск?","Онлайн-пропуски герою не вменяются — они у Мастера. В твою строку «гостей без кэшбека» попадают только пополнения на кассе, которые ты видел сам."],
+ ["Можно ли начислить себе бонусы?","Да, Мастер разрешил, лимита нет. Одно условие — код ЛЬГОТА первым словом. Без кода это выглядит как ошибка, и тебе зададут вопрос."],
+ ["Как быстро растёт уровень?","Каждые 10 подтверждённых начислений за последние 4 недели — +1 уровень. Уровень никогда не падает; проклятие только останавливает рост, пока висит."],
+ ["Что даёт кубок?",(WEEK.cupRule||"")+" Отдельно от кубка: неделя, где 90 % твоих начислений с кодом (от 3 начислений), — +500 ₽ премией к зарплате, могут получить все."],
+ ["Откуда берётся премия за бар?","Из рабочей книги клуба, лист «Смены»: бар за твою смену против шкалы (от 3 000 ₽ → 5 % … 10 000 → 15 %). Считается автоматически, попадает в зарплату."],
+ ["Новый гость пополнил на 1 000 — что ставить?","С 21.09 — кэшбек. Акция Х2 закрыта: на первое пополнение новичка от 1 000 ₽ ставится кэшбек по шкале УК, и в мана-индексе он считается за две операции. До 20.09 включительно на это же пополнение ставился Х2 — те начисления остаются в силе, бонусы у гостей не сгорают."],
+ ["Что такое мана и почему она не 100 %?","Мана — не «сколько ты сделал», а «какая доля гостей получила то, что им положено»: кэшбек за пополнение, подписку новых гостей, точность начислений. Если новых гостей на неделе не было, подписка не считается, и мана строится на кэшбеке и точности. Из чего сложилась твоя мана — в кабинете, под подсказкой."],
+ ["Зачем уровень, если премия по мане?","Мана — деньги месяца, уровень — статус. LVL 8 даёт титул «Наставник», LVL 10 — награду по выбору Мастера. Уровень не падает никогда, мана — обнуляется каждый месяц."],
+ ["Кто видит мой кабинет?","Все, у кого есть ссылка на свиток, — как и общую таблицу. Внутри нет ничего, чего не было бы в логе CLS. Это витрина честных данных, а не досье."]
+];
+
+// ===== Герои 2.0: картинки и ролики состояний =====
+const KEY={fae:"alina",elf:"evgeniya",mage:"daniil",war:"vlad"};
+const EMO={delo:["🔮","в деле"],radost:["🎉","радость"],triumf:["🏆","триумф"],gordost:["🏅","гордость"],azart:["⚡","азарт"],otdyh:["🌙","отдых"]};
+const IMG=(cls,st)=>`img/${KEY[cls]}_${st}.webp`, VID=(cls,st)=>`v/${KEY[cls]}_${st}.mp4`;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pct=(a,b)=>b?Math.round(100*a/b):0;
+const level=n=>Math.max(1,Math.floor(n/10)+1);
+const fmt=n=>Number(n).toLocaleString('ru-RU');
+const m1=n=>Number(n).toFixed(1).replace('.',',');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+/* состояние героя — только из данных недели, грустных нет */
+function stateOf(h){
+ const A=WEEK.arena||{}, F=WEEK.cupFinal, p=pct(h.strict,h.all);
+ if(!h.all) return ['otdyh','на этой неделе начислений не было — отдыхает'];
+ if(F&&F.places&&F.places[0]&&F.places[0].name===h.name) return ['triumf',`Кубок ${F.monthGen} — первое место`];
+ const won=[['z','лучшая смена в деньгах'],['bar','лучшая смена по бару'],['form','лучшее оформление']].filter(([k])=>A[k]&&A[k].who===h.name).map(x=>x[1]);
+ if(won.length) return ['gordost','Арена: '+won.join(', ')];
+ if(p>=90&&h.all>=3) return ['gordost','«Голос словаря»: '+p+' % начислений с кодом'];
+ if(h.ok===h.all&&h.missed===0) return ['radost','чистая неделя: всё подтверждено, никто без кэшбека'];
+ const P=h.path||{}; if((P.tg||0)>=3) return ['azart',`подписка на канал у ${P.tg} новых гостей`];
+ if(h.ok===h.all) return ['radost',`все ${h.all} начислений подтверждены`];
+ return ['delo','неделя в работе'];
+}
+function vtag(cls,st,cl){return `<img src="${IMG(cls,st)}" alt="" loading="lazy"><video muted loop playsinline preload="none" aria-hidden="true" data-src="${VID(cls,st)}" class="${cl||''}"></video>`;}
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;v.play().catch(()=>{});}else v.pause();}),{rootMargin:'120px'}):null;
+function wire(root){if(RM)return;(root||document).querySelectorAll('video[data-src]').forEach(v=>{v.onplaying=()=>v.classList.add('on');if(io)io.observe(v);else{v.src=v.dataset.src;v.play().catch(()=>{});}});}
+
+function heroCard(h,i){
+ const p=pct(h.strict,h.all); const clean=h.ok===h.all; const cursed=h.curses&&h.curses.length; const [st,why]=stateOf(h);
+ const badges=[clean?'<span class="badge ok">✦ Чистая неделя</span>':'', h.missed===0?'<span class="badge gold">◆ Зоркий глаз</span>':'', (p>=90&&h.all>=3)?'<span class="badge gold">★ Голос словаря</span>':'', h.bar&&h.bar.list.some(x=>x.bar>=5000)?'<span class="badge gold">▲ Смена-5000</span>':'', ...(h.curses||[]).map(c=>`<span class="badge curse">${esc(c)}</span>`)].join('');
+ return `<article class="hero press ${h.cls} ${cursed?'cursed':''}" tabindex="0" role="button" aria-label="Открыть кабинет: ${esc(h.name)}" data-i="${i}">
+  <div class="pt"><span class="lvl">LVL ${level(h.level4w)}</span>${vtag(h.cls,st)}</div>
+  <div style="min-width:0">
+   <div class="nm"><h3>${esc(h.name)}</h3></div><div class="cls">${esc(h.clsName)}</div>
+   <div class="state" title="${esc(why)}">${EMO[st][0]} ${EMO[st][1]}</div>
+   <div class="ttl">${esc(h.note)}</div>${h.step?`<div class="stepc"><b>Шаг на смену</b>${esc(h.step)}</div>`:''}
+   <div class="mana"><div class="row"><span>Мана недели</span><span class="mono">${h.mana}%</span></div><div class="bar"><i style="width:${Math.min(100,h.mana)}%"></i></div><div class="legend" style="margin-top:4px">с кодом ${p} % · XP недели +${h.xp}</div></div>
+   <div class="stats"><div class="stat"><b>${h.all}</b><span>начислений</span></div><div class="stat"><b>${h.ok}</b><span>подтверждено</span></div><div class="stat"><b>${h.strict}</b><span>с кодом</span></div><div class="stat"><b>${(h.path||{}).new||0}</b><span>новых гостей</span></div></div>
+   <div class="badges">${badges}</div>
+   <div class="open">Открыть кабинет →</div>
+  </div>
+ </article>`;
+}
+function pathBlock(h){
+ const P=h.path||{new:0,x2:0,tg:0,otz:0,circle:0,open:[]};
+ const f=(n,l,d)=>`<div class="f"><b>${n}</b><span>${l}</span><small>${d}</small></div>`;
+ const CIRC=(P.open||[]).filter(q=>q.x2&&q.tg&&q.otz).length; const N=P.new; const nd=(k)=>N?`${N} / ${k}`:'—';
+ const funnel=`<div class="funnel">${f(N,'новых гостей','зарегистрировались у тебя')}${f(P.x2,'кэшбек новичку',N?'положен при пополнении от 1 000 ₽':'новых не было')}${f(nd(P.tg),'подписка TG',N?`новых гостей подписались ${P.tg} из ${N}`:'новых не было')}${f(nd(P.otz),'отзыв',N?`новых гостей оставили ${P.otz} из ${N}`:'новых не было')}${f(nd(CIRC),'полный круг',N?`кэшбек, TG и отзыв у одного гостя: ${CIRC}`:'—')}</div>${N?'':'<p class="legend">На этой неделе новых гостей у тебя не было — воронка пустая, XP за путь гостя не начислялся. Это не минус: мана считается по остальным частям.</p>'}
+ <p class="legend">Формат «новых / сделано»: сколько новых гостей зарегистрировалось у тебя за неделю и скольким из них сделан шаг. TG и отзыв здесь — только новые гости; начисления старым гостям видны в «Что начислял».</p>`;
+ const PH={tg:'«В канале кодовое слово на бонусы — подпишись, покажи, +100 сразу»',otz:'«Оставьте отзыв о клубе — покажите, начислю бонус»'};
+ const openArr=(P.open||[]);
+ const upd=(WEEK.updated||'').match(/(\d\d)\.(\d\d)/); const ageW=(d)=>{const m=(d||'').match(/(\d\d)\.(\d\d)/); if(!m||!upd) return 0; const y=new Date().getFullYear(); const a=new Date(y,+m[2]-1,+m[1]), b=new Date(y,+upd[2]-1,+upd[1]); return Math.max(0,Math.floor((b-a)/6048e5));};
+ const mk=(ok,label,extra)=>ok?`${label} <span class="ok">✓</span>`:`${label} <span class="no">✗</span>${extra||''}`;
+ const open=openArr.slice(0,6).map(q=>{
+   const o=q.owe&&q.owe.x2; const x2=o?`Х2 <span class="${o.status==='closed'?'no':'wait'}" title="${esc(o.note||'')}">${o.status==='closed'?'закрыто Мастером':'решает Мастер'}</span>`:(q.x2?'кэшбек <span class="ok">✓</span>':'');
+   const w=ageW(q.d); const age=w>=1?` <span class="age">${w+1}-я нед.</span>`:'';
+   return `<li>${[`тел. …${q.tel}`,`${q.d}${age}`,x2,mk(q.tg,'TG'),mk(q.otz,'отзыв')].filter(Boolean).join(' · ')}</li>`;}).join('');
+ const more=openArr.length>6?`<li style="color:var(--mut)">… и ещё ${openArr.length-6} — в понедельничной книге</li>`:'';
+ const HI=P.hist||{done:0,gone:0,missed:0}; const hist=`<p class="legend">Архив: закрыто ${HI.done} · гость не вернулся ${HI.gone} · упущенных визитов ${HI.missed}. Задача по гостю живёт 3 недели. Не пришёл — уходит в архив, без последствий.</p>`;
+ const cnt=(k)=>openArr.filter(q=>!q[k]&&!(q.owe&&q.owe[k])).length; const oweN=openArr.filter(q=>q.owe&&q.owe.x2&&q.owe.x2.status!=='closed').length;
+ const T=[]; if(oweN) T.push(`Гостей с вопросом по Х2 — ${oweN}: Мастер решает, доначислять ли; тебе — ничего не делать до его слова.`);
+ if(h.missed) T.unshift(`У ${h.missed} ${h.missed===1?'гостя':'гостей'} пополнение от 1 000 ₽ на кассе без кэшбека. При следующем визите посмотри баланс и начисли «КЭШБЕК» по шкале. Список — в «Вопросах и пропусках».`);
+ if(cnt('tg')) T.push(`Новым гостям без подписки (${cnt('tg')} из ${N}) одна фраза при следующем визите: ${PH.tg}`);
+ if(cnt('otz')&&N>=3) T.push(`После хорошей смены предложи гостю отзыв: ${PH.otz}`);
+ const tasks=T.length?`<div class="tasks"><h5>Главное на ближайшие смены</h5><p class="t1">${T[0]}</p>${T.length>1?`<details><summary>ещё ${T.length-1}</summary><ol>${T.slice(1).map(t=>`<li>${t}</li>`).join('')}</ol></details>`:''}<p class="legend">Как сказать — решаешь ты. Плитка станет зелёной в понедельник, когда шаг закрыт.</p></div>`:'';
+ const xp=(h.xpList||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+ return `${funnel}${tasks}
+ <div class="two" style="margin-top:12px">
+  <div class="box"><h4>Гости недели — что закрыто, что предложить</h4><ul class="qopen">${open||'<li style="color:var(--mut)">новых гостей на неделе не было</li>'}${more}</ul><p class="legend">✓ — сделано · ✗ — предложи при следующем визите. ✗ — не оценка: гость мог отказаться; отметка ПРЕДЛ ТГ / ПРЕДЛ ОТЗ в комментарии CLS покажет, что фраза была.</p>${hist}</div>
+  <div class="box"><h4>Откуда XP</h4><ul>${xp||'<li style="color:var(--mut)">пока 0</li>'}<li style="color:var(--mut)">подтверждённое начисление +1 · подписка нового гостя (ТГ100) +5 · отзыв нового гостя +5</li></ul></div>
+ </div>`;
+}
+function cabinet(h){
+ const p=pct(h.strict,h.all); const lv=level(h.level4w); const toNext=10-(h.level4w%10); const [st,why]=stateOf(h);
+ const codes=Object.entries(h.codes||{}); const max=codes.length?Math.max(...codes.map(c=>c[1][0])):1;
+ const bars=codes.map(([k,[n,s]])=>`<div class="brow"><span class="mono">${esc(k)}</span><div class="track"><i style="width:${pct(n,max)}%"></i></div><span class="r">${n} · ${fmt(s)}</span></div>`).join('');
+ const L=h.bar.list; const B={shifts:L.length,sum:L.reduce((a,x)=>a+x.bar,0),over:L.filter(x=>x.bar>=3000).length,kpi:L.reduce((a,x)=>a+x.prem,0)}; B.avg=B.shifts?Math.round(B.sum/B.shifts):0; const bestS=L.reduce((a,x)=>x.bar>(a?a.bar:-1)?x:a,null);
+ let run=0; const shiftRows=L.map(x=>{run+=x.prem;return `<tr class="${x.prem?'prem':''}"><td>${x.d} ${x.s}</td><td>${fmt(x.z)}</td><td>${fmt(x.bar)}</td><td>${x.p?x.p+' %':'—'}</td><td>${x.prem?'+'+fmt(x.prem):'—'}</td><td>${fmt(run)}</td></tr>`}).join('');
+ const issues=(h.issues.length?h.issues:["Неподтверждённых начислений нет — всё сошлось с логом."]).map(x=>`<li>${esc(x)}</li>`).join('');
+ const missed=(h.missedList.length?h.missedList:["Никто из гостей на твоей кассе не ушёл без кэшбека."]).map(x=>`<li>${esc(x)}</li>`).join('');
+ const curses=(h.curses&&h.curses.length)?h.curses.map(c=>`<span class="badge curse">${esc(c)}</span>`).join(' '):'<span class="badge ok">нет</span>';
+ const chips=Object.keys(EMO).map(k=>`<button class="chip press ${k===st?'on':''}" data-emo="${k}">${EMO[k][0]} ${EMO[k][1]}</button>`).join('');
+ return `<div class="in">
+ <div class="bar0"><button class="close press" id="close" aria-label="Закрыть кабинет"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button><div class="grab"></div><div style="width:44px"></div></div>
+ <div class="head ${h.cls}"><div class="pt" id="cab-pt">${vtag(h.cls,st)}</div>
+  <div><div class="cls">${esc(h.clsName)} · LVL ${lv}</div><h3>${esc(h.name)}</h3>
+   <div class="state">${EMO[st][0]} ${EMO[st][1]}</div><p class="why">Почему так: ${esc(why)}.</p></div></div>
+ <div class="emo" role="group" aria-label="Посмотреть героя в разных состояниях">${chips}</div>
+ <div class="blk"><h4 style="font-size:15px;margin-bottom:8px">Неделя ${esc(WEEK.label)} · ${esc(h.shifts)}</h4>
+  <div class="kv"><div class="stat"><b>${h.all}</b><span>начислений</span></div><div class="stat"><b>${fmt(h.sum)}</b><span>бонусов выдано</span></div><div class="stat"><b>${h.mana}%</b><span>мана недели</span></div><div class="stat"><b>${h.missed}</b><span>гостей без кэшбека</span></div></div></div>
+ <div class="blk hint"><b>Куда расти:</b> ${esc(h.hint)}</div>${h.manaNote?`<p class="legend">Из чего мана ${h.mana} %: ${esc(h.manaNote)}</p>`:''}
+ <div class="blk box ${h.cls}"><h4>Путь гостя · XP недели +${h.xp}</h4>${pathBlock(h)}</div>
+ <div class="blk two ${h.cls}">
+  <div class="box"><h4>Что начислял</h4>${bars||'<p class="note">Начислений за неделю нет.</p>'}</div>
+  <div class="box"><h4>Уровень и прогресс</h4>
+   <div class="mana"><div class="row"><span>LVL ${lv} → ${lv+1}</span><span class="mono">ещё ${toNext} подтверждённых</span></div><div class="bar"><i style="width:${(h.level4w%10)*10}%"></i></div></div>
+   <ul style="margin-top:10px"><li><b>${h.level4w}</b> подтверждённых за 4 недели</li><li>Испытания: ${curses}</li><li style="color:var(--mut)">LVL 5 — приоритет смен · LVL 8 — «Наставник» · LVL 10 — награда Мастера</li></ul></div>
+ </div>
+ <div class="blk two">
+  <div class="box"><h4>Льгота сотрудникам</h4><ul>${h.self?`<li>Себе: <b>${h.self[0]}</b> опер. · <b>${fmt(h.self[1])}</b> бонусов</li><li>Коллегам по их просьбе: <b>${h.mates[0]}</b> опер. · <b>${fmt(h.mates[1])}</b></li>${h.got&&h.got[0]?`<li>Коллеги начислили тебе: <b>${h.got[0]}</b> опер. · <b>${fmt(h.got[1])}</b></li>`:''}`:`<li>За неделю: <b>${(h.lg||[0,0])[0]}</b> опер. · <b>${fmt((h.lg||[0,0])[1])}</b> бонусов</li>`}<li style="color:var(--mut)">Лимита нет. Первое слово — ЛЬГОТА.</li></ul></div>
+  <div class="box"><h4>Вопросы и пропуски</h4><ul>${issues}${missed}</ul></div>
+ </div>
+ <div class="blk box"><h4>💰 Премия KPI бара · ${esc(h.bar.period)}</h4>
+  <div class="kv"><div class="stat"><b>${B.shifts}</b><span>смен</span></div><div class="stat"><b>${fmt(B.avg)} ₽</b><span>бар в среднем за смену</span></div><div class="stat"><b>${B.over} из ${B.shifts}</b><span>смен с премией (от 3 000)</span></div><div class="stat gold-b"><b>${fmt(B.kpi)} ₽</b><span>премия к доплате за период</span></div></div>
+  <div class="shw"><table class="shifts"><thead><tr><th>Смена</th><th>Z ₽</th><th>Бар ₽</th><th>%</th><th>Премия</th><th>Накопл.</th></tr></thead><tbody>${shiftRows}</tbody><tfoot><tr><td colspan="4" style="text-align:left">Итого к доплате по KPI бара</td><td colspan="2">${fmt(B.kpi)} ₽</td></tr></tfoot></table></div>
+  <p class="legend">Лучшая смена: <b style="color:var(--ink)">${bestS?fmt(bestS.bar)+' ₽ ('+bestS.d+' '+bestS.s+')':'—'}</b>. Премия = % от бара за смену: 3 000 → 5 % · 3 500 → 6 % · 4 000 → 7 % · 4 500 → 8 % · 5 000 → 9 % · 5 500 → 10 % · 10 000 → 15 %. Ниже 3 000 — премии нет, но и вычета нет. Считается из рабочей книги (лист «Смены»), попадает в зарплату месяца.</p>
+ </div>
+ </div>`;
+}
+/* кабинет: открытие, закрытие, адрес #geroy-… */
+let lastFocus=null, curCab=-1;
+function openCab(i,noHash){const h=WEEK.heroes[i];const m=$('#modal'),c=$('#cab');lastFocus=document.activeElement;curCab=i;c.className='cab '+h.cls;c.innerHTML=cabinet(h);c.scrollTop=0;m.classList.add('on');document.body.style.overflow='hidden';$('#close').onclick=()=>closeCab();$('#close').focus({preventScroll:true});
+ c.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{c.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));const pt=$('#cab-pt');pt.innerHTML=vtag(h.cls,b.dataset.emo);wire(pt);});
+ wire(c);animateCab(c);if(!noHash)history.replaceState(null,'','#geroy-'+KEY[h.cls]);}
+function closeCab(){if(curCab<0)return;curCab=-1;$('#modal').classList.remove('on');document.body.style.overflow='';$$('#cab video').forEach(v=>v.pause());history.replaceState(null,'','#'+(curTab||'vestnik'));if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});}
+function trapFocus(e){const m=$('#modal');if(!m.classList.contains('on')||e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],summary,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
+function animateCab(c){if(RM)return;c.querySelectorAll('.mana .bar i,.brow .track i').forEach(b=>{b.style.transition='none';b.style.transform='scaleX(0)';void b.offsetWidth;b.style.transition='transform .3s cubic-bezier(.23,1,.32,1)';requestAnimationFrame(()=>{b.style.transform='scaleX(1)';});});}
+function checkStale(){const el=$('#stale');const m=(WEEK.updated||'').match(/(\d\d)\.(\d\d)/);if(!m)return;const now=new Date();let y=now.getFullYear();let d=new Date(y,+m[2]-1,+m[1]);if(d>now)d=new Date(y-1,+m[2]-1,+m[1]);const days=Math.floor((now-d)/864e5);if(days>8){el.hidden=false;el.textContent=`Свиток не обновлялся ${days} дн. (последнее обновление ${WEEK.updated}). Цифры ниже — за неделю ${WEEK.label}; текущая неделя ещё не сведена.`;}}
+
+/* вкладки по адресу */
+let curTab='vestnik';
+function showTab(t){if(!document.getElementById('t-'+t))t='vestnik';curTab=t;$$('.tab').forEach(s=>s.classList.toggle('on',s.id==='t-'+t));$$('[data-t]').forEach(a=>a.classList.toggle('on',a.dataset.t===t));}
+function route(){const hsh=location.hash.slice(1);const g=hsh.match(/^geroy-(\w+)$/);if(g){const i=WEEK.heroes.findIndex(h=>KEY[h.cls]===g[1]);if(i>=0){showTab('vestnik');openCab(i,true);return;}}if(curCab>=0)closeCab();showTab(hsh||'vestnik');}
+$$('[data-t]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();history.replaceState(null,'','#'+a.dataset.t);showTab(a.dataset.t);scrollTo({top:0,behavior:RM?'auto':'smooth'});}));
+
+/* «мой кабинет»: выбор героя запоминается в этом браузере */
+function meIdx(){try{const k=localStorage.getItem('gy40_me');const i=WEEK.heroes.findIndex(h=>KEY[h.cls]===k);return i;}catch(e){return -1}}
+function pickMe(){const m=$('#modal'),c=$('#cab');lastFocus=document.activeElement;curCab=99;c.className='cab';c.innerHTML=`<div class="in"><div class="bar0"><button class="close press" id="close" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button><div class="grab"></div><div style="width:44px"></div></div><h3 style="font-size:22px;margin:8px 0 4px">Кто ты в гильдии?</h3><p class="note">Выбери себя один раз — в следующий раз кнопка откроет твой кабинет сразу.</p><div class="heroes" style="margin-top:14px">${WEEK.heroes.map((h,i)=>`<button class="pl press ${h.cls}" data-me="${i}"><div class="av"><img src="${IMG(h.cls,'osnova')}" alt=""></div><div style="text-align:left"><b>${esc(h.name)}</b><span>${esc(h.clsName)}</span></div></button>`).join('')}</div></div>`;m.classList.add('on');document.body.style.overflow='hidden';$('#close').onclick=()=>{curCab=0;closeCab();};c.querySelectorAll('[data-me]').forEach(b=>b.onclick=()=>{const i=+b.dataset.me;try{localStorage.setItem('gy40_me',KEY[WEEK.heroes[i].cls])}catch(e){}openCab(i);});}
+$('#me-btn').addEventListener('click',()=>{const i=meIdx();if(i>=0)openCab(i);else pickMe();});
+
+function render(){
+ const T=WEEK.team, F=WEEK.cupFinal;
+ $('#stamp').textContent=`Вестник · неделя ${WEEK.label} · обновлён ${WEEK.updated}`;
+ $('#fresh').textContent=`Неделя ${WEEK.label} · свиток обновлён ${WEEK.updated}${WEEK.fresh?' · '+WEEK.fresh:''}`;
+ /* первая полоса */
+ if(F&&F.places&&F.places.length){const P=F.places;$('#lead-kick').textContent=`Первая полоса · Кубок ${F.monthGen}`;$('#lead-h').textContent=`${P[0].name} забирает Кубок ${F.monthGen}`;$('#lead-p').textContent=P.map(p=>`${p.place}-е место — ${p.name}: мана ${m1(p.mana)}, ${p.shifts} смен, премия ${fmt(p.prize)} ₽`).join('. ')+'. Премии придут с зарплатой.';}
+ else{$('#lead-kick').textContent=`Первая полоса · неделя ${WEEK.label}`;$('#lead-h').textContent=`${T.ok} из ${T.all} начислений подтверждены`;$('#lead-p').textContent=`Без кэшбека на кассе — ${T.missedCash}. Цель недели — ${WEEK.goalTarget}. Кабинет каждого героя — ниже.`;}
+ /* сторис */
+ $('#stories').innerHTML=WEEK.heroes.map((h,i)=>{const [st]=stateOf(h);return `<button class="s press ${['triumf','gordost','radost'].includes(st)?'done':''}" data-i="${i}" aria-label="Кабинет: ${esc(h.name)}"><div class="r"><img src="${IMG(h.cls,st)}" alt=""><span class="e">${EMO[st][0]}</span></div><b>${esc(h.name)}</b></button>`}).join('');
+ $$('#stories .s').forEach(b=>b.onclick=()=>openCab(+b.dataset.i));
+ /* цель */
+ const gp=T.missedCash===0?100:Math.max(6,100-T.missedCash*12);
+ $('#goal-big').textContent=T.missedCash; $('#goal-h').textContent=`🎯 Цель недели: ${T.missedCash} → ${WEEK.goalTarget}`;
+ $('#goal-ring').style.background=`conic-gradient(var(--gold) ${gp}%, #2b2735 0)`; $('#goal-meter').style.width=gp+'%';
+ /* кубок — полоса */
+ if(F){const P=F.places||[];$('#cup-lead').innerHTML=`<div class="kick">Кубок ${esc(F.monthGen)} · итог · подтверждён Мастером ${esc(F.confirmed)}</div><b>${esc(P[0]?P[0].name:'')} — первое место</b><p>${P.map(p=>`${p.place}-е место: ${esc(p.name)} — мана ${m1(p.mana)}, ${p.shifts} смен, премия ${fmt(p.prize)} ₽`).join(' · ')}. Новый кубок уже идёт — мана считается с нуля.</p><a class="btn btn-g press" href="#kubok" data-t2="kubok">Правила Кубка →</a>`;}
+ else{$('#cup-lead').innerHTML=`<div class="kick">Кубок месяца</div><b>Премия по мане</b><p>1-е место 5 000 ₽ · 2-е 3 000 ₽ · минимум 10 смен. Таблица и правила — во вкладке «Кубок».</p><a class="btn btn-g press" href="#kubok" data-t2="kubok">Открыть Кубок →</a>`;}
+ $$('[data-t2]').forEach(a=>a.onclick=e=>{e.preventDefault();history.replaceState(null,'','#kubok');showTab('kubok');scrollTo({top:0});});
+ /* герои */
+ const H=$('#heroes'); H.innerHTML=WEEK.heroes.map(heroCard).join('');
+ H.querySelectorAll('.hero').forEach(el=>{el.addEventListener('click',()=>openCab(+el.dataset.i));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCab(+el.dataset.i)}})});
+ $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeCab()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCab();trapFocus(e);});
+ /* мем недели — из данных */
+ const memes=[]; WEEK.heroes.forEach(h=>{if(h.all>=10&&h.ok===h.all)memes.push([h,'radost',`Когда ${h.ok} из ${h.all} начислений подтверждены 😌`]);});
+ const A=WEEK.arena||{}; const byName=n=>WEEK.heroes.find(h=>h.name===n);
+ if(A.z&&byName(A.z.who))memes.push([byName(A.z.who),'gordost',`Когда смена принесла ${A.z.val} 😎`]);
+ WEEK.heroes.forEach(h=>{if((h.path||{}).tg>=3)memes.push([h,'azart',`Когда ${h.path.tg} новых гостя подписались на канал ⚡`]);});
+ if(F&&F.places&&byName(F.places[0].name))memes.push([byName(F.places[0].name),'triumf',`Когда Кубок ${F.monthGen} — твой 🏆`]);
+ const M=memes[0]; $('#meme').innerHTML=M?`<img src="${IMG(M[0].cls,M[1])}" alt="${esc(M[0].name)}" loading="lazy"><div class="cap">${esc(M[2])}</div><div class="ft"><span class="tagm">😂 Мем недели · ${esc(M[0].name)}</span></div>`:`<div class="card">На этой неделе мем ещё не сложился.</div>`;
+ /* мастер */
+ $('#master-stats').textContent=`Доначислил ${WEEK.master.fixed} гостям · ${fmt(WEEK.master.fixedSum)} бонусов · тот же свиток, те же правила`;
+ $('#master-word').textContent=WEEK.master.word;
+ /* арена */
+ $('#arena-eyebrow').textContent='период: '+A.period;
+ $('#arena').innerHTML=[['💰 Лучшая смена в деньгах',A.z],['🍹 Лучшая смена по бару',A.bar],['✍️ Лучшее оформление',A.form]].map(([t,x])=>`<div class="trophy"><div class="eyebrow">${t}</div><div class="who">${esc(x.who)}</div><div class="val">${esc(x.val)}</div><div class="sub">${esc(x.sub)}</div></div>`).join('');
+ /* квесты */
+ const CIRCLE=WEEK.heroes.reduce((a,h)=>a+((h.path||{}).open||[]).filter(q=>q.x2&&q.tg&&q.otz).length,0);
+ const V90=WEEK.heroes.filter(h=>h.all>=3&&pct(h.strict,h.all)>=90).map(h=>h.name);
+ const Q=[
+  {t:'Ни один гость на кассе не остался без кэшбека',s:`сейчас ${T.missedCash} — у всей гильдии`,done:T.missedCash===0,r:'пир на смену'},
+  {t:'Каждое начисление подтверждено по данным',s:`${T.ok} из ${T.all}`,done:T.un===0,r:'✦ всем'},
+  {t:'90 % начислений с кодом из словаря',s:'гильдия: '+pct(T.strict,T.all)+' % с кодом · уже 90 % и выше: '+(V90.join(', ')||'пока никто'),done:WEEK.heroes.every(h=>h.all<3||pct(h.strict,h.all)>=90),r:'+500 ₽ к зарплате каждому'},
+  {t:'Первый «полный круг» гильдии',s:'новый гость с кэшбеком, подпиской и отзывом у одного человека — сейчас '+CIRCLE+' из '+WEEK.heroes.reduce((a,h)=>a+((h.path||{}).new||0),0)+' новых на неделе',done:CIRCLE>0,r:'титул «Проводник» + 15 XP'},
+  {t:'Гость с онлайн-пополнением получил кэшбек при посадке',s:`за неделю таких гостей ${T.missedOnline} — их закрывает Мастер`,done:false,r:'правило «посмотри баланс»'}
+ ];
+ $('#quests').innerHTML=Q.map(q=>`<div class="quest"><div class="qm ${q.done?'done':'open'}">${q.done?'✓':'!'}</div><div><b>${q.t}</b><span>${q.s}</span><div class="rw">${q.r}</div></div></div>`).join('');
+ /* безубыток */
+ const C=WEEK.club; if(C){const p=Math.round(100*C.mtd/C.be); const avg=Math.round(C.mtd/C.days);
+  $('#be-days').textContent=`день ${C.days} из ${C.daysTotal}`; $('#be-month').textContent=(C.month||'').toUpperCase();
+  $('#be-big').textContent=`${fmt(C.mtd)} ₽ из ${fmt(C.be)} ₽ · ${p} %`; $('#be-sub').textContent=`до безубытка ${fmt(Math.max(0,C.be-C.mtd))} ₽ · это порог дня ${fmt(C.perDay)} ₽ × ${C.daysTotal} дней`; $('#be-meter').style.width=Math.min(100,p)+'%';
+  $('#be-fc').textContent=`${fmt(C.forecast)} ₽`; $('#be-fc-sub').textContent=`${Math.round(100*C.forecast/C.be)} % безубытка · не хватает ${fmt(C.gapDay)} ₽ в день сверх темпа`;
+  $('#be-day').textContent=`${fmt(C.perDay)} ₽`; $('#be-day-sub').textContent=`средний день сейчас ${fmt(avg)} ₽ — ${avg>=C.perDay?'выше порога':'ниже порога на '+fmt(C.perDay-avg)+' ₽'}`;
+  $('#be-t2').textContent=`${fmt(C.target2)} ₽`; $('#be-t2-sub').textContent=`${Math.round(100*C.forecast/C.target2)} % по прогнозу`;}
+ /* кубок — вкладка */
+ const CR_=$('#cup-rule'); if(CR_) CR_.textContent=WEEK.cupRule||'';
+ $('#cup-eyebrow').textContent=F?`кубок ${F.monthGen} закрыт · итог подтверждён Мастером ${F.confirmed}`:'таблица предварительная, итог — в начале месяца';
+ $('#weeks').innerHTML=WEEK.cup.map(c=>`<div class="week ${c.state==='next'?'now':''}"><b>${c.w}</b>${c.state==='next'?'идёт сейчас':(c.state==='done'?'сведена ✓':'впереди')}</div>`).join('');
+ if(WEEK.cupTable&&WEEK.cupTable.length){const byN=n=>WEEK.heroes.find(h=>h.name===n);
+  $('#cuptable').innerHTML=`<p style="margin-top:14px;font-size:15px"><b>Таблица Кубка на ${esc(WEEK.updated)}</b> — мана месяца по сменам. ${F?'Итог месяца подтверждён Мастером '+esc(F.confirmed)+'.':'Предварительно: места и премии фиксирует Мастер по итогам месяца.'}</p><div class="podium">`+WEEK.cupTable.slice(0,2).map((r,i)=>{const h=byN(r.name);return `<div class="pl ${h?h.cls:''}"><div class="av">${h?`<img src="${IMG(h.cls,i===0?'triumf':'gordost')}" alt="" loading="lazy">`:''}</div><div><b>${i===0?'🥇':'🥈'} ${esc(r.name)}</b><span>мана ${m1(r.mana)} · смен ${r.shifts}${r.shifts>=10?' · в зачёте':` · до зачёта ещё ${10-r.shifts}`}${r.tieBy?` · при равной мане: ${esc(r.tieBy)}`:''}</span></div></div>`}).join('')+`</div><p class="legend">Свою ману и сколько до соседа выше — в кабинете. ${F?'Новый месяц — новая таблица: мана копится заново с первой недели.':'Отрыв маленький, всё решают оставшиеся недели.'}</p>`;}
+ /* испытания и блага */
+ const cur=(list,buff)=>list.map(c=>`<div class="curse ${buff?'buff':''}"><div class="ico">${c.i}</div><div><b>${esc(c.n)}</b><p><span style="color:var(--ink)">Когда:</span> ${esc(c.trig)}. <span style="color:var(--ink)">Эффект:</span> ${esc(c.eff)}.${c.lift?` <span style="color:var(--ink)">Снимается:</span> ${esc(c.lift)}.`:''}</p><div class="meta">срок: ${esc(c.dur)}</div></div></div>`).join('');
+ $('#curses').innerHTML=cur(CURSES,false); $('#buffs').innerHTML=cur(BUFFS,true);
+ /* библиотека */
+ $('#codes').innerHTML=CODES.map(c=>`<div class="code"><div class="k">${esc(c.k)}</div><div class="v">${esc(c.v)}</div><p>${esc(c.p)}</p><div class="ex">${esc(c.ex)}</div></div>`).join('');
+ $('#faq').innerHTML=FAQ.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('');
+ $$('.ltab').forEach(t=>t.addEventListener('click',()=>{$$('.ltab').forEach(x=>x.setAttribute('aria-selected',x===t));$$('.pane').forEach(p=>p.classList.toggle('on',p.id==='p-'+t.dataset.p));}));
+ /* летопись */
+ const rows=[['Начислений за неделю',T.all],['Подтверждено по данным (вкл. закрытые Мастером)',T.ok],['Льгота сотрудникам (операций)',T.lg],['Неподтверждённых',T.un],['Гостей без кэшбека — касса',T.missedCash],['Гостей без кэшбека — онлайн (закрыл Мастер)',T.missedOnline],['Комментарии: с кодом строго / с допуском / не распознано',`${T.strict} / ${T.tol} / ${T.none}`],['Льгота сотрудникам, бонусов за неделю',fmt(T.lgSum)]];
+ $('#ledger').innerHTML='<tr><th>Показатель</th><th style="text-align:right">Неделя</th></tr>'+rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td></tr>`).join('');
+ wire(document);
+}
+render();checkStale();route();addEventListener('hashchange',route);
+</script>
+</body>
+</html>
