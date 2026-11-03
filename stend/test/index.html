@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Тест свитка гильдии</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Тест: слева 13 категорий вопросов, справа закреплённый итог по категориям; на телефоне итог полосой внизу. Цвета сайта: графит + один оранжевый на действиях. */
+:root{
+  --bg:#F2F3F4;--card:#FFFFFF;--fg:#0E151D;--fg2:#46525E;--fg3:#75818D;--ln:#DADFE4;--ln2:#C3CAD2;--track:#E4E8EC;
+  --a:#D4561A;--a-ink:#FFFFFF;--sel:#FBE7DB;--ok:#1F8A57;--mid:#B26A00;--bad:#C2362F;
+  --f:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;--m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0F15;--card:#111A23;--fg:#E8EDF2;--fg2:#AAB5C1;--fg3:#7A8794;--ln:#1E2A36;--ln2:#2D3B49;--track:#1E2A36;--a:#F07A38;--a-ink:#0A0F15;--sel:#2B1B10;--ok:#4CC38A;--mid:#E8A944;--bad:#F0686C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A0F15;--card:#111A23;--fg:#E8EDF2;--fg2:#AAB5C1;--fg3:#7A8794;--ln:#1E2A36;--ln2:#2D3B49;--track:#1E2A36;--a:#F07A38;--a-ink:#0A0F15;--sel:#2B1B10;--ok:#4CC38A;--mid:#E8A944;--bad:#F0686C;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--fg);font:16px/1.5 var(--f);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 120px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,4.4vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
+.eyebrow{font:500 12px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:10px}
+.intro{margin:12px 0 0;color:var(--fg2);max-width:46em;font-size:17px}
+.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.link{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;display:grid;gap:4px;min-width:0}
+.link .k{font:600 11px var(--m);letter-spacing:.06em;color:var(--a)}
+.link.old .k{color:var(--fg3)}
+.link b{font-size:16px}
+.link .u{font:13px var(--m);color:var(--fg2);overflow-wrap:anywhere}
+.link small{color:var(--fg3);font-size:13px}
+.link button{justify-self:start;margin-top:4px}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--a);border-radius:6px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;margin-top:30px;align-items:start}
+.meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-bottom:24px;border-bottom:1px solid var(--ln)}
+label.f{display:grid;gap:6px;font-size:15px;font-weight:600;min-width:0}
+select,input[type=text],textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--card);border:1px solid var(--ln2);border-radius:8px;padding:10px 12px;width:100%}
+textarea{min-height:84px;resize:vertical}
+section.cat{padding-block:26px;border-bottom:1px solid var(--ln)}
+.ch{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ch h2{font-size:22px;font-weight:800;letter-spacing:-.01em;display:flex;gap:10px;align-items:baseline}
+.ch h2 span{font:600 13px var(--m);color:var(--a)}
+.ch .cs{font:700 20px var(--m);font-variant-numeric:tabular-nums;color:var(--fg3)}
+.cat>.hint{margin:6px 0 4px;color:var(--fg2);font-size:15px;max-width:48em}
+.it{padding:14px 0;border-top:1px solid var(--ln);display:grid;gap:10px}
+.cat>.hint+.it{border-top:0}
+.it .t{font-size:16px;font-weight:500}
+.it .t small{display:block;color:var(--fg3);font-size:14px;font-weight:400;margin-top:2px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ln2);border-radius:9px;padding:3px;gap:3px;background:var(--card)}
+.seg button{font:inherit;font-size:15px;font-weight:500;border:0;background:transparent;color:var(--fg2);padding:8px 13px;border-radius:6px;min-height:40px;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:background .15s ease,color .15s ease,transform .12s cubic-bezier(.23,1,.32,1)}
+.seg button:active{transform:scale(.97)}
+.seg button[aria-pressed="true"]{background:var(--a);color:var(--a-ink)}
+.seg.yn button[aria-pressed="true"][data-v="0"],.seg.tk button[aria-pressed="true"][data-v="0"]{background:var(--bad);color:#fff}
+.seg.yn button[aria-pressed="true"][data-v="10"],.seg.tk button[aria-pressed="true"][data-v="10"]{background:var(--ok);color:#fff}
+.seg.tk button[aria-pressed="true"][data-v="5"]{background:var(--mid);color:#fff}
+.sc{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.sc button{font:600 15px var(--m);height:40px;border:1px solid var(--ln2);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;transition:background .15s ease,transform .12s cubic-bezier(.23,1,.32,1)}
+.sc button:active{transform:scale(.95)}
+.sc button[aria-pressed="true"]{background:var(--a);border-color:var(--a);color:var(--a-ink)}
+.scl{display:flex;justify-content:space-between;font:12px var(--m);color:var(--fg3)}
+.chk{display:flex;flex-wrap:wrap;gap:8px}
+.chk button{font:inherit;font-size:15px;border:1px solid var(--ln2);border-radius:8px;background:var(--card);color:var(--fg);padding:8px 12px;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;text-align:left}
+.chk button[aria-pressed="true"]{background:var(--sel);border-color:var(--a)}
+.cm{font-size:15px}
+.it.miss .t{color:var(--bad)}
+aside.sum{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:22px}
+.s-l{font-size:14px;color:var(--fg2)}
+.s-big{font-weight:800;font-size:60px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;margin-top:6px}
+.s-big small{font-size:20px;color:var(--fg3);font-weight:700}
+.s-band{margin-top:6px;font-weight:600;font-size:15px}
+.s-rows{margin-top:16px;display:grid;gap:7px}
+.s-r{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:4px 10px;align-items:center;font-size:14px}
+.s-r span:first-child{color:var(--fg2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.s-r b{font:600 14px var(--m);text-align:right;font-variant-numeric:tabular-nums}
+.s-r i{grid-column:1/3;height:4px;background:var(--track);border-radius:4px;overflow:hidden}
+.s-r i em{display:block;height:100%;background:var(--a);width:0;transition:width .25s cubic-bezier(.23,1,.32,1)}
+.s-r.low i em{background:var(--bad)}
+.s-weak{margin-top:16px;padding-top:14px;border-top:1px solid var(--ln);font-size:14px;color:var(--fg2)}
+.s-weak b{color:var(--fg)}
+.btn{margin-top:16px;width:100%;font:inherit;font-weight:700;font-size:16px;background:var(--a);color:var(--a-ink);border:0;border-radius:9px;height:50px;cursor:pointer;touch-action:manipulation;transition:transform .12s cubic-bezier(.23,1,.32,1)}
+.btn:active{transform:scale(.98)}
+.btn.g{background:transparent;color:var(--fg);border:1px solid var(--ln2);height:44px;font-size:15px;margin-top:8px}
+.small{font:600 13px var(--f);height:34px;padding:0 12px;border:1px solid var(--ln2);border-radius:8px;background:transparent;color:var(--fg);cursor:pointer}
+.st{margin-top:10px;font-size:14px;min-height:1.4em;color:var(--fg2)}
+.st.ok{color:var(--ok)}.st.bad{color:var(--bad)}
+#out{margin-top:10px;font:12px/1.45 var(--m);min-height:120px}
+.mini{display:none}
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  aside.sum{position:static}
+  .meta,.links{grid-template-columns:1fr}
+  .mini{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;justify-content:space-between;align-items:center;gap:12px;background:var(--card);border-top:1px solid var(--ln);padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));font-size:14px}
+  .mini b{font:700 22px var(--m);font-variant-numeric:tabular-nums}
+}
+@media (max-width:520px){.sc{grid-template-columns:repeat(5,minmax(0,1fr))}.row{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<main class="wrap">
+  <div class="eyebrow">Colizeum · Яркая 40 · свиток «Гильдия Яркой 40»</div>
+  <h1>Тест нового свитка</h1>
+  <p class="intro">Около 10 минут. Открой новый свиток на телефоне и отвечай по ходу. Здесь оценивают свиток, а не тебя: честный ответ «неудобно» помогает больше, чем «всё хорошо». В конце нажми «Отправить Дмитрию» — откроется Telegram с готовым текстом.</p>
+  <input type="text" id="hp" name="company_site" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+  <div class="links">
+    <div class="link"><span class="k">ОЦЕНИВАЕМ</span><b>Новый свиток (стенд)</b><span class="u" id="u1">https://kulagin93rus-glitch.github.io/gy40-svitok/stend/</span><a class="small" style="display:inline-grid;place-items:center;text-decoration:none;justify-self:start" href="https://kulagin93rus-glitch.github.io/gy40-svitok/stend/" target="_blank" rel="noopener">Открыть в новой вкладке</a><small>Данные те же, что в живом свитке: неделя 26.10–01.11.</small><button class="small" type="button" data-copy="u1">Копировать ссылку</button></div>
+    <div class="link old"><span class="k">ДЛЯ СРАВНЕНИЯ</span><b>Нынешний свиток</b><span class="u" id="u2">https://kulagin93rus-glitch.github.io/gy40-svitok/</span><small>Оценивать не нужно, только сравнить в категории «Итог».</small><button class="small" type="button" data-copy="u2">Копировать ссылку</button></div>
+  </div>
+
+  <div class="grid">
+    <div>
+      <div class="meta">
+        <label class="f" for="role">Кто ты
+          <select id="role"><option value="">Выбери</option><option>Алина</option><option>Евгения</option><option>Даниил</option><option>Владислав</option><option>Мастер (Дмитрий)</option><option>Другое</option></select>
+        </label>
+        <label class="f" for="name">Как к тебе обращаться (необязательно)
+          <input type="text" id="name" autocomplete="off">
+        </label>
+        <label class="f" for="exp">Как часто открываешь свиток сейчас?
+          <select id="exp"><option value="">Выбери</option><option>Каждую неделю</option><option>Иногда</option><option>Редко</option><option>Почти никогда</option></select>
+        </label>
+        <label class="f" for="dev">Где смотрели
+          <select id="dev"><option value="">Выберите</option><option>Телефон</option><option>Компьютер</option><option>Телефон и компьютер</option></select>
+        </label>
+      </div>
+      <div id="cats"></div>
+    </div>
+
+    <aside class="sum" aria-live="polite">
+      <div class="s-l">Итог по категориям</div>
+      <div class="s-big" id="big">—<small> / 10</small></div>
+      <div class="s-band" id="band">Отвечайте по порядку</div>
+      <div class="s-rows" id="rows"></div>
+      <div class="s-weak" id="weak"></div>
+      <button class="btn" type="button" id="send">Отправить Дмитрию</button>
+      <button class="btn g" type="button" id="cp">Скопировать ответы текстом</button>
+      <div class="st" id="st"></div>
+      <textarea id="out" readonly aria-label="Ответы текстом" hidden></textarea>
+    </aside>
+  </div>
+</main>
+<div class="mini" aria-hidden="true"><span>Итог</span><b id="mini">—</b><span id="minip">0 %</span></div>
+
+<script>
+(function(){
+  /* тип: s — шкала 1–10, yn — да/нет, tk — задача (легко/с трудом/не вышло), ch — выбор без балла, mc — несколько вариантов, tx — текст */
+  var C=[
+   {id:'first',n:'Первые 5 секунд',h:'Открой новый свиток, посмотри на первый экран 5 секунд и закрой. Ответь по памяти.',q:[
+     ['tx','Что это за страница и для кого?'],['tx','Куда бы ты нажал первым?'],['tx','Впечатление тремя словами'],
+     ['ch','Какое настроение от страницы?',['Бодрит, хочется смотреть','Спокойно, нормально','Тяжело, давит']]]},
+   {id:'tasks',n:'Задачи на свитке',h:'Выполни каждую задачу на новом свитке. Если что-то не нашлось — это проблема свитка, не твоя.',q:[
+     ['tk','Нажать «Открыть мой кабинет», выбрать себя и попасть в свой кабинет'],['tk','Найти в кабинете свою премию за бар за октябрь'],
+     ['tk','Найти один шаг на ближайшую смену'],['tk','Узнать, кто взял Кубок октября и какие правила у Кубка ноября'],
+     ['tk','Найти, что значит код ТГ100 и как оформить кэшбек'],['tk','Посмотреть своего героя в другом состоянии (кнопки «радость», «триумф»…)']]},
+   {id:'cab',n:'Мой кабинет',h:'',q:[
+     ['s','Кабинет поддерживает, а не проверяет меня'],['s','Понятно, что сделать на следующей смене'],
+     ['yn','«Победы недели» — правда про мою неделю'],['yn','«Что можно закрыть» не звучит как упрёк'],['tx','Что в кабинете лишнее или неприятное?']]},
+   {id:'heroes',n:'Герои и ролики',h:'',q:[
+     ['s','Нравится мой герой'],['yn','Узнаю себя в своём герое'],['yn','Состояние героя честно показывает мою неделю'],
+     ['tx','Какой ролик или картинка понравились, какой нет и почему?']]},
+   {id:'read',n:'Удобство на телефоне',h:'',q:[
+     ['s','Текст легко читается'],['yn','Всё нажимается пальцем с первого раза'],['yn','Ничего не обрезано и не наезжает'],['yn','Страница и ролики грузятся быстро']]},
+   {id:'look',n:'Вид и настроение',h:'',q:[
+     ['s','Нравится, как выглядит свиток'],['s','Хочется открыть свиток снова на следующей неделе'],
+     ['ch','Мем недели',['Смешно, оставить','Нормально','Не нужен']]]},
+   {id:'total',n:'Итог',h:'',q:[
+     ['s','Общая оценка нового свитка'],['ch','По сравнению с нынешним свитком',['Сильно лучше','Лучше','Так же','Хуже']],
+     ['tx','Три главные проблемы, по порядку важности'],['tx','Что точно оставить'],['tx','Чего не хватает или что вернуть из старого свитка']]}
+  ];
+  var st={a:{},role:'',name:'',dev:'',exp:''},KEY='gy40-test-v1';
+  try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv&&sv.a)st=sv}catch(e){}
+  function key(ci,qi){return C[ci].id+'.'+(qi+1)}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  var box=document.getElementById('cats'),h='';
+  C.forEach(function(c,ci){
+    h+='<section class="cat" id="c-'+c.id+'"><div class="ch"><h2><span>'+(ci+1<10?'0':'')+(ci+1)+'</span>'+c.n+'</h2><span class="cs" id="cs-'+c.id+'">—</span></div>'+(c.h?'<p class="hint">'+c.h+'</p>':'<p class="hint" hidden></p>');
+    c.q.forEach(function(q,qi){var k=key(ci,qi),t=q[0];
+      h+='<div class="it" data-k="'+k+'" data-t="'+t+'">';
+      if(t==='s')h+='<div class="t">'+q[1]+'</div><div class="sc" role="group" aria-label="'+esc(q[1])+'">'+[1,2,3,4,5,6,7,8,9,10].map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="false">'+v+'</button>'}).join('')+'</div><div class="scl"><span>1 · плохо</span><span>10 · отлично</span></div><input class="cm" type="text" id="cm-'+k+'" placeholder="Что поднять до 10" autocomplete="off">';
+      else if(t==='yn')h+='<div class="row"><div class="t">'+q[1]+'</div><div class="seg yn" role="group" aria-label="'+esc(q[1])+'"><button type="button" data-v="10" aria-pressed="false">Да</button><button type="button" data-v="0" aria-pressed="false">Нет</button></div></div>';
+      else if(t==='tk')h+='<div class="t">'+q[1]+'</div><div class="seg tk" role="group" aria-label="'+esc(q[1])+'"><button type="button" data-v="10" aria-pressed="false">Легко</button><button type="button" data-v="5" aria-pressed="false">С трудом</button><button type="button" data-v="0" aria-pressed="false">Не вышло</button></div><input class="cm" type="text" id="cm-'+k+'" placeholder="Что мешало? Какой результат получили?" autocomplete="off">';
+      else if(t==='ch')h+='<div class="t">'+q[1]+'</div><div class="seg" role="group" aria-label="'+esc(q[1])+'">'+q[2].map(function(o){return '<button type="button" data-v="'+esc(o)+'" aria-pressed="false">'+o+'</button>'}).join('')+'</div>';
+      else if(t==='mc')h+='<div class="t">'+q[1]+'</div><div class="chk" role="group" aria-label="'+esc(q[1])+'">'+q[2].map(function(o){return '<button type="button" data-v="'+esc(o)+'" aria-pressed="false">'+o+'</button>'}).join('')+'</div><input class="cm" type="text" id="cm-'+k+'" placeholder="Своё: что ещё" autocomplete="off">';
+      else h+='<label class="t" for="tx-'+k+'">'+q[1]+'</label><textarea id="tx-'+k+'"></textarea>';
+      h+='</div>'});
+    h+='</section>'});
+  box.innerHTML=h;
+
+  function get(k){return st.a[k]}
+  function set(k,v){if(v===''||v==null||(Array.isArray(v)&&!v.length))delete st.a[k];else st.a[k]=v}
+  [].forEach.call(document.querySelectorAll('.it'),function(it){var k=it.dataset.k,t=it.dataset.t;
+    [].forEach.call(it.querySelectorAll('button[data-v]'),function(b){b.addEventListener('click',function(){
+      if(t==='mc'){var cur=(get(k)||[]).slice(),i=cur.indexOf(b.dataset.v);if(i<0)cur.push(b.dataset.v);else cur.splice(i,1);set(k,cur)}
+      else{var v=(t==='ch')?b.dataset.v:+b.dataset.v;set(k,get(k)===v?null:v)}
+      it.classList.remove('miss');upd()})});
+    var cm=it.querySelector('input.cm'),tx=it.querySelector('textarea');
+    if(cm){if(st.a[k+'c'])cm.value=st.a[k+'c'];cm.addEventListener('input',function(){set(k+'c',cm.value.trim());save()})}
+    if(tx){if(get(k))tx.value=get(k);tx.addEventListener('input',function(){set(k,tx.value.trim());upd()})}
+  });
+  ['role','name','dev','exp'].forEach(function(id){var e=document.getElementById(id);if(st[id])e.value=st[id];e.addEventListener('input',function(){st[id]=e.value;save()});e.addEventListener('change',function(){st[id]=e.value;save()})});
+
+  function f1(x){return x.toFixed(1).replace('.',',')}
+  function band(s){return s>=9?'Сильно: можно выпускать':s>=7.5?'Хорошо, есть что довести':s>=6?'Основа есть, много точечных проблем':s>=4?'Слабо: нужна серьёзная переработка':'Плохо: переделывать'}
+  
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+  function scores(){var res=[];C.forEach(function(c,ci){var s=0,n=0;c.q.forEach(function(q,qi){var v=get(key(ci,qi));if(['s','yn','tk'].indexOf(q[0])>=0&&typeof v==='number'){s+=v;n++}});res.push({c:c,v:n?s/n:null,n:n})});return res}
+  function upd(){
+    [].forEach.call(document.querySelectorAll('.it'),function(it){var k=it.dataset.k,v=get(k);[].forEach.call(it.querySelectorAll('button[data-v]'),function(b){var bv=it.dataset.t==='ch'?b.dataset.v:(it.dataset.t==='mc'?b.dataset.v:+b.dataset.v);b.setAttribute('aria-pressed',it.dataset.t==='mc'?String((v||[]).indexOf(bv)>=0):String(v===bv))})});
+    var sc=scores(),rows='',sum=0,cnt=0;
+    sc.forEach(function(r){var el=document.getElementById('cs-'+r.c.id);el.textContent=r.v==null?'—':f1(r.v);if(r.v!=null){sum+=r.v;cnt++}
+      rows+='<div class="s-r'+(r.v!=null&&r.v<6?' low':'')+'"><span>'+r.c.n+'</span><b>'+(r.v==null?'—':f1(r.v))+'</b><i><em style="width:'+(r.v==null?0:r.v*10)+'%"></em></i></div>'});
+    var scoredCats=sc.filter(function(r){return r.c.q.some(function(q){return ['s','yn','tk'].indexOf(q[0])>=0})}).length;
+    var tot=cnt?sum/cnt:null;
+    document.getElementById('big').innerHTML=(tot==null?'—':f1(tot))+'<small> / 10</small>';
+    document.getElementById('band').textContent=tot==null?'Отвечайте по порядку':(cnt<scoredCats?'Предварительно ('+cnt+' из '+scoredCats+' категорий): ':'')+band(tot);
+    document.getElementById('rows').innerHTML=rows;
+    var weak=sc.filter(function(r){return r.v!=null}).sort(function(a,b){return a.v-b.v}).slice(0,3);
+    document.getElementById('weak').innerHTML=weak.length?'Слабые места: <b>'+weak.map(function(r){return r.c.n+' '+f1(r.v)}).join(', ')+'</b>':'Слабые места появятся по мере ответов.';
+    var all=document.querySelectorAll('.it').length,done=Object.keys(st.a).filter(function(k){return !/c$/.test(k)}).length;
+    document.getElementById('mini').textContent=tot==null?'—':f1(tot);document.getElementById('minip').textContent=Math.round(done/all*100)+' %';
+    save();return {tot:tot,sc:sc,done:done,all:all};
+  }
+  function text(){var r=upd(),L=['ТЕСТ СВИТКА ГИЛЬДИИ — новый дизайн (стенд)',(st.role||'роль не указана')+(st.name?', '+st.name:'')+(st.dev?', '+st.dev:'')+(st.exp?', открывает свиток: '+st.exp:''),'Итог: '+(r.tot==null?'—':f1(r.tot))+' из 10',''];
+    C.forEach(function(c,ci){var sv=r.sc[ci].v;L.push('■ '+c.n+(sv!=null?' — '+f1(sv):''));
+      c.q.forEach(function(q,qi){var k=key(ci,qi),v=get(k),t=q[0],s;
+        if(v==null||v==='')s='—';else if(t==='yn')s=v===10?'да':'нет';else if(t==='tk')s=v===10?'легко':v===5?'с трудом':'не вышло';else if(t==='mc')s=v.join('; ');else s=String(v);
+        L.push('  '+q[1]+': '+s+(st.a[k+'c']?' · '+st.a[k+'c']:''))});L.push('')});
+    return L.join('\n')}
+  var T0=Date.now();
+  function showText(){var out=document.getElementById('out');out.value=text();out.hidden=false;return out}
+  function copy(t,btn,sel){var ok=function(){var x=btn.textContent;btn.textContent='Скопировано';setTimeout(function(){btn.textContent=x},1600)},fb=function(){if(sel){sel.focus();sel.select()}};try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}}
+  document.getElementById('cp').addEventListener('click',function(){var out=showText();copy(out.value,this,out)});
+  [].forEach.call(document.querySelectorAll('[data-copy]'),function(b){b.addEventListener('click',function(){copy(document.getElementById(b.dataset.copy).textContent,b,null)})});
+  document.getElementById('send').addEventListener('click',function(){
+    var stEl=document.getElementById('st'),miss=[];
+    [].forEach.call(document.querySelectorAll('.it[data-t="s"],.it[data-t="yn"],.it[data-t="tk"]'),function(it){var m=get(it.dataset.k)==null;it.classList.toggle('miss',m);if(m)miss.push(it)});
+    if(!st.role){stEl.className='st bad';stEl.textContent='Выбери вверху, кто ты.';document.getElementById('role').focus();return}
+    if(miss.length>5){stEl.className='st bad';stEl.textContent='Без ответа вопросов с баллом: '+miss.length+'. Они подсвечены красным.';miss[0].scrollIntoView({block:'center'});return}
+    var out=showText();copy(out.value,document.getElementById('cp'),out);
+    var u='https://t.me/share/url?url='+encodeURIComponent('Тест свитка')+'&text='+encodeURIComponent(out.value);
+    stEl.className='st ok';stEl.innerHTML='Ответы собраны и скопированы. <a href="'+u+'" target="_blank" rel="noopener">Открыть Telegram</a> → выбери чат с Дмитрием → отправь. Если Telegram не открылся — вставь скопированный текст Дмитрию в личку.';
+    try{window.open(u,'_blank','noopener')}catch(e){}
+  });
+  upd();
+})();
+</script>
+
+</body>
+</html>
