@@ -247,6 +247,17 @@ blockquote{margin:8px 0 0;font:16px/1.6 var(--f-body);color:var(--ink);max-width
 .cab .pt{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:var(--s3)}
 .cab .head h3{font-size:26px}
 .why{font-size:14px;color:var(--mut);margin-top:6px}
+.state.mine{background:color-mix(in srgb,var(--gold) 16%,var(--s3))}
+.state.earn{background:var(--gold);color:var(--gink)}
+.say{display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-top:6px;margin-left:4px;color:var(--ink);background:var(--s2);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+.chip.lock{opacity:.55}
+.setst{margin-top:10px;border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--s2)}
+.setst h4{font-size:16px;margin-bottom:4px}
+.setst .phr{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.setst .row2{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.setst input{min-height:44px;width:110px;border-radius:12px;border:1px solid var(--line);background:var(--s1,var(--s3));color:var(--ink);padding:0 12px;font-size:16px;letter-spacing:.3em}
+.setst .msg{font-size:14px;margin-top:8px;color:var(--mut)}
+.subst{margin-top:12px;font-size:15px}
 .emo{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:12px 0 2px}.emo::-webkit-scrollbar{display:none}
 .chip{flex:none;min-height:40px;padding:0 14px;border-radius:99px;background:var(--s2);border:1px solid var(--line);font-size:14px;font-weight:700;white-space:nowrap}
 .chip.on{background:var(--gold);color:var(--gink);border-color:transparent}
@@ -576,14 +587,60 @@ function wire(root){if(RM)return;(root||document).querySelectorAll('video[data-s
 });}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)document.querySelectorAll('video').forEach(v=>{if(!v.paused){v.pause();rest(v);}});});
 
+/* ===== Статус героя: админ сам выбирает, каким его видят на главной (до понедельника) ===== */
+const STATUS_API=''; /* адрес веб-приложения Google-таблицы; пусто = демо (только это устройство) */
+const FREE=['delo','radost','azart','otdyh'];
+const LOCK_WHY={triumf:'откроется за первое место Кубка',gordost:'откроется за победу на Арене или 90 % начислений с кодом'};
+const PHR=[['','без подписи'],['podmena','🤝 Могу подменить смену'],['turnir','🎮 Ищу пару на турнир'],['zahodi','👋 Сегодня на смене — заходи'],['novichok','🧭 Помогу новичку с клубом'],['otpusk','🌴 В отпуске']];
+const PHR_T=Object.fromEntries(PHR);
+let ST={}; try{ST=JSON.parse(localStorage.getItem('gy40_status')||'{}')}catch(e){}
+function earned(h){const [st]=stateOf(h);const s=new Set(FREE);if(st==='triumf'){s.add('triumf');s.add('gordost');}if(st==='gordost')s.add('gordost');return s;}
+function shown(h){const [st,why]=stateOf(h);const c=ST[KEY[h.cls]];
+ if(c&&c.wk===WEEK.label&&EMO[c.st]&&earned(h).has(c.st))return [c.st,why,c];
+ if(c&&c.wk===WEEK.label&&c.auto&&c.phr)return [st,why,{st,phr:c.phr,auto:1}];
+ return [st,why,null];}
+function stateLabel(h){const [st,why,c]=shown(h);const e=EMO[st];
+ const cls=c&&!c.auto?(st==='triumf'||st==='gordost'?'state earn':'state mine'):'state';
+ const tail=c&&!c.auto?(st==='triumf'||st==='gordost'?' · заслужено':' · статус героя'):'';
+ const say=c&&c.phr&&PHR_T[c.phr]?`<span class="say">${PHR_T[c.phr]}</span>`:'';
+ return `<div class="${cls}" title="${esc(why)}">${e[0]} ${e[1]}${tail}</div>${say}`;}
+async function loadStatus(){if(!STATUS_API)return;try{const r=await fetch(STATUS_API+'?t='+Date.now());const j=await r.json();if(j&&typeof j==='object'){ST=j;try{localStorage.setItem('gy40_status',JSON.stringify(j))}catch(e){}paintHeroes();}}catch(e){}}
+async function saveStatus(key,rec,pin){
+ if(!STATUS_API){ST[key]=rec;try{localStorage.setItem('gy40_status',JSON.stringify(ST))}catch(e){}return {ok:true,demo:true};}
+ try{const r=await fetch(STATUS_API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({key,pin,...rec})});const j=await r.json();if(j.ok){ST[key]=rec;}return j;}catch(e){return {ok:false,err:'нет связи — попробуй ещё раз'};}}
+function statusBlock(h,st){const key=KEY[h.cls];const c=ST[key];const cur=c&&c.wk===WEEK.label?c:null;const E=earned(h);
+ const phr=PHR.map(([k,t])=>`<button class="chip press ${((cur&&cur.phr)||'')===k?'on':''}" data-phr="${k}" type="button">${t}</button>`).join('');
+ const needPin=!!STATUS_API;let saved='';try{saved=localStorage.getItem('gy40_pin_'+key)||''}catch(e){}
+ return `<div class="setst" id="setst" data-key="${key}">
+  <h4>Мой статус на главной</h4>
+  <p class="note">Выбери состояние выше и подпись — так тебя увидят на главной до понедельника. Потом свиток снова покажет героя по итогам недели.</p>
+  <div class="phr" role="group" aria-label="Подпись к статусу">${phr}</div>
+  <div class="row2">${needPin?`<input id="st-pin" inputmode="numeric" autocomplete="off" maxlength="6" placeholder="PIN" aria-label="Твой PIN от Мастера" value="${esc(saved)}">`:''}
+   <button class="btn btn-p press" id="st-save" type="button">Показать на главной</button>
+   ${cur?`<button class="btn btn-g press" id="st-reset" type="button">Как по итогам недели</button>`:''}</div>
+  <div class="msg" id="st-msg" aria-live="polite">${cur?`Сейчас на главной: ${EMO[cur.st][0]} ${EMO[cur.st][1]}${cur.phr?' · '+PHR_T[cur.phr]:''}.`:`Сейчас на главной — по итогам недели: ${EMO[st][0]} ${EMO[st][1]}.`}${needPin?'':' Демо стенда: выбор виден только на этом устройстве.'}</div>
+ </div>`;}
+function bindStatus(c,h){const box=c.querySelector('#setst');if(!box)return;const key=box.dataset.key;const E=earned(h);
+ let pick=(c.querySelector('.emo .chip.on')||{}).dataset?.emo; let phr=(box.querySelector('.phr .chip.on')||{}).dataset?.phr||'';
+ const btn=box.querySelector('#st-save'),msg=box.querySelector('#st-msg');
+ const sync=()=>{const ok=E.has(pick);btn.disabled=!ok;btn.textContent=ok?`Показать на главной: ${EMO[pick][0]} ${EMO[pick][1]}`:`${EMO[pick][0]} ${EMO[pick][1]} — ${LOCK_WHY[pick]||''}`;};
+ c.querySelectorAll('.emo .chip').forEach(b=>b.addEventListener('click',()=>{pick=b.dataset.emo;sync();}));
+ box.querySelectorAll('.phr .chip').forEach(b=>b.onclick=()=>{box.querySelectorAll('.phr .chip').forEach(x=>x.classList.toggle('on',x===b));phr=b.dataset.phr;});
+ sync();
+ btn.onclick=async()=>{const pinEl=box.querySelector('#st-pin');const pin=pinEl?pinEl.value.trim():'';if(pinEl&&!pin){msg.textContent='Введи PIN — его выдаёт Мастер, чтобы статус мог менять только ты.';pinEl.focus();return;}
+  btn.disabled=true;msg.textContent='Сохраняю…';const rec={st:pick,phr,wk:WEEK.label,at:new Date().toISOString()};const r=await saveStatus(key,rec,pin);
+  if(r.ok){if(pinEl)try{localStorage.setItem('gy40_pin_'+key,pin)}catch(e){}msg.textContent=`Готово — на главной: ${EMO[pick][0]} ${EMO[pick][1]}${phr?' · '+PHR_T[phr]:''}${r.demo?' (демо: видно на этом устройстве)':''}.`;paintHeroes();}
+  else msg.textContent=r.err||'Не сохранилось — проверь PIN.';sync();};
+ const rs=box.querySelector('#st-reset');if(rs)rs.onclick=async()=>{const pinEl=box.querySelector('#st-pin');const r=await saveStatus(key,{st:'',phr:'',wk:'',at:new Date().toISOString()},pinEl?pinEl.value.trim():'');if(r.ok){delete ST[key];try{localStorage.setItem('gy40_status',JSON.stringify(ST))}catch(e){}msg.textContent='Вернул: на главной снова герой по итогам недели.';paintHeroes();rs.remove();}};
+}
 function heroCard(h,i){
- const p=pct(h.strict,h.all); const clean=h.ok===h.all; const cursed=h.curses&&h.curses.length; const [st,why]=stateOf(h);
+ const p=pct(h.strict,h.all); const clean=h.ok===h.all; const cursed=h.curses&&h.curses.length; const [st,why]=shown(h);
  const badges=[clean?'<span class="badge ok">✦ Чистая неделя</span>':'', h.missed===0?'<span class="badge gold">◆ Зоркий глаз</span>':'', (p>=90&&h.all>=3)?'<span class="badge gold">★ Голос словаря</span>':'', h.bar&&h.bar.list.some(x=>x.bar>=5000)?'<span class="badge gold">▲ Смена-5000</span>':'', ...(h.curses||[]).map(c=>`<span class="badge curse">${esc(c)}</span>`)].join('');
  return `<article class="hero press ${h.cls} ${cursed?'cursed':''}" tabindex="0" role="button" aria-label="Открыть кабинет: ${esc(h.name)}" data-i="${i}">
   <div class="pt"><span class="lvl">LVL ${level(h.level4w)}</span>${vtag(h.cls,st)}</div>
   <div style="min-width:0">
    <div class="nm"><h3>${esc(h.name)}</h3></div><div class="cls">${esc(h.clsName)}</div>
-   <div class="state" title="${esc(why)}">${EMO[st][0]} ${EMO[st][1]}</div>
+   ${stateLabel(h)}
    <div class="ttl">${esc(h.note)}</div>${h.step?`<div class="stepc"><b>Шаг на смену</b>${esc(h.step)}</div>`:''}
    <div class="mana"><div class="row"><span>Мана недели</span><span class="mono">${h.mana}%</span></div><div class="bar"><i style="width:${Math.min(100,h.mana)}%"></i></div><div class="legend" style="margin-top:4px">с кодом ${p} % · XP недели +${h.xp}</div></div>
    <div class="stats"><div class="stat"><b>${h.all}</b><span>начислений</span></div><div class="stat"><b>${h.ok}</b><span>подтверждено</span></div><div class="stat"><b>${h.strict}</b><span>с кодом</span></div><div class="stat"><b>${(h.path||{}).new||0}</b><span>новых гостей</span></div></div>
@@ -622,7 +679,7 @@ function pathBlock(h){
  </div>`;
 }
 function cabinet(h){
- const p=pct(h.strict,h.all); const lv=level(h.level4w); const toNext=10-(h.level4w%10); const [st,why]=stateOf(h);
+ const p=pct(h.strict,h.all); const lv=level(h.level4w); const toNext=10-(h.level4w%10); const [st,why]=stateOf(h); const [sst]=shown(h);
  const codes=Object.entries(h.codes||{}); const max=codes.length?Math.max(...codes.map(c=>c[1][0])):1;
  const bars=codes.map(([k,[n,s]])=>`<div class="brow"><span class="mono">${esc(k)}</span><div class="track"><i style="width:${pct(n,max)}%"></i></div><span class="r">${n} · ${fmt(s)}</span></div>`).join('');
  const L=h.bar.list; const B={shifts:L.length,sum:L.reduce((a,x)=>a+x.bar,0),over:L.filter(x=>x.bar>=3000).length,kpi:L.reduce((a,x)=>a+x.prem,0)}; B.avg=B.shifts?Math.round(B.sum/B.shifts):0; const bestS=L.reduce((a,x)=>x.bar>(a?a.bar:-1)?x:a,null);
@@ -630,7 +687,7 @@ function cabinet(h){
  const issues=(h.issues.length?h.issues:["Неподтверждённых начислений нет — всё сошлось с логом."]).map(x=>`<li>${esc(x)}</li>`).join('');
  const missed=(h.missedList.length?h.missedList:["Никто из гостей на твоей кассе не ушёл без кэшбека."]).map(x=>`<li>${esc(x)}</li>`).join('');
  const curses=(h.curses&&h.curses.length)?h.curses.map(c=>`<span class="badge curse">${esc(c)}</span>`).join(' '):'<span class="badge ok">нет</span>';
- const chips=Object.keys(EMO).map(k=>`<button class="chip press ${k===st?'on':''}" data-emo="${k}">${EMO[k][0]} ${EMO[k][1]}</button>`).join('');
+ const EA=earned(h); const chips=Object.keys(EMO).map(k=>`<button class="chip press ${k===sst?'on':''} ${EA.has(k)?'':'lock'}" data-emo="${k}" ${EA.has(k)?'':`title="${LOCK_WHY[k]||''}"`}>${EA.has(k)?'':'🔒 '}${EMO[k][0]} ${EMO[k][1]}</button>`).join('');
  /* победы недели — только факты из данных */
  const A=WEEK.arena||{}, F=WEEK.cupFinal, W=[];
  if(F&&F.places){const pl=F.places.find(x=>x.name===h.name); if(pl) W.push(['🏆',`${pl.place}-е место`,`Кубок ${F.monthGen} · премия ${fmt(pl.prize)} ₽`]);}
@@ -647,10 +704,11 @@ function cabinet(h){
  const left=h.missed+(h.all-h.ok);
  return `<div class="in">
  <div class="bar0"><button class="close press" id="close" aria-label="Закрыть кабинет"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button><div class="grab"></div><div style="width:44px"></div></div>
- <div class="head ${h.cls}"><div class="pt" id="cab-pt">${vtag(h.cls,st)}${RM?'':'<button class="replay press" type="button" aria-label="Показать анимацию ещё раз" title="Ещё раз">↻</button>'}</div>
+ <div class="head ${h.cls}"><div class="pt" id="cab-pt">${vtag(h.cls,sst)}${RM?'':'<button class="replay press" type="button" aria-label="Показать анимацию ещё раз" title="Ещё раз">↻</button>'}</div>
   <div><div class="hello">Твоя неделя · ${esc(WEEK.label)}</div><h3>${esc(h.name)}</h3><div class="cls">${esc(h.clsName)} · LVL ${lv}</div>
    <div class="state">${EMO[st][0]} ${EMO[st][1]}</div><p class="why">${esc(why[0].toUpperCase()+why.slice(1))}.</p></div></div>
  <div class="emo" role="group" aria-label="Посмотреть героя в разных состояниях">${chips}</div>
+ ${statusBlock(h,st)}
  ${wins?`<div class="blk"><h4 style="font-size:16px;margin-bottom:8px">🎉 Победы недели</h4><div class="wins">${wins}</div></div>`:''}
  <div class="blk hint"><b>Слово Мастера тебе:</b> ${esc(h.hint)}</div>
  ${step}
@@ -673,7 +731,7 @@ function cabinet(h){
 let lastFocus=null, curCab=-1;
 function openCab(i,noHash){const h=WEEK.heroes[i];const m=$('#modal'),c=$('#cab');lastFocus=document.activeElement;curCab=i;c.className='cab '+h.cls;c.innerHTML=cabinet(h);c.scrollTop=0;m.classList.add('on');document.body.style.overflow='hidden';$('#close').onclick=()=>closeCab();$('#close').focus({preventScroll:true});
  c.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{c.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));const pt=$('#cab-pt');pt.innerHTML=vtag(h.cls,b.dataset.emo)+(RM?'':'<button class="replay press" type="button" aria-label="Показать анимацию ещё раз" title="Ещё раз">↻</button>');wire(pt);bindReplay(pt);const v=pt.querySelector('video');bindV(v);playOnce(v);});
- wire(c);bindReplay(c);animateCab(c);c.querySelectorAll('details.fold').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)animateCab(d);}));if(!noHash)history.replaceState(null,'','#geroy-'+KEY[h.cls]);}
+ wire(c);bindReplay(c);animateCab(c);bindStatus(c,h);c.querySelectorAll('details.fold').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)animateCab(d);}));if(!noHash)history.replaceState(null,'','#geroy-'+KEY[h.cls]);}
 function bindReplay(root){const b=root.querySelector('.replay');if(!b)return;b.onclick=e=>{e.stopPropagation();const v=root.querySelector('#cab-pt video')||root.querySelector('.pt video');bindV(v);if(v)v._last=0;playOnce(v);};}
 function closeCab(){if(curCab<0)return;curCab=-1;$('#modal').classList.remove('on');document.body.style.overflow='';$$('#cab video').forEach(v=>v.pause());history.replaceState(null,'','#'+(curTab||'vestnik'));if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});}
 function trapFocus(e){const m=$('#modal');if(!m.classList.contains('on')||e.key!=='Tab')return;const f=[...m.querySelectorAll('button,[href],summary,[tabindex]:not([tabindex="-1"])')].filter(x=>!x.disabled&&x.offsetParent!==null);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
@@ -691,6 +749,15 @@ function meIdx(){try{const k=localStorage.getItem('gy40_me');const i=WEEK.heroes
 function pickMe(){const m=$('#modal'),c=$('#cab');lastFocus=document.activeElement;curCab=99;c.className='cab';c.innerHTML=`<div class="in"><div class="bar0"><button class="close press" id="close" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button><div class="grab"></div><div style="width:44px"></div></div><h3 style="font-size:22px;margin:8px 0 4px">Кто ты в гильдии?</h3><p class="note">Выбери себя один раз — в следующий раз кнопка откроет твой кабинет сразу.</p><div class="heroes" style="margin-top:14px">${WEEK.heroes.map((h,i)=>`<button class="pl press ${h.cls}" data-me="${i}"><div class="av"><img src="${IMG(h.cls,'osnova')}" alt=""></div><div style="text-align:left"><b>${esc(h.name)}</b><span>${esc(h.clsName)}</span></div></button>`).join('')}</div></div>`;m.classList.add('on');document.body.style.overflow='hidden';$('#close').onclick=()=>{curCab=0;closeCab();};c.querySelectorAll('[data-me]').forEach(b=>b.onclick=()=>{const i=+b.dataset.me;try{localStorage.setItem('gy40_me',KEY[WEEK.heroes[i].cls])}catch(e){}openCab(i);});}
 $('#me-btn').addEventListener('click',()=>{const i=meIdx();if(i>=0)openCab(i);else pickMe();});
 
+function paintHeroes(){
+ $('#stories').innerHTML=WEEK.heroes.map((h,i)=>{const [st,,c]=shown(h);return `<button class="s press ${['triumf','gordost','radost'].includes(st)?'done':''}" data-i="${i}" aria-label="Кабинет: ${esc(h.name)}"><div class="r"><img src="${IMG(h.cls,st)}" alt=""><span class="e">${EMO[st][0]}</span></div><b>${esc(h.name)}</b></button>`}).join('');
+ $$('#stories .s').forEach(b=>b.onclick=()=>openCab(+b.dataset.i));
+ const H=$('#heroes'); H.innerHTML=WEEK.heroes.map(heroCard).join('');
+ H.querySelectorAll('.hero').forEach(el=>{el.addEventListener('click',()=>openCab(+el.dataset.i));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCab(+el.dataset.i)}})});
+ const sub=WEEK.heroes.filter(h=>{const c=shown(h)[2];return c&&c.phr==='podmena';}).map(h=>h.name);
+ let sb=$('#subst'); if(!sb){sb=document.createElement('p');sb.id='subst';sb.className='subst';H.after(sb);} sb.hidden=!sub.length; sb.textContent=sub.length?`🤝 Могут подменить смену: ${sub.join(', ')} — договаривайтесь напрямую, Мастеру достаточно знать итог.`:'';
+ wire(H);
+}
 function render(){
  const T=WEEK.team, F=WEEK.cupFinal;
  $('#stamp').textContent=`Вестник · неделя ${WEEK.label} · обновлён ${WEEK.updated}`;
@@ -699,8 +766,9 @@ function render(){
  if(F&&F.places&&F.places.length){const P=F.places;$('#lead-kick').textContent=`Первая полоса · Кубок ${F.monthGen}`;$('#lead-h').textContent=`${P[0].name} забирает Кубок ${F.monthGen}`;$('#lead-p').textContent=P.map(p=>`${p.place}-е место — ${p.name}: мана ${m1(p.mana)}, ${p.shifts} смен, премия ${fmt(p.prize)} ₽`).join('. ')+'. Премии придут с зарплатой.';}
  else{$('#lead-kick').textContent=`Первая полоса · неделя ${WEEK.label}`;$('#lead-h').textContent=`${T.ok} из ${T.all} начислений подтверждены`;$('#lead-p').textContent=`Без кэшбека на кассе — ${T.missedCash}. Цель недели — ${WEEK.goalTarget}. Кабинет каждого героя — ниже.`;}
  /* сторис */
- $('#stories').innerHTML=WEEK.heroes.map((h,i)=>{const [st]=stateOf(h);return `<button class="s press ${['triumf','gordost','radost'].includes(st)?'done':''}" data-i="${i}" aria-label="Кабинет: ${esc(h.name)}"><div class="r"><img src="${IMG(h.cls,st)}" alt=""><span class="e">${EMO[st][0]}</span></div><b>${esc(h.name)}</b></button>`}).join('');
- $$('#stories .s').forEach(b=>b.onclick=()=>openCab(+b.dataset.i));
+ paintHeroes();
+ $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeCab()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCab();trapFocus(e);});
  /* цель */
  const gp=T.missedCash===0?100:Math.max(6,100-T.missedCash*12);
  $('#goal-big').textContent=T.missedCash; $('#goal-h').textContent=`🎯 Цель недели: ${T.missedCash} → ${WEEK.goalTarget}`;
@@ -709,11 +777,6 @@ function render(){
  if(F){const P=F.places||[];$('#cup-lead').innerHTML=`<div class="kick">Кубок ${esc(F.monthGen)} · итог · подтверждён Мастером ${esc(F.confirmed)}</div><b>${esc(P[0]?P[0].name:'')} — первое место</b><p>${P.map(p=>`${p.place}-е место: ${esc(p.name)} — мана ${m1(p.mana)}, ${p.shifts} смен, премия ${fmt(p.prize)} ₽`).join(' · ')}. Новый кубок уже идёт — мана считается с нуля.</p><a class="btn btn-g press" href="#kubok" data-t2="kubok">Правила Кубка →</a>`;}
  else{$('#cup-lead').innerHTML=`<div class="kick">Кубок месяца</div><b>Премия по мане</b><p>1-е место 5 000 ₽ · 2-е 3 000 ₽ · минимум 10 смен. Таблица и правила — во вкладке «Кубок».</p><a class="btn btn-g press" href="#kubok" data-t2="kubok">Открыть Кубок →</a>`;}
  $$('[data-t2]').forEach(a=>a.onclick=e=>{e.preventDefault();history.replaceState(null,'','#kubok');showTab('kubok');scrollTo({top:0});});
- /* герои */
- const H=$('#heroes'); H.innerHTML=WEEK.heroes.map(heroCard).join('');
- H.querySelectorAll('.hero').forEach(el=>{el.addEventListener('click',()=>openCab(+el.dataset.i));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openCab(+el.dataset.i)}})});
- $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeCab()});
- document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCab();trapFocus(e);});
  /* мем недели — из данных */
  const memes=[]; WEEK.heroes.forEach(h=>{if(h.all>=10&&h.ok===h.all)memes.push([h,'radost',`Когда ${h.ok} из ${h.all} начислений подтверждены 😌`]);});
  const A=WEEK.arena||{}; const byName=n=>WEEK.heroes.find(h=>h.name===n);
@@ -763,7 +826,7 @@ function render(){
  $('#ledger').innerHTML='<tr><th>Показатель</th><th style="text-align:right">Неделя</th></tr>'+rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td></tr>`).join('');
  wire(document);
 }
-render();checkStale();route();addEventListener('hashchange',route);
+render();checkStale();route();addEventListener('hashchange',route);loadStatus();
 </script>
 </body>
 </html>
