@@ -587,7 +587,7 @@ function wire(root){if(RM)return;(root||document).querySelectorAll('video[data-s
 document.addEventListener('visibilitychange',()=>{if(document.hidden)document.querySelectorAll('video').forEach(v=>{if(!v.paused){v.pause();rest(v);}});});
 
 /* ===== Статус героя: админ сам выбирает, каким его видят на главной (до понедельника) ===== */
-const STATUS_API=''; /* адрес веб-приложения Google-таблицы; пусто = демо (только это устройство) */
+const STATUS_API='https://script.google.com/macros/s/AKfycbzAFqeYi84iHAu-0v3eESWxe2_kHyll6uz43shrjPTN7cIfJM8-GIR0XyyDaRC4Kryh/exec'; /* адрес веб-приложения Google-таблицы; пусто = демо (только это устройство) */
 const STATUS_ON=!!STATUS_API; /* блок «Мой статус» включается только с общей таблицей (решение Шефа 04.11) */
 const FREE=['delo','radost','azart','otdyh'];
 const LOCK_WHY={triumf:'откроется за первое место Кубка',gordost:'откроется за победу на Арене или 90 % начислений с кодом'};
